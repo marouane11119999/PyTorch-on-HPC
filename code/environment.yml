@@ -1,0 +1,23 @@
+name: projekt
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - numpy
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - jupyter
+  - ipykernel
+  - xgboost
+  - pip
+  - imbalanced-learn
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pip:
+      - tqdm
+      - joblib
