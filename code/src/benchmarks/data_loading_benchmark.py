@@ -18,14 +18,14 @@ def run_benchmark(
         ) -> pd.DataFrame:
     runtimes = []
     for _ in range(num_repeats):
-        loader = get_dataloaders(
+        train_loader, test_loader = get_dataloaders(
                         train_dataset=train_dataset,
                         test_dataset=test_dataset,
                         batch_size=batch_size,
                         num_workers=num_workers
                         )
         t_start = time.perf_counter()
-        for images, labels in loader:
+        for images, labels in train_loader:
             pass # testing only data loading time
         runtimes.append(1000 * (time.perf_counter() - t_start))
     runtimes = runtimes[1:]  # discard first run (cache warmup)
