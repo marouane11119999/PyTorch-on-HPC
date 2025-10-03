@@ -5,7 +5,7 @@ matplotlib
 seaborn
 jupyter
 ipykernel
-pytorch
+torch
 torchvision
 torchaudio
 tqdm
