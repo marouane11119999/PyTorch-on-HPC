@@ -13,7 +13,6 @@
 #SBATCH --cpus-per-task=24
 
 
-module load python/3.10
 module purge # clear current environment
 ### load modules needed by your app
 module add slurm # you will always need this one
