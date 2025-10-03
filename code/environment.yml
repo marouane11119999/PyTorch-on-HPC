@@ -1,0 +1,30 @@
+name: pytorchhpc
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  # Python version supported by PyTorch
+  - python=3.10
+
+  # Core scientific stack
+  - numpy
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - jupyter
+  - ipykernel
+  - xgboost
+  - imbalanced-learn
+
+  # PyTorch stack (from pytorch channel)
+  - pytorch
+  - torchvision
+  - torchaudio
+
+  # Pip packages
+  - pip
+  - pip:
+      - tqdm
+      - joblib
