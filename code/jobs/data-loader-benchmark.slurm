@@ -31,7 +31,7 @@ echo "Current working directory is `pwd`"
 OUTPUT_DIR="_benchmark/data_loading"
 mkdir -vp ${OUTPUT_DIR}
 
-srun python3 main.py \
+srun python3 ../src/benchmarks/data_loading_benchmark.py \
     --batch_size 128 \
     --num_repeats 5 \
     --workers_list 1 2 4 8 12 24 \
