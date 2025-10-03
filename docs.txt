@@ -1,0 +1,10 @@
+i encountered many errors setting up an env 
+Exactly—that’s very likely the cause. On HPC systems, your scratch space can fill up, 
+and Conda tries to extract packages there. 
+If it hits space limits or I/O problems, archives can get corrupted, leading to errors like the one you saw.
+i get this : InvalidArchiveError("Error with archive /home/kurs_2024_sose_hpc/kurs_2024_sose_hpc_20/.conda/pkgs/pandas-2.3.2-py311h277b779_0.conda.  You probably need to delete and re-download or re-create this file.  Message was:\n\nfailed with error: [Errno 5] Input/output error: '/home/kurs_2024_sose_hpc/kurs_2024_sose_hpc_20/.conda/pkgs/pandas-2.3.2-py311h277b779_0/lib/python3.11/site-packages/pandas/core/util/__pycache__/hashing.cpython-311.pyc'")
+and resolved it by : 
+for env in $(conda env list | awk '{print $1}' | grep -v "#"); do
+    conda remove --name $env --all -y
+done
+and conda clean --all --yes

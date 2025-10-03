@@ -1,18 +1,11 @@
-# Core scientific stack
-numpy
-pandas
-scikit-learn
+numpy<2
+scipy
 matplotlib
-seaborn
-jupyter
-ipykernel
+pandas>=2
+pyarrow
+
 
 
 # PyTorch stack
 torch
 torchvision
-torchaudio
-
-# Pip-only packages
-tqdm
-joblib

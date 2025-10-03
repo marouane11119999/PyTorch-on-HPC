@@ -18,7 +18,7 @@ module purge # clear current environment
 ### load modules needed by your app
 module add slurm # you will always need this one
 module load miniconda3
-source activate hpc_project_env
+source activate pytorchhpc
 
 echo "Starting at `date`"
 echo "Running on hosts: $SLURM_NODELIST"
