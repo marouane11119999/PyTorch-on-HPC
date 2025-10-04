@@ -11,7 +11,7 @@ import torchvision
 import torchvision.transforms as transforms
 from torch.utils.data import Dataset
 
-def get_dataset(path: Path):
+def get_dataset(path: Path, download: bool = False):
     """
     Load Fashion MNIST dataset and return DataLoaders.
 
@@ -34,14 +34,14 @@ def get_dataset(path: Path):
     train_dataset = torchvision.datasets.FashionMNIST(
         root=path,
         train=True,
-        download=True,
+        download=download,
         transform=transform
     )
 
     test_dataset = torchvision.datasets.FashionMNIST(
         root=path,
         train=False,
-        download=True,
+        download=download,
         transform=transform
     )
     return train_dataset, test_dataset
