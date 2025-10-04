@@ -1,6 +1,9 @@
 import logging, time, os, argparse
 import numpy as np
 import pandas as pd
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data_loading_benchmark')))
+
 from data import get_dataset, get_dataloaders
 from pathlib import Path
 from typing import List
