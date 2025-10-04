@@ -40,7 +40,7 @@ mkdir -vp ${OUTPUT_DIR}
 # -------------------------
 srun python3 ../../../src/model_training_benchmark/baseline_model_serial.py \
     --batch_size 128 \
-    --epochs 5 \
+    --num_epochs 5 \
     --num_repeats 3 \
     &> ${OUTPUT_DIR}/baseline_training.out
 

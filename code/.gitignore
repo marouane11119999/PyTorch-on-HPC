@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+.venv
+.ipynb_checkpoints
+data/raw/
+data/processed/
+.md
+code/jobs/data_loading_benchmark/_benchmark/data_loading/data/FashionMNIST/
