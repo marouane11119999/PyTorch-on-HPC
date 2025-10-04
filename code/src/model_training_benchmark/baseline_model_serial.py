@@ -53,6 +53,8 @@ def run_benchmark_serial_training(
                 optimizer.step()
         runtime = 1000 * (time.perf_counter() - start_time)  # in ms
         model.eval()
+        total = 0
+        correct = 0
         with torch.no_grad():
             for images, labels in test_loader:
                 images, labels = images.to(device), labels.to(device)
@@ -81,12 +83,12 @@ def get_cmdargs():
 
 def main():
     args = get_cmdargs()
-    data_path = Path("_benchmark/model_training/data")
+    data_path = Path("/scratch/kurs_2024_sose_hpc/kurs_2024_sose_hpc_20/projekt/PyTorch-on-HPC/code/jobs/model_training_benchmark")
     output_path = Path("_benchmark/model_training")
     FINAL_PATH = os.path.join(output_path, "baseline_model_serial_benchmark.csv")
     output_path.mkdir(parents=True, exist_ok=True)
     
-    train_data, test_data = get_dataset(path=data_path)
+    train_data, test_data = get_dataset(path=data_path, download=True)
     model = SimpleCNN()
     
     df_results = run_benchmark_serial_training(
