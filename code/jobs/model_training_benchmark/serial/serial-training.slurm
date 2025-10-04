@@ -38,7 +38,7 @@ mkdir -vp ${OUTPUT_DIR}
 # -------------------------
 # Run baseline training
 # -------------------------
-srun python3 ../src/benchmarks/baseline_training_benchmark.py \
+srun python3 ../src/model_training_benchmark/baseline_training_benchmark.py \
     --batch_size 128 \
     --epochs 5 \
     --num_repeats 3 \
