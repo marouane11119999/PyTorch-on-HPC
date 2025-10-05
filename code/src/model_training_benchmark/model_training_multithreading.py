@@ -88,7 +88,7 @@ def get_cmdargs():
 
 def main():
     args = get_cmdargs()
-    data_path = Path("/scratch/kurs_2024_sose_hpc/kurs_2024_sose_hpc_20/projekt/PyTorch-on-HPC/code/jobs/model_training_benchmark")
+    data_path = Path("/scratch/kurs_2024_sose_hpc/kurs_2024_sose_hpc_20/projekt/PyTorch-on-HPC/code/jobs/model_training_benchmark/data")
     output_path = Path("_benchmark/model_training")
     output_path.mkdir(parents=True, exist_ok=True)
 
