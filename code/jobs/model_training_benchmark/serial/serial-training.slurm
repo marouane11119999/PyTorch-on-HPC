@@ -3,14 +3,14 @@
 #SBATCH --reservation=hpc-course-sose2025
 #SBATCH --partition=teaching
 
-#SBATCH --job-name=baseline_training
-#SBATCH --output=baseline_training_%j.out
-#SBATCH --error=baseline_training_%j.err
+#SBATCH --job-name=pytorch_multicore
+#SBATCH --output=%u.multicore.%j.out
+#SBATCH --error=%u.multicore.%j.err
 
-#SBATCH --time=0-02:00:00         
+#SBATCH --time=0-02:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=1         # serial training
+#SBATCH --cpus-per-task=24   # use all cores on one node
 
 # -------------------------
 # Load environment
@@ -20,28 +20,39 @@ module add slurm
 module load miniconda3
 source activate pytorchhpc
 
-# Test imports
-python -c "import numpy; import torch; print('Imports OK')"
-
-echo "Starting at `date`"
+echo "Starting at $(date)"
 echo "Running on hosts: $SLURM_NODELIST"
 echo "Running on $SLURM_NNODES nodes."
 echo "Running on $SLURM_NPROCS processors."
-echo "Current working directory is `pwd`"
+echo "Current working directory is $(pwd)"
 
 # -------------------------
 # Output directory
 # -------------------------
-OUTPUT_DIR="_benchmark/baseline"
+OUTPUT_DIR="_benchmark/multicore"
 mkdir -vp ${OUTPUT_DIR}
 
 # -------------------------
-# Run baseline training
+# Run experiments
 # -------------------------
-srun python3 ../../../src/model_training_benchmark/baseline_model_serial.py \
-    --batch_size 128 \
-    --num_epochs 5 \
-    --num_repeats 3 \
-    &> ${OUTPUT_DIR}/baseline_training.out
+# We now test 1, 2, 4, 6, 8, 12, 16, 20, 24 threads
+for nthreads in 1 2 4 6 8 12 16 20 24;
+do
+    export OMP_NUM_THREADS=${nthreads}
+    export MKL_NUM_THREADS=${nthreads}
 
-echo "Finished at `date`"
+    echo "=========================================="
+    echo "Running PyTorch training with ${nthreads} threads"
+    echo "=========================================="
+
+    mkdir -vp ${OUTPUT_DIR}/${nthreads}
+
+    srun python3 ../../../src/model_training_benchmark/multicore_model_benchmark.py \
+        --batch_size 128 \
+        --num_epochs 5 \
+        --num_repeats 4 \
+        &> ${OUTPUT_DIR}/${nthreads}/training_${nthreads}.out
+done
+
+source deactivate
+echo "Finished at $(date)"
