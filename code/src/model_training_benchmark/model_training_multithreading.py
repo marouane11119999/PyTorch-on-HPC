@@ -93,6 +93,9 @@ def main():
     output_path.mkdir(parents=True, exist_ok=True)
 
     train_data, test_data = get_dataset(path=data_path, download=True)
+    logger.info(f"Current working directory: {os.getcwd()}")
+    logger.info(f"Data path exists? {data_path.exists()}")
+    logger.info(f"Number of threads: {os.environ.get('OMP_NUM_THREADS')}")
 
     # Read thread count from environment
     n_threads = int(os.environ.get("OMP_NUM_THREADS", "1"))
