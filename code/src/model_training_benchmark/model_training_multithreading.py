@@ -114,3 +114,5 @@ def main():
     df.to_csv(final_path, index=False)
     logger.info(f"Results saved to {final_path}")
 
+if __name__ == "__main__":
+    main()
