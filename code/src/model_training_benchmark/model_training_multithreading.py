@@ -94,29 +94,20 @@ def main():
 
     train_data, test_data = get_dataset(path=data_path, download=True)
 
-    all_results = []
+    # Read thread count from environment
+    n_threads = int(os.environ.get("OMP_NUM_THREADS", "1"))
+    logger.info(f"Running benchmark with {n_threads} threads ...")
 
-    for n_threads in [1, 12, 24]:
-        logger.info(f"Running benchmark with {n_threads} threads ...")
-        df = run_benchmark_multicore_training(
-            train_data=train_data,
-            test_data=test_data,
-            batch_size=args.batch_size,
-            num_epochs=args.num_epochs,
-            num_repeats=args.num_repeats,
-            num_threads=n_threads
-        )
-        all_results.append(df)
-
-    df_all = pd.concat(all_results, ignore_index=True)
-
-    # Compute averages for convenience
-    summary = (
-        df_all.groupby("num_threads")[["runtime_ms", "accuracy"]]
-        .agg(["mean", "std"])
-        .reset_index()
+    df = run_benchmark_multicore_training(
+        train_data=train_data,
+        test_data=test_data,
+        batch_size=args.batch_size,
+        num_epochs=args.num_epochs,
+        num_repeats=args.num_repeats,
+        num_threads=n_threads
     )
 
-    final_path = output_path / "multicore_model_benchmark.csv"
-    df_all.to_csv(final_path, index=False)
+    final_path = output_path / f"multicore_model_benchmark_{n_threads}_threads.csv"
+    df.to_csv(final_path, index=False)
     logger.info(f"Results saved to {final_path}")
+
