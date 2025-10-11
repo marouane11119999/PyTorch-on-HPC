@@ -18,7 +18,6 @@
 module purge
 module add slurm
 module load miniconda3
-module load mpi/openmpi-x.x
 source activate pytorchhpc
 
 
