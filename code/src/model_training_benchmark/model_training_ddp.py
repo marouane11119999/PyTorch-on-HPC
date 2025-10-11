@@ -30,7 +30,7 @@ logger = logging.getLogger(__name__)
 # ---------------------------
 def setup_ddp(rank, world_size):
     dist.init_process_group(
-        "mpi", # the cluster uses MPI backend
+        "gloo", # the cluster uses MPI backend
         init_method="env://", # use environment variables to setup (will be set by slurm)
         rank=rank, # rank of the current process
         world_size=world_size # total number of processes
