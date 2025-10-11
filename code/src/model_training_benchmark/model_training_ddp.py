@@ -18,7 +18,7 @@ import torch.multiprocessing as mp
 from model import SimpleCNN
 
 
-# 
+# 2 nodes, 1 DDP process per node, thread-level scaling tested with 12 and 24 threads per process
 
 
 
@@ -33,6 +33,7 @@ def setup_ddp():
     master_port = os.environ.get("MASTER_PORT", "12355")
     rank = int(os.environ.get("OMPI_COMM_WORLD_RANK", "0"))
     world_size = int(os.environ.get("OMPI_COMM_WORLD_SIZE", "1"))
+    logger.info(f"Rank {rank}/{world_size} initializing DDP (MASTER={master_addr}:{master_port})")
 
     dist.init_process_group(
         backend="gloo",
@@ -43,6 +44,7 @@ def setup_ddp():
     return rank, world_size
 
 def cleanup_ddp():
+    logger.info("Cleaning up DDP process group")
     dist.destroy_process_group()
     
 
@@ -86,7 +88,7 @@ def run_benchmark_ddp_training(
         shuffle=False,
         num_workers=0
     )
-
+    logger.info(f"[Rank {rank}] Data loaders initialized (Train: {len(train_loader)}, Test: {len(test_loader)})")
     runtimes, accuracies = [], []
 
     for rep in range(args.num_repeats):
@@ -99,6 +101,7 @@ def run_benchmark_ddp_training(
         for epoch in range(args.num_epochs):
             train_sampler.set_epoch(epoch)  # shuffle differently per epoch
             model.train()
+            logger.info(f"[Rank {rank}] Epoch {epoch+1}/{args.num_epochs} starting")
             for images, labels in train_loader:
                 images, labels = images.to(device), labels.to(device)
                 optimizer.zero_grad()
@@ -107,7 +110,7 @@ def run_benchmark_ddp_training(
                 loss.backward()
                 optimizer.step()
         runtime = 1000 * (time.perf_counter() - start_time)
-
+        logger.info(f"[Rank {rank}] Repetition {rep+1} finished in {runtime:.2f} ms")
         # compute accuracy on test set
         model.eval()
         total, correct = 0, 0
@@ -118,7 +121,7 @@ def run_benchmark_ddp_training(
                 total += labels.size(0)
                 correct += (predicted == labels).sum().item()
         accuracy = 100 * correct / total
-
+        logger.info(f"[Rank {rank}] Local accuracy: {accuracy:.2f}%")
         # gather average accuracy across all ranks to rank 0
         accuracy_tensor = torch.tensor(accuracy).to(device)
         dist.reduce(accuracy_tensor, dst=0, op=dist.ReduceOp.AVG)
