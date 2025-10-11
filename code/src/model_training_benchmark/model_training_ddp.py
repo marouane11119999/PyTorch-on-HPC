@@ -29,12 +29,7 @@ logger = logging.getLogger(__name__)
 # Distributed setup / cleanup
 # ---------------------------
 def setup_ddp(rank, world_size):
-    dist.init_process_group(
-        "gloo", # the cluster uses MPI backend
-        init_method="env://", # use environment variables to setup (will be set by slurm)
-        rank=rank, # rank of the current process
-        world_size=world_size # total number of processes
-        )
+    dist.init_process_group(backend="mpi")
 
 def cleanup_ddp():
     dist.destroy_process_group()
@@ -46,38 +41,52 @@ def run_benchmark_ddp_training(
     args,
     train_data: Dataset,
     test_data: Dataset,
-    output_path: Path
+    output_path: Path,
+    num_threads: int
 ) -> None:
-    # setup
-    setup_ddp(rank, world_size)
-    # run each rank on cpu
+    """
+    Run DDP benchmark on multiple nodes using MPI backend.
+
+    Each rank trains on its subset of data using DistributedSampler.
+    Only rank 0 gathers results and writes CSV.
+    """
+
+    # set threading
+    os.environ["OMP_NUM_THREADS"] = str(num_threads)
+    os.environ["MKL_NUM_THREADS"] = str(num_threads)
+    os.environ["NUMEXPR_NUM_THREADS"] = str(num_threads)
+    torch.set_num_threads(num_threads)
+
     device = torch.device("cpu")
-    
-    # trainers
-    train_sampler = DistributedSampler(train_data, num_replicas=world_size, rank=rank, shuffle=True) # ensure each rank gets different data
+
+    # DistributedSampler ensures each rank gets different data
+    train_sampler = DistributedSampler(
+        train_data, num_replicas=world_size, rank=rank, shuffle=True
+    )
     train_loader = torch.utils.data.DataLoader(
         dataset=train_data,
         batch_size=args.batch_size,
         sampler=train_sampler,
-        num_workers=0 # keep data loading serial, to isolate compute scaling
+        num_workers=0
     )
     test_loader = torch.utils.data.DataLoader(
         dataset=test_data,
         batch_size=args.batch_size,
         shuffle=False,
-        num_workers=0 # keep data loading serial, to isolate compute scaling
+        num_workers=0
     )
-    
-    # training
+
     runtimes, accuracies = [], []
+
     for rep in range(args.num_repeats):
         model = SimpleCNN().to(device)
-        model = DDP(model) # wrap model for DDP
+        model = DDP(model)  # wrap for DDP
         optimizer = optim.SGD(model.parameters(), lr=0.01)
-        criterion = nn.CrossEntropyLoss()        
+        criterion = nn.CrossEntropyLoss()
+
         start_time = time.perf_counter()
         for epoch in range(args.num_epochs):
-            train_sampler.set_epoch(epoch) # shuffle data differently at each epoch
+            train_sampler.set_epoch(epoch)  # shuffle differently per epoch
             model.train()
             for images, labels in train_loader:
                 images, labels = images.to(device), labels.to(device)
@@ -87,10 +96,10 @@ def run_benchmark_ddp_training(
                 loss.backward()
                 optimizer.step()
         runtime = 1000 * (time.perf_counter() - start_time)
-        
-        # each  rank computes accuracy on its subset of data
-        total, correct = 0, 0
+
+        # compute accuracy on test set
         model.eval()
+        total, correct = 0, 0
         with torch.no_grad():
             for images, labels in test_loader:
                 outputs = model(images)
@@ -98,29 +107,33 @@ def run_benchmark_ddp_training(
                 total += labels.size(0)
                 correct += (predicted == labels).sum().item()
         accuracy = 100 * correct / total
-        
-        # gather results from all ranks
+
+        # gather average accuracy across all ranks to rank 0
         accuracy_tensor = torch.tensor(accuracy).to(device)
-        dist.reduce(accuracy_tensor, dst=0, op=dist.ReduceOp.AVG) # avg accuracy to rank 0
-        
-        if rank == 0: # only rank 0 logs and saves results
+        dist.reduce(accuracy_tensor, dst=0, op=dist.ReduceOp.AVG)
+
+        if rank == 0:
             accuracy_avg = accuracy_tensor.item()
             runtimes.append(runtime)
             accuracies.append(accuracy_avg)
-            logger.info(f"DDP Training run {rep+1}/{args.num_repeats} on {world_size} ranks: {runtime:.2f} ms, Accuracy: {accuracy:.2f}%")
-    
+            logger.info(
+                f"[Threads={num_threads}] DDP run {rep+1}/{args.num_repeats} "
+                f"on {world_size} ranks: {runtime:.2f} ms, Accuracy: {accuracy_avg:.2f}%"
+            )
+
+    # rank 0 saves results
     if rank == 0:
         df = pd.DataFrame({
             "num_ranks": [world_size] * args.num_repeats,
+            "num_threads": [num_threads] * args.num_repeats,
             "runtime_ms": runtimes,
             "accuracy": accuracies
         })
         output_path.mkdir(parents=True, exist_ok=True)
-        final_path = output_path / f"ddp_benchmark_{world_size}_nodes.csv"
+        final_path = output_path / f"ddp_benchmark_{world_size}_ranks_{num_threads}_threads.csv"
         df.to_csv(final_path, index=False)
         logger.info(f"Results saved to {final_path}")
-    
-    cleanup_ddp()
+
     
 def get_cmdargs():
     parser = argparse.ArgumentParser()
@@ -138,20 +151,22 @@ def main():
     # get data
     train_data, test_data = get_dataset(data_path)
 
-    # get world size from environment (set by SLURM)
-    world_size = int(os.getenv("OMPI_COMM_WORLD_SIZE", "1"))
-    rank = int(os.getenv("OMPI_COMM_WORLD_RANK", "0"))
     
+    setup_ddp()  # no rank/world_size arguments needed
+    rank = dist.get_rank()
+    world_size = dist.get_world_size()
     logger.info(f"Starting DDP benchmark with {world_size} ranks (this is rank {rank})")
     
-    run_benchmark_ddp_training(
-        rank=rank,
-        world_size=world_size,
-        args=args,
-        train_data=train_data,
-        test_data=test_data,
-        output_path=output_path
-    )
+    for threads in [12, 24]:
+        run_benchmark_ddp_training(
+            rank=rank,
+            world_size=world_size,
+            args=args,
+            train_data=train_data,
+            test_data=test_data,
+            output_path=output_path,
+            num_threads=threads
+        )
     
 if __name__ == "__main__":
     main()
