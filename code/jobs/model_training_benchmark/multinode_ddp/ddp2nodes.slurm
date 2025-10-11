@@ -15,8 +15,12 @@
 # ================================
 # Load necessary modules
 # ================================
-module load pytorch/2.x
+module purge
+module add slurm
+module load miniconda3
 module load mpi/openmpi-x.x
+source activate pytorchhpc
+
 
 # ================================
 # Environment setup for DDP
@@ -47,6 +51,9 @@ echo " WORLD_SIZE: ${WORLD_SIZE}"
 echo "=========================================="
 echo
 
+
+OUTPUT_DIR="_benchmark/multithread"
+mkdir -vp ${OUTPUT_DIR}
 # ================================
 # Run your benchmark
 # ================================
