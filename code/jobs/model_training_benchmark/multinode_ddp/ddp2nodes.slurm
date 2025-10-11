@@ -5,7 +5,7 @@
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=24
-#SBATCH --time=01:00:00
+#SBATCH --time=03:00:00
 #SBATCH --output=%u.ddp2nodes.%j.out
 #SBATCH --error=%u.ddp2nodes.%j.err
 
@@ -34,4 +34,4 @@ mpirun -np $SLURM_NTASKS --host $HOSTS \
     python3 ../../../src/model_training_benchmark/model_training_ddp.py \
     --batch_size 128 \
     --num_epochs 5 \
-    --num_repeats 3
+    --num_repeats 1
