@@ -28,7 +28,7 @@ logger = logging.getLogger(__name__)
 # ---------------------------
 # Distributed setup / cleanup
 # ---------------------------
-def setup_ddp(rank, world_size):
+def setup_ddp():
     dist.init_process_group(backend="mpi")
 
 def cleanup_ddp():

@@ -10,6 +10,7 @@
 #SBATCH --error=%u.ddp2nodes.%j.err
 
 module purge
+module add slurm
 module load gcc/13.2.0
 module load openmpi/4.1.6
 module load miniconda3
