@@ -9,8 +9,8 @@
 #SBATCH --ntasks-per-node=1         # 1 process per node (1 DDP rank)
 #SBATCH --cpus-per-task=24          # 24 cores per process
 #SBATCH --time=01:00:00
-#SBATCH --output=logs/ddp_2nodes_%j.log
-#SBATCH --error=logs/ddp_2nodes_%j.err
+#SBATCH --output=%u.ddp2nodes.%j.out
+#SBATCH --error=%u.ddp2nodes.%j.err
 
 # ================================
 # Load necessary modules
