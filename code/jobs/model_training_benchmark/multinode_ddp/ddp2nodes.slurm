@@ -21,10 +21,12 @@ export MKL_NUM_THREADS=$SLURM_CPUS_PER_TASK
 export NUMEXPR_NUM_THREADS=$SLURM_CPUS_PER_TASK
 export PYTHONWARNINGS="ignore"
 
+export MASTER_ADDR=$(scontrol show hostnames $SLURM_JOB_NODELIST | head -n1)
+export MASTER_PORT=12355
+
 OUTPUT_DIR="_benchmark/2nodes_ddp"
 mkdir -vp ${OUTPUT_DIR}
 
-# Expand Slurm node list for OpenMPI
 HOSTS=$(scontrol show hostnames $SLURM_JOB_NODELIST | paste -sd "," -)
 echo "Launching on hosts: $HOSTS"
 

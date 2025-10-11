@@ -29,7 +29,18 @@ logger = logging.getLogger(__name__)
 # Distributed setup / cleanup
 # ---------------------------
 def setup_ddp():
-    dist.init_process_group(backend="gloo")
+    master_addr = os.environ.get("MASTER_ADDR", "node2-085")  # first node
+    master_port = os.environ.get("MASTER_PORT", "12355")
+    rank = int(os.environ.get("OMPI_COMM_WORLD_RANK", "0"))
+    world_size = int(os.environ.get("OMPI_COMM_WORLD_SIZE", "1"))
+
+    dist.init_process_group(
+        backend="gloo",
+        init_method=f"tcp://{master_addr}:{master_port}",
+        rank=rank,
+        world_size=world_size
+    )
+    return rank, world_size
 
 def cleanup_ddp():
     dist.destroy_process_group()
@@ -144,19 +155,15 @@ def get_cmdargs():
 
 def main():
     args = get_cmdargs()
-    data_path = Path("/scratch/kurs_2024_sose_hpc/kurs_2024_sose_hpc_20/projekt/PyTorch-on-HPC/code/jobs/model_training_benchmark/data")
+    data_path = Path("/scratch/kurs_2024_sose_hpc/.../data")
     output_path = Path("_benchmark/2nodes_ddp")
     output_path.mkdir(parents=True, exist_ok=True)
 
-    # get data
     train_data, test_data = get_dataset(data_path)
 
-    
-    setup_ddp()  # no rank/world_size arguments needed
-    rank = dist.get_rank()
-    world_size = dist.get_world_size()
+    rank, world_size = setup_ddp()  # returns rank and world_size
     logger.info(f"Starting DDP benchmark with {world_size} ranks (this is rank {rank})")
-    
+
     for threads in [12, 24]:
         run_benchmark_ddp_training(
             rank=rank,
@@ -167,6 +174,9 @@ def main():
             output_path=output_path,
             num_threads=threads
         )
+
+    cleanup_ddp()
+
     
 if __name__ == "__main__":
     main()
