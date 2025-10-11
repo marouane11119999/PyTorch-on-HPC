@@ -47,7 +47,7 @@ do
 
     mkdir -vp ${OUTPUT_DIR}/${nthreads}
 
-    srun python3 ../../../src/model_training_benchmark/model_training_multithreading.py \
+    srun python3 ../../../src/model_training_benchmark/model_training_multithreading_interop.py \
         --batch_size 128 \
         --num_epochs 5 \
         --num_repeats 3 \
