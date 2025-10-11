@@ -52,7 +52,7 @@ echo "=========================================="
 echo
 
 
-OUTPUT_DIR="_benchmark/multithread"
+OUTPUT_DIR="_benchmark/2nodes_ddp"
 mkdir -vp ${OUTPUT_DIR}
 # ================================
 # Run your benchmark
