@@ -1,0 +1,2 @@
+INFO:__main__:Training with lr=0.1, batch_size=128, epochs=5
+INFO:__main__:Saved results to _benchmark/hyperparam_search/results_lr0.1_bs128.csv

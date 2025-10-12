@@ -1,0 +1,2 @@
+num_ranks,num_threads,runtime_ms,accuracy
+2,24,5405020.390600897,73.23999786376953

@@ -1,0 +1,6 @@
+MODULE: Adding module /shared/modulefiles/miniconda3
+mkdir: created directory '_benchmark'
+mkdir: created directory '_benchmark/2nodes_ddp'
+Launching on hosts: node2-085,node2-086
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1

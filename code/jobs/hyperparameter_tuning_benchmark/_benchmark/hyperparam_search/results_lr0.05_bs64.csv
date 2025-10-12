@@ -1,0 +1,2 @@
+lr,batch_size,num_epochs,runtime_ms,accuracy
+0.05,64,5,392310.17501000315,90.14

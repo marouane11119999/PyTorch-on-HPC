@@ -1,0 +1,43 @@
+INFO:__main__:Rank 0/2 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Rank 1/2 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Starting DDP benchmark with 2 ranks (this is rank 0)
+INFO:__main__:Starting DDP benchmark with 2 ranks (this is rank 1)
+INFO:__main__:[Rank 1] Data loaders initialized (Train: 235, Test: 79)
+INFO:__main__:[Rank 0] Data loaders initialized (Train: 235, Test: 79)
+INFO:__main__:[Rank 0] Epoch 1/5 starting
+INFO:__main__:[Rank 1] Epoch 1/5 starting
+INFO:__main__:[Rank 1] Epoch 2/5 starting
+INFO:__main__:[Rank 0] Epoch 2/5 starting
+INFO:__main__:[Rank 1] Epoch 3/5 starting
+INFO:__main__:[Rank 0] Epoch 3/5 starting
+INFO:__main__:[Rank 1] Epoch 4/5 starting
+INFO:__main__:[Rank 0] Epoch 4/5 starting
+INFO:__main__:[Rank 1] Epoch 5/5 starting
+INFO:__main__:[Rank 0] Epoch 5/5 starting
+INFO:__main__:[Rank 1] Repetition 1 finished in 5227782.97 ms
+INFO:__main__:[Rank 0] Repetition 1 finished in 5228442.96 ms
+INFO:__main__:[Rank 0] Local accuracy: 73.64%
+INFO:__main__:[Rank 1] Local accuracy: 73.64%
+INFO:__main__:[Threads=12] DDP run 1/1 on 2 ranks: 5228442.96 ms, Accuracy: 73.64%
+INFO:__main__:[Rank 1] Data loaders initialized (Train: 235, Test: 79)
+INFO:__main__:Results saved to _benchmark/2nodes_ddp/ddp_benchmark_2_ranks_12_threads.csv
+INFO:__main__:[Rank 0] Data loaders initialized (Train: 235, Test: 79)
+INFO:__main__:[Rank 0] Epoch 1/5 starting
+INFO:__main__:[Rank 1] Epoch 1/5 starting
+INFO:__main__:[Rank 1] Epoch 2/5 starting
+INFO:__main__:[Rank 0] Epoch 2/5 starting
+INFO:__main__:[Rank 1] Epoch 3/5 starting
+INFO:__main__:[Rank 0] Epoch 3/5 starting
+INFO:__main__:[Rank 1] Epoch 4/5 starting
+INFO:__main__:[Rank 0] Epoch 4/5 starting
+INFO:__main__:[Rank 1] Epoch 5/5 starting
+INFO:__main__:[Rank 0] Epoch 5/5 starting
+INFO:__main__:[Rank 1] Repetition 1 finished in 5404066.70 ms
+INFO:__main__:[Rank 0] Repetition 1 finished in 5405020.39 ms
+INFO:__main__:[Rank 0] Local accuracy: 73.24%
+INFO:__main__:[Rank 1] Local accuracy: 73.24%
+INFO:__main__:[Threads=24] DDP run 1/1 on 2 ranks: 5405020.39 ms, Accuracy: 73.24%
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:Results saved to _benchmark/2nodes_ddp/ddp_benchmark_2_ranks_24_threads.csv
+INFO:__main__:Cleaning up DDP process group
+slurmstepd: error: *** JOB 565806 ON node2-085 CANCELLED AT 2025-10-11T23:50:41 DUE TO TIME LIMIT ***

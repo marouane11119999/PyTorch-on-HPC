@@ -1,0 +1,45 @@
+MODULE: Adding module /shared/modulefiles/miniconda3
+Starting at Sat Oct 11 10:46:09 AM CEST 2025
+Running on hosts: node2-085
+Running on 1 nodes.
+Running on 1 processors.
+Current working directory is /scratch/kurs_2024_sose_hpc/kurs_2024_sose_hpc_20/projekt/PyTorch-on-HPC/code/jobs/model_training_benchmark/multithreading_interop
+mkdir: created directory '_benchmark'
+mkdir: created directory '_benchmark/multithread'
+==========================================
+Running PyTorch training with 1 threads
+==========================================
+mkdir: created directory '_benchmark/multithread/1'
+==========================================
+Running PyTorch training with 2 threads
+==========================================
+mkdir: created directory '_benchmark/multithread/2'
+==========================================
+Running PyTorch training with 4 threads
+==========================================
+mkdir: created directory '_benchmark/multithread/4'
+==========================================
+Running PyTorch training with 6 threads
+==========================================
+mkdir: created directory '_benchmark/multithread/6'
+==========================================
+Running PyTorch training with 8 threads
+==========================================
+mkdir: created directory '_benchmark/multithread/8'
+==========================================
+Running PyTorch training with 12 threads
+==========================================
+mkdir: created directory '_benchmark/multithread/12'
+==========================================
+Running PyTorch training with 16 threads
+==========================================
+mkdir: created directory '_benchmark/multithread/16'
+==========================================
+Running PyTorch training with 20 threads
+==========================================
+mkdir: created directory '_benchmark/multithread/20'
+==========================================
+Running PyTorch training with 24 threads
+==========================================
+mkdir: created directory '_benchmark/multithread/24'
+Finished at Sat Oct 11 11:54:04 AM CEST 2025
