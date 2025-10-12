@@ -2,7 +2,7 @@
 #SBATCH --reservation=hpc-course-sose2025
 #SBATCH --partition=teaching
 #SBATCH --job-name=learning_curve_ddp
-#SBATCH --array=0-5                    # 6 fractions for the learning curve
+#SBATCH --array=0-4                    # 6 fractions for the learning curve
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=2            # 2 DDP processes per job
 #SBATCH --cpus-per-task=12             # 12 threads per process (2*12=24 cores total)
