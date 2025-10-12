@@ -150,7 +150,7 @@ def main():
     args = get_cmdargs()
     fraction = fractions[args.array_id]
 
-    train_data, test_data = get_dataset(Path("/scratch/kurs_2024_sose_hpc/kurs_2024_sose_hpc_20/projekt/PyTorch-on-HPC/code/jobs/learning_curve/data"))
+    train_data, test_data = get_dataset(Path("/scratch/kurs_2024_sose_hpc/kurs_2024_sose_hpc_20/projekt/PyTorch-on-HPC/code/jobs/model_training_benchmark/data"))
     num_train_samples = int(len(train_data) * fraction)
     train_data_subset = Subset(train_data, list(range(num_train_samples)))
 
