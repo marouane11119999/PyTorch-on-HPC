@@ -34,7 +34,7 @@ for PROCS in 2 3 4 6 8; do
     export NUMEXPR_NUM_THREADS=$CPUS
 
     # Create unique output folder
-    OUTPUT_DIR="_benchmark/1node_ddp_${PROCS}proc_${CPUS}threads"
+    OUTPUT_DIR="_benchmark/1nodes_ddp_${PROCS}proc_${CPUS}threads"
     mkdir -vp ${OUTPUT_DIR}
 
     mpirun -np $PROCS \
