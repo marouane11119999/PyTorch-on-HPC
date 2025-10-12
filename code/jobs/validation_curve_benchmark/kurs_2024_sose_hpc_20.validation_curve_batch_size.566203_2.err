@@ -1,0 +1,10 @@
+INFO:__main__:Rank 0/2 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Rank 1/2 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:[Rank 1] testing batch_size Using batch size 128, optimizer SGD, lr 0.001, epochs 3
+INFO:__main__:[Rank 0] testing batch_size Using batch size 128, optimizer SGD, lr 0.001, epochs 3
+INFO:__main__:[Rank 0] Repetition 1 finished in 281270.70 ms
+INFO:__main__:[Rank 1] Repetition 1 finished in 281271.67 ms
+INFO:__main__:[Rank 0] batch_size=128 -> Acc=62.51%, Time=281270.70ms
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:Results saved to _benchmark/validation_curve/batch_size_ddp2proc_12threads/validation_curve_batch_size_128_2r_12t.csv
+INFO:__main__:Cleaning up DDP process group

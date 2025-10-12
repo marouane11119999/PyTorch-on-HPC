@@ -1,0 +1,7 @@
+MODULE: Adding module /shared/modulefiles/miniconda3
+Launching validation curve job for learning_rate index 2 on node node2-087
+mkdir: created directory '_benchmark'
+mkdir: created directory '_benchmark/validation_curve'
+mkdir: created directory '_benchmark/validation_curve/learning_rate_ddp2proc_12threads'
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1

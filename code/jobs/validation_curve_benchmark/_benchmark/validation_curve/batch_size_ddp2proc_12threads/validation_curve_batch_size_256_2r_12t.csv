@@ -1,0 +1,2 @@
+num_ranks,num_threads,batch_size,runtime_ms,accuracy
+2,12,256,214867.27186106145,53.02000045776367

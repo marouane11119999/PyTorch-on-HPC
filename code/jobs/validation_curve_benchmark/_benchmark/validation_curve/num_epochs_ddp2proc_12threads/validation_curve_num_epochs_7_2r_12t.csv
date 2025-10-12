@@ -1,0 +1,2 @@
+num_ranks,num_threads,num_epochs,runtime_ms,accuracy
+2,12,7,668096.4016350918,74.37999725341797

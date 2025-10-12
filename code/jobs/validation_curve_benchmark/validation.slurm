@@ -29,10 +29,14 @@ export MASTER_ADDR=$(hostname)
 export MASTER_PORT=12355
 
 # -----------------------------
-# Choose which parameter to test
-# Options: learning_rate | batch_size | optimizer | num_epochs
+# Read parameter type from environment variable
 # -----------------------------
-ARG_TYPE="learning_rate"
+if [ -z "$ARG_TYPE" ]; then
+    echo "ARG_TYPE not set! Exiting..."
+    exit 1
+fi
+
+echo "Launching validation curve job for ${ARG_TYPE} index $SLURM_ARRAY_TASK_ID on node $(hostname)"
 
 # -----------------------------
 # Output directory setup
@@ -40,16 +44,12 @@ ARG_TYPE="learning_rate"
 OUTPUT_DIR="_benchmark/validation_curve/${ARG_TYPE}_ddp2proc_${SLURM_CPUS_PER_TASK}threads"
 mkdir -vp ${OUTPUT_DIR}
 
-echo "Launching validation curve job for ${ARG_TYPE} index $SLURM_ARRAY_TASK_ID on node $(hostname)"
-echo "Output will be saved to $OUTPUT_DIR"
-
 # -----------------------------
-# Run distributed benchmark
+# Launch DDP Python script
 # -----------------------------
 mpirun -np $SLURM_NTASKS_PER_NODE \
-    python3 ../../src/validation_curve/validation_curve_ddp.py \
-    --arg_type ${ARG_TYPE} \
-    --array_id ${SLURM_ARRAY_TASK_ID} \
+    python3 ../../src/validation_curve/validation_curve.py \
+    --array_id $SLURM_ARRAY_TASK_ID \
     --output_dir ${OUTPUT_DIR} \
+    --arg_type $ARG_TYPE \
     --num_repeats 1
-    

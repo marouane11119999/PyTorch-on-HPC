@@ -1,0 +1,2 @@
+num_ranks,num_threads,learning_rate,runtime_ms,accuracy
+2,12,0.001,279914.18578196317,57.36000061035156

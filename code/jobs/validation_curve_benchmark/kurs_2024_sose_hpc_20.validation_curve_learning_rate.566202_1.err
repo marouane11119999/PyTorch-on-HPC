@@ -1,0 +1,10 @@
+INFO:__main__:Rank 0/2 initializing DDP (MASTER=node2-086:12355)
+INFO:__main__:Rank 1/2 initializing DDP (MASTER=node2-086:12355)
+INFO:__main__:[Rank 1] testing learning_rate Using batch size 128, optimizer SGD, lr 0.0005, epochs 3
+INFO:__main__:[Rank 0] testing learning_rate Using batch size 128, optimizer SGD, lr 0.0005, epochs 3
+INFO:__main__:[Rank 1] Repetition 1 finished in 283886.79 ms
+INFO:__main__:[Rank 0] Repetition 1 finished in 283875.54 ms
+INFO:__main__:[Rank 0] learning_rate=0.0005 -> Acc=54.13%, Time=283875.54ms
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:Results saved to _benchmark/validation_curve/learning_rate_ddp2proc_12threads/validation_curve_learning_rate_0p0005_2r_12t.csv
+INFO:__main__:Cleaning up DDP process group

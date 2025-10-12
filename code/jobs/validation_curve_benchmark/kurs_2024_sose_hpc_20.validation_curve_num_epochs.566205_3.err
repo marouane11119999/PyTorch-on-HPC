@@ -1,0 +1,10 @@
+INFO:__main__:Rank 1/2 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Rank 0/2 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:[Rank 0] testing num_epochs Using batch size 128, optimizer SGD, lr 0.001, epochs 7
+INFO:__main__:[Rank 1] testing num_epochs Using batch size 128, optimizer SGD, lr 0.001, epochs 7
+INFO:__main__:[Rank 1] Repetition 1 finished in 668094.63 ms
+INFO:__main__:[Rank 0] Repetition 1 finished in 668096.40 ms
+INFO:__main__:[Rank 0] num_epochs=7 -> Acc=74.38%, Time=668096.40ms
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:Results saved to _benchmark/validation_curve/num_epochs_ddp2proc_12threads/validation_curve_num_epochs_7_2r_12t.csv
+INFO:__main__:Cleaning up DDP process group
