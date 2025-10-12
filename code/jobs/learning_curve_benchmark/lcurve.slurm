@@ -34,7 +34,7 @@ echo "Output will be saved to $OUTPUT_DIR"
 
 # Launch DDP processes using MPI
 mpirun -np $SLURM_NTASKS_PER_NODE \
-    python3 ../../../src/learning_curve/learning_curve_ddp.py \
+    python3 ../../src/learning_curve/learning_curve_ddp.py \
     --array_id $SLURM_ARRAY_TASK_ID \
     --output_dir ${OUTPUT_DIR} \
     --batch_size 128 \
