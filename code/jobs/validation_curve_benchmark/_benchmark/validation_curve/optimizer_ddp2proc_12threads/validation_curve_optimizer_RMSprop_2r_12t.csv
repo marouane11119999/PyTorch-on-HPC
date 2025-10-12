@@ -1,0 +1,2 @@
+num_ranks,num_threads,optimizer,runtime_ms,accuracy
+2,12,RMSprop,299058.84620081633,88.7699966430664

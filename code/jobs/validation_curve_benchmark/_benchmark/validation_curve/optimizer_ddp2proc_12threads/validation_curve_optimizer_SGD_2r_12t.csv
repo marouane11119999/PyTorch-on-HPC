@@ -1,0 +1,2 @@
+num_ranks,num_threads,optimizer,runtime_ms,accuracy
+2,12,SGD,286040.6391019933,63.41999816894531

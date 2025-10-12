@@ -1,0 +1,2 @@
+num_ranks,num_threads,optimizer,runtime_ms,accuracy
+2,12,Adam,289381.6730361432,90.69999694824219
