@@ -1,10 +1,7 @@
 #!/bin/bash
 #SBATCH --reservation=hpc-course-sose2025
 #SBATCH --partition=teaching
-#SBATCH --job-name=ddp_1node_multi
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=4         # 4 processes on one node
-#SBATCH --cpus-per-task=6           # 24 cores / 4 processes = 6 cores per process
 #SBATCH --time=02:00:00
 #SBATCH --output=%u.ddp1node.%j.out
 #SBATCH --error=%u.ddp1node.%j.err
@@ -16,22 +13,33 @@ module load openmpi/4.1.6
 module load miniconda3
 source activate pytorchhpc
 
-export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-export MKL_NUM_THREADS=$SLURM_CPUS_PER_TASK
-export NUMEXPR_NUM_THREADS=$SLURM_CPUS_PER_TASK
 export PYTHONWARNINGS="ignore"
 
-# MASTER_ADDR and PORT (since single node, use localhost)
+# MASTER_ADDR and PORT (single node)
 export MASTER_ADDR=$(hostname)
 export MASTER_PORT=12355
 
-OUTPUT_DIR="_benchmark/1node_ddp"
-mkdir -vp ${OUTPUT_DIR}
+# Total cores per node
+TOTAL_CORES=24
 
-echo "Running ${SLURM_NTASKS_PER_NODE} processes on a single node..."
+# Loop over number of processes
+for PROCS in 2 3 4 6 8; do
+    # Calculate cores per process
+    CPUS=$((TOTAL_CORES / PROCS))
+    echo "Running $PROCS processes on 1 node with $CPUS threads each..."
 
-mpirun -np $SLURM_NTASKS_PER_NODE \
-    python3 ../../../src/model_training_benchmark/model_training_ddp_single_node.py \
-    --batch_size 128 \
-    --num_epochs 5 \
-    --num_repeats 1
+    # Export thread environment variables
+    export OMP_NUM_THREADS=$CPUS
+    export MKL_NUM_THREADS=$CPUS
+    export NUMEXPR_NUM_THREADS=$CPUS
+
+    # Create unique output folder
+    OUTPUT_DIR="_benchmark/1node_ddp_${PROCS}proc_${CPUS}threads"
+    mkdir -vp ${OUTPUT_DIR}
+
+    mpirun -np $PROCS \
+        python3 ../../../src/model_training_benchmark/model_training_ddp_single_node.py \
+        --batch_size 128 \
+        --num_epochs 5 \
+        --num_repeats 1
+done
