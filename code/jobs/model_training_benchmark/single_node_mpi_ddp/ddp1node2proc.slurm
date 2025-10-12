@@ -31,5 +31,5 @@ mpirun -np $SLURM_NTASKS_PER_NODE \
     python3 ../../../src/model_training_benchmark/model_training_ddp_single_node.py \
     --batch_size 128 \
     --num_epochs 5 \
-    --num_repeats 1
+    --num_repeats 1 \
     --output_dir ${OUTPUT_DIR}

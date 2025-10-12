@@ -1,0 +1,26 @@
+INFO:__main__:Rank 1/2 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Rank 0/2 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Starting DDP benchmark with 2 ranks (this is rank 1)
+INFO:__main__:Using 12 threads per process (from SLURM_CPUS_PER_TASK)
+INFO:__main__:Starting DDP benchmark with 2 ranks (this is rank 0)
+INFO:__main__:Using 12 threads per process (from SLURM_CPUS_PER_TASK)
+INFO:__main__:[Rank 0] Data loaders initialized (Train: 235, Test: 79)
+INFO:__main__:[Rank 1] Data loaders initialized (Train: 235, Test: 79)
+INFO:__main__:[Rank 0] Epoch 1/5 starting
+INFO:__main__:[Rank 1] Epoch 1/5 starting
+INFO:__main__:[Rank 0] Epoch 2/5 starting
+INFO:__main__:[Rank 1] Epoch 2/5 starting
+INFO:__main__:[Rank 1] Epoch 3/5 starting
+INFO:__main__:[Rank 0] Epoch 3/5 starting
+INFO:__main__:[Rank 1] Epoch 4/5 starting
+INFO:__main__:[Rank 0] Epoch 4/5 starting
+INFO:__main__:[Rank 0] Epoch 5/5 starting
+INFO:__main__:[Rank 1] Epoch 5/5 starting
+INFO:__main__:[Rank 0] Repetition 1 finished in 474347.97 ms
+INFO:__main__:[Rank 1] Repetition 1 finished in 474336.32 ms
+INFO:__main__:[Rank 0] Local accuracy: 73.98%
+INFO:__main__:[Rank 1] Local accuracy: 73.98%
+INFO:__main__:[Threads=12] DDP run 1/1 on 2 ranks: 474347.97 ms, Accuracy: 73.98%
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:Results saved to _benchmark/1node_ddp_2proc_12threads/ddp_benchmark_2_ranks_12_threads.csv
+INFO:__main__:Cleaning up DDP process group

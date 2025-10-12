@@ -1,0 +1,50 @@
+INFO:__main__:Rank 0/4 initializing DDP (MASTER=node2-086:12355)
+INFO:__main__:Rank 2/4 initializing DDP (MASTER=node2-086:12355)
+INFO:__main__:Rank 3/4 initializing DDP (MASTER=node2-086:12355)
+INFO:__main__:Rank 1/4 initializing DDP (MASTER=node2-086:12355)
+INFO:__main__:Starting DDP benchmark with 4 ranks (this is rank 1)
+INFO:__main__:Using 6 threads per process (from SLURM_CPUS_PER_TASK)
+INFO:__main__:[Rank 1] Data loaders initialized (Train: 118, Test: 79)
+INFO:__main__:Starting DDP benchmark with 4 ranks (this is rank 2)
+INFO:__main__:Using 6 threads per process (from SLURM_CPUS_PER_TASK)
+INFO:__main__:[Rank 2] Data loaders initialized (Train: 118, Test: 79)
+INFO:__main__:Starting DDP benchmark with 4 ranks (this is rank 3)
+INFO:__main__:Using 6 threads per process (from SLURM_CPUS_PER_TASK)
+INFO:__main__:[Rank 3] Data loaders initialized (Train: 118, Test: 79)
+INFO:__main__:Starting DDP benchmark with 4 ranks (this is rank 0)
+INFO:__main__:Using 6 threads per process (from SLURM_CPUS_PER_TASK)
+INFO:__main__:[Rank 0] Data loaders initialized (Train: 118, Test: 79)
+INFO:__main__:[Rank 0] Epoch 1/5 starting
+INFO:__main__:[Rank 1] Epoch 1/5 starting
+INFO:__main__:[Rank 3] Epoch 1/5 starting
+INFO:__main__:[Rank 2] Epoch 1/5 starting
+INFO:__main__:[Rank 0] Epoch 2/5 starting
+INFO:__main__:[Rank 3] Epoch 2/5 starting
+INFO:__main__:[Rank 1] Epoch 2/5 starting
+INFO:__main__:[Rank 2] Epoch 2/5 starting
+INFO:__main__:[Rank 2] Epoch 3/5 starting
+INFO:__main__:[Rank 0] Epoch 3/5 starting
+INFO:__main__:[Rank 1] Epoch 3/5 starting
+INFO:__main__:[Rank 3] Epoch 3/5 starting
+INFO:__main__:[Rank 3] Epoch 4/5 starting
+INFO:__main__:[Rank 0] Epoch 4/5 starting
+INFO:__main__:[Rank 2] Epoch 4/5 starting
+INFO:__main__:[Rank 1] Epoch 4/5 starting
+INFO:__main__:[Rank 3] Epoch 5/5 starting
+INFO:__main__:[Rank 0] Epoch 5/5 starting
+INFO:__main__:[Rank 2] Epoch 5/5 starting
+INFO:__main__:[Rank 1] Epoch 5/5 starting
+INFO:__main__:[Rank 1] Repetition 1 finished in 35289.04 ms
+INFO:__main__:[Rank 0] Repetition 1 finished in 35289.88 ms
+INFO:__main__:[Rank 2] Repetition 1 finished in 35286.40 ms
+INFO:__main__:[Rank 3] Repetition 1 finished in 35288.57 ms
+INFO:__main__:[Rank 0] Local accuracy: 71.01%
+INFO:__main__:[Rank 3] Local accuracy: 71.01%
+INFO:__main__:[Rank 2] Local accuracy: 71.01%
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:[Rank 1] Local accuracy: 71.01%
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:[Threads=6] DDP run 1/1 on 4 ranks: 35289.88 ms, Accuracy: 71.01%
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:Results saved to _benchmark/1node_ddp_4proc_6threads/ddp_benchmark_4_ranks_6_threads.csv
+INFO:__main__:Cleaning up DDP process group
