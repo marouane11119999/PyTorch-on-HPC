@@ -154,12 +154,14 @@ def get_cmdargs():
     parser.add_argument("--batch_size", type=int, default=128)
     parser.add_argument("--num_epochs", type=int, default=3)
     parser.add_argument("--num_repeats", type=int, default=5)
+    parser.add_argument("--output_dir", type=str, required=True,
+                        help="Path to save benchmark CSV files")
     return parser.parse_args()
 
 def main():
     args = get_cmdargs()
     data_path = Path("/scratch/kurs_2024_sose_hpc/kurs_2024_sose_hpc_20/projekt/PyTorch-on-HPC/code/jobs/model_training_benchmark/data")
-    output_path = Path("_benchmark/1nodes_ddp")
+    output_path = Path(args.output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
 
     train_data, test_data = get_dataset(data_path)
