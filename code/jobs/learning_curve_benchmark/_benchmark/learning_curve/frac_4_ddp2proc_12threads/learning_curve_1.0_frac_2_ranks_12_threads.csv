@@ -1,0 +1,2 @@
+num_ranks,num_threads,train_fraction,runtime_ms,accuracy
+2,12,1.0,478396.5745619498,73.19999694824219

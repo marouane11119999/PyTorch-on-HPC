@@ -1,0 +1,6 @@
+MODULE: Adding module /shared/modulefiles/miniconda3
+mkdir: created directory '_benchmark/learning_curve/frac_3_ddp2proc_12threads'
+Launching learning curve job for fraction index 3 on node node2-085
+Output will be saved to _benchmark/learning_curve/frac_3_ddp2proc_12threads
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1

@@ -1,0 +1,26 @@
+INFO:__main__:Rank 1/2 initializing DDP (MASTER=node2-087:12355)
+INFO:__main__:Rank 0/2 initializing DDP (MASTER=node2-087:12355)
+INFO:__main__:Starting DDP benchmark with 2 ranks (this is rank 0)
+INFO:__main__:Using 12 threads per process (from SLURM_CPUS_PER_TASK)
+INFO:__main__:Starting DDP benchmark with 2 ranks (this is rank 1)
+INFO:__main__:Using 12 threads per process (from SLURM_CPUS_PER_TASK)
+INFO:__main__:[Rank 1] Data loaders initialized (Train: 118, Test: 79)
+INFO:__main__:[Rank 0] Data loaders initialized (Train: 118, Test: 79)
+INFO:__main__:[Rank 0] Epoch 1/5 starting
+INFO:__main__:[Rank 1] Epoch 1/5 starting
+INFO:__main__:[Rank 0] Epoch 2/5 starting
+INFO:__main__:[Rank 1] Epoch 2/5 starting
+INFO:__main__:[Rank 0] Epoch 3/5 starting
+INFO:__main__:[Rank 1] Epoch 3/5 starting
+INFO:__main__:[Rank 0] Epoch 4/5 starting
+INFO:__main__:[Rank 1] Epoch 4/5 starting
+INFO:__main__:[Rank 0] Epoch 5/5 starting
+INFO:__main__:[Rank 1] Epoch 5/5 starting
+INFO:__main__:[Rank 0] Repetition 1 finished in 239974.59 ms
+INFO:__main__:[Rank 1] Repetition 1 finished in 239968.41 ms
+INFO:__main__:[Rank 1] Local accuracy: 73.70%
+INFO:__main__:[Rank 0] Local accuracy: 73.70%
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:[Threads=12] DDP run 1/1 on 2 ranks, fraction=0.5: 239974.59 ms, Accuracy: 73.70%
+INFO:__main__:Results saved to _benchmark/learning_curve/frac_2_ddp2proc_12threads/learning_curve_0.5_frac_2_ranks_12_threads.csv
+INFO:__main__:Cleaning up DDP process group
