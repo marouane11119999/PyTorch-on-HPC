@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.30)  13 OCT 2025 17:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.30)  13 OCT 2025 20:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -890,7 +890,7 @@ Package biblatex Info: ... file 'main.bbl' found.
  (main.bbl)
 Package biblatex Info: Reference section=0 on input line 21.
 Package biblatex Info: Reference segment=0 on input line 21.
-<plots/logo.png, id=10, 116.68594pt x 44.41594pt>
+<plots/logo.png, id=26, 116.68594pt x 44.41594pt>
 File: plots/logo.png Graphic file (type png)
 <use plots/logo.png>
 Package pdftex.def Info: plots/logo.png  used on input line 27.
@@ -911,38 +911,29 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has b
 <to be read again> 
                    \relax 
 l.54 \newpage
-              [1]
-Underfull \hbox (badness 10000) in paragraph at lines 61--68
-
- []
-
-[2]
-
-LaTeX Warning: Empty bibliography on input line 74.
-
-(main.aux)
+              [1] [2] [3] [4] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3C899EB0F75843F2A3445918824A0F11;78.
+(rerunfilecheck)             Checksum: D7E59666A1A3C3D51F9DB75B7CF4C7AE;1035.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34653 strings out of 474486
- 692209 string characters out of 5743755
- 1929542 words of memory out of 5000000
- 56465 multiletter control sequences out of 15000+600000
- 562998 words of font info for 53 fonts, out of 8000000 for 9000
+ 34893 strings out of 474486
+ 697198 string characters out of 5743755
+ 1936542 words of memory out of 5000000
+ 56694 multiletter control sequences out of 15000+600000
+ 564608 words of font info for 59 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  83i,7n,93p,722b,2371s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on main.pdf (3 pages, 67851 bytes).
+ <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on main.pdf (5 pages, 118455 bytes).
 PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
- 5 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 106 PDF objects out of 1000 (max. 8388607)
+ 13 named destinations out of 1000 (max. 500000)
+ 58 words of extra memory for PDF output out of 10000 (max. 10000000)
 

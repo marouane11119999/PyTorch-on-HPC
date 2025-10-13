@@ -16,5 +16,72 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{pytorch_multiprocessing_best_practices}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=48ee55e5d73f6a2f16b81e3491657564}{%
+           family={Contributors},
+           familyi={C\bibinitperiod},
+           given={PyTorch},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {PyTorch}%
+      }
+      \strng{namehash}{48ee55e5d73f6a2f16b81e3491657564}
+      \strng{fullhash}{48ee55e5d73f6a2f16b81e3491657564}
+      \strng{bibnamehash}{48ee55e5d73f6a2f16b81e3491657564}
+      \strng{authorbibnamehash}{48ee55e5d73f6a2f16b81e3491657564}
+      \strng{authornamehash}{48ee55e5d73f6a2f16b81e3491657564}
+      \strng{authorfullhash}{48ee55e5d73f6a2f16b81e3491657564}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.pytorch.org/docs/stable/notes/multiprocessing.html}}
+      \field{note}{Last updated: June 18, 2025; accessed: 2025-10-13}
+      \field{title}{Multiprocessing Best Practices}
+      \field{year}{2025}
+    \endentry
+    \entry{pytorch_ddp_tutorial}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=afdc262afafca53dd29b2814d250884c}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Shen},
+           giveni={S\bibinitperiod}}}%
+        {{hash=881b2cc4926dcc704e16a06cd509111e}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Joe},
+           giveni={J\bibinitperiod}}}%
+        {{hash=301e506648c94944982bc16f4d9763c2}{%
+           family={Pandya},
+           familyi={P\bibinitperiod},
+           given={Chirag},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {PyTorch}%
+      }
+      \strng{namehash}{33bcef4035ad936590c1632905467b00}
+      \strng{fullhash}{33bcef4035ad936590c1632905467b00}
+      \strng{bibnamehash}{33bcef4035ad936590c1632905467b00}
+      \strng{authorbibnamehash}{33bcef4035ad936590c1632905467b00}
+      \strng{authornamehash}{33bcef4035ad936590c1632905467b00}
+      \strng{authorfullhash}{33bcef4035ad936590c1632905467b00}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.pytorch.org/tutorials/intermediate/ddp_tutorial.html}}
+      \field{note}{Last updated: Sep 23, 2025; last verified: Nov 05, 2024}
+      \field{title}{Getting Started with Distributed Data Parallel}
+      \field{year}{2025}
+    \endentry
+  \enddatalist
+\endrefsection
 \endinput
 

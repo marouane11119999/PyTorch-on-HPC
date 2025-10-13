@@ -1,2 +1,6 @@
 \babel@toc {ngerman}{}\relax 
 \contentsline {section}{\numberline {1}Logbuch}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Eintrag 1 : Projekt Setup und Bibiliothekauswahl (add meeting date here)}{2}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Zusammenfassung:}{2}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Details und Arbeitsschritte:}{3}{subsubsection.1.1.2}%
+\contentsline {section}{Literaturverzeichnis}{4}{section*.2}%

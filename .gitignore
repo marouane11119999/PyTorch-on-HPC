@@ -19,7 +19,7 @@ data/processed/
 *.run.xml
 *.synctex.gz
 *.toc
-
+*.out
 # Generated PDFs
 *.pdf
 

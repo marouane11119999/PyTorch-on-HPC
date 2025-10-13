@@ -58,14 +58,73 @@
 \section{Logbuch}
 % =============================
 
-Vergleiche :
-Multithreading : serial without parallelism vs intraop parallelism vs interop parallelism vs intraop + interop parallelism \\
-Multiprocessing + multithreading : serial vs 2 proc 12 threads vs 4 proc 6 threads vs 8 proc 3 threads \\
-Multinode DDP : 1 task per node 12/24 threads  vs 2 tasks per node 12 threads vs 4 tasks per node 6 threads vs 8 tasks per node 3 threads \\
-tuning : show how array jobs can be used to tune hyperparameters with multithreading \\ 
-learning curve: show how array jobs can be used to generate a learning curve with multiprocessing and multithreading \\
-validation curve: show how array jobs can be used to generate a validation curve with multiprocessing and multithreading \\
+Vergleiche:
 
+\begin{itemize}
+    \item \textbf{Multithreading:} 
+    \begin{itemize}
+        \item Serial without parallelism
+        \item Intraop parallelism
+        \item Interop parallelism
+        \item Intraop + interop parallelism
+    \end{itemize}
+    
+    \item \textbf{Multiprocessing + Multithreading:} 
+    \begin{itemize}
+        \item Serial
+        \item 2 proc, 12 threads
+        \item 4 proc, 6 threads
+        \item 8 proc, 3 threads
+    \end{itemize}
+    
+    \item \textbf{Multinode DDP:} 
+    \begin{itemize}
+        \item 1 task per node, 12/24 threads
+        \item 2 tasks per node, 12 threads
+        \item 4 tasks per node, 6 threads
+        \item 8 tasks per node, 3 threads
+    \end{itemize}
+    
+    \item \textbf{Tuning:} Show how array jobs can be used to tune hyperparameters with multithreading.
+    
+    \item \textbf{Learning curve:} Show how array jobs can be used to generate a learning curve with multiprocessing and multithreading.
+    
+    \item \textbf{Validation curve:} Show how array jobs can be used to generate a validation curve with multiprocessing and multithreading.
+\end{itemize}
+
+\subsection{Eintrag 1 : Projekt Setup und Bibiliothekauswahl (add meeting date here)}
+\subsubsection{Zusammenfassung:}
+\begin{itemize}
+    \item Projektstruktur erstellt
+    \item Experimente definiert
+    \item GitHub Repository erstellt
+    \item LaTeX Vorlage für Bericht erstellt
+    \item Auswahl der Deep Learning Bibliothek (\texttt{PyTorch})
+\end{itemize}
+
+\subsubsection{Details und Arbeitsschritte:}
+Im meeting am (add meeting date here) haben wir das Projekt besprochen und die Ziele definiert. Jeder in der Gruppe hat eine 
+Bibliothek ausgewählt (in dieser Arbeit \texttt{Pytorch}). Da sie eine breite Unterstützung für verteiltes Training und Multithreading bietet. 
+Außerdem kann man sie HPC Umfeld gut einsetzen. Zur Identifikation der besten Methoden für die geplanten Experimente wurde eine 
+Recherche zu den Parallelisierungsmöglichkeiten in \texttt{PyTorch} durchgeführt. Dabei wurden insbesondere Multithreading-, 
+Multiprocessing-Ansätze und deren unterschiedliche Setups untersucht \cite{pytorch_ddp_tutorial, pytorch_multiprocessing_best_practices}.
+
+Die Experimente wurden in mehreren Kategorien unterteilt:
+\begin{itemize}
+    \item Model Training Experimente
+    \begin{itemize}
+        \item Serial Training
+        \item Multithreading (1 to 24 threads)
+        \item Multiprocessing + Multithreading auf einem Knoten (2 proc, 12 threads; 4 proc, 6 threads; 8 proc, 3 threads)
+        \item Multinode DDP auf 2 Knoten mit verschiedenen Tasks pro Knoten und Threads pro Task (1 task, 12/24 threads per node; 2 tasks, 12 threads per node; 4 tasks, 6 threads per node; 8 tasks, 3 threads per node)
+    \end{itemize}
+    \item Hyperparameter Tuning mit Multithreading 
+    \item Learning Curve mit Multiprocessing + Multithreading
+    \item Validation Curve mit Multiprocessing + Multithreading
+\end{itemize}
+
+Hinsichtlich der Github Repository es wurde eine Struktur erstellt, die den Code, die Job-Skripte und den Bericht organisiert
+(\href{https://github.com/marouane11119999/PyTorch-on-HPC}{Link}). 
 
 
 

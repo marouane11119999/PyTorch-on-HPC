@@ -1,13 +1,16 @@
 # Fdb version 4
-["biber main"] 1759526277.95965 "main.bcf" "main.bbl" "main" 1760368832.89922 0
-  "main.bcf" 1760368832 107697 22084452e09b86cfe00edb8d5ec0650b "pdflatex"
+["biber main"] 1760381355.82482 "main.bcf" "main.bbl" "main" 1760381359.17151 0
+  "biblio.bib" 1760381252 749 513f39efa6dae1aede483d2e19e38d57 ""
+  "main.bcf" 1760381355 107865 b0d75b8f2a85cda36f1f658064126971 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1760368830.62329 "c:/Users/marou/Desktop/Uni/HPC/Projekt/latex/main.tex" "main.pdf" "main" 1760368832.90023 0
+["pdflatex"] 1760381353.12459 "c:/Users/marou/Desktop/Uni/HPC/Projekt/latex/main.tex" "main.pdf" "main" 1760381359.17194 0
   "C:/Users/marou/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1759258791 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
+  "C:/Users/marou/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1759258801 11548 d9e9f75e99272fc5a4d8b3a077fc9f97 ""
   "C:/Users/marou/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1759258658 24225046 d31751b2d7fe1ec0d643c3e5e59d1647 ""
+  "C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/tcrm1000.tfm" 993062508 1436 c7f957a372ef2fbe93c0982f96625e12 ""
   "C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233951848 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx10.tfm" 1136765053 1328 c834bbb027764024c09d3d2bf908b5f0 ""
@@ -23,10 +26,14 @@
   "C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy10.tfm" 1136765053 1124 6c73e740cf17375f03eec0ee63599741 ""
   "C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy6.tfm" 1136765053 1116 933a60c408fc0a863a92debe84b2d294 ""
   "C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy8.tfm" 1136765053 1120 8b7d695260f3cff42e636090a8002094 ""
+  "C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmti10.tfm" 1136765053 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ""
+  "C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmtt10.tfm" 1136765053 768 1321e9409b4137d6fb428ac9dc956269 ""
   "C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1247596666 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1247596666 32080 340ef9bf63678554ee606688e7b5339d ""
   "C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247596667 35752 024fb6c41858982481f6968b5fc26508 ""
   "C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1247596667 32722 d7379af29a190c3f453aba36302ff5a9 ""
+  "C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1247596667 37944 359e864bd06cde3b1cf57bb20757fb06 ""
+  "C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1247596667 31099 342ef5a582aacbd3346f3cf4579679fa ""
   "C:/Users/marou/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "C:/Users/marou/AppData/Local/Programs/MiKTeX/tex/generic/atbegshi/atbegshi.sty" 1575571100 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "C:/Users/marou/AppData/Local/Programs/MiKTeX/tex/generic/babel/babel.sty" 1704647332 150008 7a05b0fdc0167c04e192003e780ab195 ""
@@ -186,13 +193,13 @@
   "C:/Users/marou/AppData/Local/Programs/MiKTeX/tex/latex/trimspaces/trimspaces.sty" 1253169183 1380 971a51b00a14503ddf754cab24c3f209 ""
   "C:/Users/marou/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/marou/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "c:/Users/marou/Desktop/Uni/HPC/Projekt/latex/main.tex" 1760368827 2478 0f8c8fdb0623e6165f9e8a3514049e01 ""
-  "main.aux" 1760368832 475 96dac425d7697c90f206c43fa173a67a "pdflatex"
-  "main.bbl" 1759526287 486 ee04f40f768daeed26442158e95aba61 "biber main"
-  "main.out" 1760368832 78 3c899eb0f75843f2a3445918824a0f11 "pdflatex"
-  "main.run.xml" 1760368832 2331 c1c0c9b6a7fc38cf38c4bedc2e29c1ff "pdflatex"
-  "main.tex" 1760368827 2478 0f8c8fdb0623e6165f9e8a3514049e01 ""
-  "main.toc" 1760368832 93 d7b0685a5e8dc6a1d0dbff654d8a90d9 "pdflatex"
+  "c:/Users/marou/Desktop/Uni/HPC/Projekt/latex/main.tex" 1760381352 4987 4156f279cb495dcc0c328a9e471fc045 ""
+  "main.aux" 1760381355 1409 a5e772a42ab20d94cef2943b0d191198 "pdflatex"
+  "main.bbl" 1760381359 3258 806ad6f61c21230dbf1995e5ca565dc0 "biber main"
+  "main.out" 1760381355 1035 d7e59666a1a3c3d51f9db75b7cf4c7ae "pdflatex"
+  "main.run.xml" 1760381355 2331 c1c0c9b6a7fc38cf38c4bedc2e29c1ff "pdflatex"
+  "main.tex" 1760381352 4987 4156f279cb495dcc0c328a9e471fc045 ""
+  "main.toc" 1760381355 489 69f5b15c8530122183f6267136d6304f "pdflatex"
   "plots/logo.png" 1759258538 4992 313e9b938d7bd8601c5407cbae5f2de0 ""
   (generated)
   "main.aux"
