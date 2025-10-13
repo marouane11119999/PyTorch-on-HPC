@@ -27,7 +27,9 @@ export MASTER_PORT=12355
 OUTPUT_DIR="_benchmark/2nodes_ddp_8task"
 mkdir -vp ${OUTPUT_DIR}
 
-HOSTS=$(scontrol show hostnames $SLURM_JOB_NODELIST | paste -sd "," -)
+
+HOSTS=$(scontrol show hostnames $SLURM_JOB_NODELIST | awk '{print $1":8"}' | paste -sd "," -)
+#HOSTS=$(scontrol show hostnames $SLURM_JOB_NODELIST | paste -sd "," -)
 echo "Launching on hosts: $HOSTS"
 
 mpirun -np $SLURM_NTASKS --host $HOSTS \

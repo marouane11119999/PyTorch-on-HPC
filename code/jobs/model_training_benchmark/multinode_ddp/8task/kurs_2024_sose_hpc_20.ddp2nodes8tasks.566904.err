@@ -1,0 +1,194 @@
+INFO:__main__:Rank 1/16 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Rank 3/16 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Rank 5/16 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Rank 6/16 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Rank 0/16 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Rank 2/16 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Rank 4/16 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Rank 7/16 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Rank 15/16 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Rank 11/16 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Rank 14/16 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Rank 8/16 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Rank 12/16 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Rank 10/16 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Rank 9/16 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Rank 13/16 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Starting DDP benchmark with 16 ranks (this is rank 0)
+INFO:__main__:[Rank 0] Using 3 per process
+INFO:__main__:[Rank 0] Data loaders initialized (Train: 30, Test: 79)
+INFO:__main__:Starting DDP benchmark with 16 ranks (this is rank 1)
+INFO:__main__:[Rank 1] Using 3 per process
+INFO:__main__:[Rank 1] Data loaders initialized (Train: 30, Test: 79)
+INFO:__main__:Starting DDP benchmark with 16 ranks (this is rank 2)
+INFO:__main__:[Rank 2] Using 3 per process
+INFO:__main__:[Rank 2] Data loaders initialized (Train: 30, Test: 79)
+INFO:__main__:Starting DDP benchmark with 16 ranks (this is rank 3)
+INFO:__main__:[Rank 3] Using 3 per process
+INFO:__main__:[Rank 3] Data loaders initialized (Train: 30, Test: 79)
+INFO:__main__:Starting DDP benchmark with 16 ranks (this is rank 4)
+INFO:__main__:[Rank 4] Using 3 per process
+INFO:__main__:[Rank 4] Data loaders initialized (Train: 30, Test: 79)
+INFO:__main__:Starting DDP benchmark with 16 ranks (this is rank 5)
+INFO:__main__:[Rank 5] Using 3 per process
+INFO:__main__:[Rank 5] Data loaders initialized (Train: 30, Test: 79)
+INFO:__main__:Starting DDP benchmark with 16 ranks (this is rank 8)
+INFO:__main__:[Rank 8] Using 3 per process
+INFO:__main__:Starting DDP benchmark with 16 ranks (this is rank 6)
+INFO:__main__:[Rank 6] Using 3 per process
+INFO:__main__:[Rank 6] Data loaders initialized (Train: 30, Test: 79)
+INFO:__main__:[Rank 8] Data loaders initialized (Train: 30, Test: 79)
+INFO:__main__:Starting DDP benchmark with 16 ranks (this is rank 7)
+INFO:__main__:[Rank 7] Using 3 per process
+INFO:__main__:[Rank 7] Data loaders initialized (Train: 30, Test: 79)
+INFO:__main__:Starting DDP benchmark with 16 ranks (this is rank 15)
+INFO:__main__:[Rank 15] Using 3 per process
+INFO:__main__:[Rank 15] Data loaders initialized (Train: 30, Test: 79)
+INFO:__main__:Starting DDP benchmark with 16 ranks (this is rank 9)
+INFO:__main__:[Rank 9] Using 3 per process
+INFO:__main__:Starting DDP benchmark with 16 ranks (this is rank 10)
+INFO:__main__:[Rank 10] Using 3 per process
+INFO:__main__:Starting DDP benchmark with 16 ranks (this is rank 11)
+INFO:__main__:Starting DDP benchmark with 16 ranks (this is rank 13)
+INFO:__main__:[Rank 11] Using 3 per process
+INFO:__main__:[Rank 13] Using 3 per process
+INFO:__main__:Starting DDP benchmark with 16 ranks (this is rank 12)
+INFO:__main__:[Rank 12] Using 3 per process
+INFO:__main__:[Rank 9] Data loaders initialized (Train: 30, Test: 79)
+INFO:__main__:[Rank 10] Data loaders initialized (Train: 30, Test: 79)
+INFO:__main__:[Rank 11] Data loaders initialized (Train: 30, Test: 79)
+INFO:__main__:Starting DDP benchmark with 16 ranks (this is rank 14)
+INFO:__main__:[Rank 14] Using 3 per process
+INFO:__main__:[Rank 13] Data loaders initialized (Train: 30, Test: 79)
+INFO:__main__:[Rank 12] Data loaders initialized (Train: 30, Test: 79)
+INFO:__main__:[Rank 14] Data loaders initialized (Train: 30, Test: 79)
+INFO:__main__:[Rank 0] Epoch 1/5 starting
+INFO:__main__:[Rank 3] Epoch 1/5 starting
+INFO:__main__:[Rank 8] Epoch 1/5 starting
+INFO:__main__:[Rank 5] Epoch 1/5 starting
+INFO:__main__:[Rank 11] Epoch 1/5 starting
+INFO:__main__:[Rank 2] Epoch 1/5 starting
+INFO:__main__:[Rank 13] Epoch 1/5 starting
+INFO:__main__:[Rank 10] Epoch 1/5 starting
+INFO:__main__:[Rank 7] Epoch 1/5 starting
+INFO:__main__:[Rank 1] Epoch 1/5 starting
+INFO:__main__:[Rank 6] Epoch 1/5 starting
+INFO:__main__:[Rank 9] Epoch 1/5 starting
+INFO:__main__:[Rank 14] Epoch 1/5 starting
+INFO:__main__:[Rank 15] Epoch 1/5 starting
+INFO:__main__:[Rank 4] Epoch 1/5 starting
+INFO:__main__:[Rank 12] Epoch 1/5 starting
+INFO:__main__:[Rank 0] Epoch 2/5 starting
+INFO:__main__:[Rank 15] Epoch 2/5 starting
+INFO:__main__:[Rank 14] Epoch 2/5 starting
+INFO:__main__:[Rank 1] Epoch 2/5 starting
+INFO:__main__:[Rank 13] Epoch 2/5 starting
+INFO:__main__:[Rank 2] Epoch 2/5 starting
+INFO:__main__:[Rank 12] Epoch 2/5 starting
+INFO:__main__:[Rank 3] Epoch 2/5 starting
+INFO:__main__:[Rank 11] Epoch 2/5 starting
+INFO:__main__:[Rank 4] Epoch 2/5 starting
+INFO:__main__:[Rank 10] Epoch 2/5 starting
+INFO:__main__:[Rank 5] Epoch 2/5 starting
+INFO:__main__:[Rank 9] Epoch 2/5 starting
+INFO:__main__:[Rank 6] Epoch 2/5 starting
+INFO:__main__:[Rank 8] Epoch 2/5 starting
+INFO:__main__:[Rank 7] Epoch 2/5 starting
+INFO:__main__:[Rank 0] Epoch 3/5 starting
+INFO:__main__:[Rank 15] Epoch 3/5 starting
+INFO:__main__:[Rank 14] Epoch 3/5 starting
+INFO:__main__:[Rank 1] Epoch 3/5 starting
+INFO:__main__:[Rank 13] Epoch 3/5 starting
+INFO:__main__:[Rank 2] Epoch 3/5 starting
+INFO:__main__:[Rank 12] Epoch 3/5 starting
+INFO:__main__:[Rank 3] Epoch 3/5 starting
+INFO:__main__:[Rank 11] Epoch 3/5 starting
+INFO:__main__:[Rank 4] Epoch 3/5 starting
+INFO:__main__:[Rank 10] Epoch 3/5 starting
+INFO:__main__:[Rank 5] Epoch 3/5 starting
+INFO:__main__:[Rank 9] Epoch 3/5 starting
+INFO:__main__:[Rank 6] Epoch 3/5 starting
+INFO:__main__:[Rank 8] Epoch 3/5 starting
+INFO:__main__:[Rank 7] Epoch 3/5 starting
+INFO:__main__:[Rank 0] Epoch 4/5 starting
+INFO:__main__:[Rank 15] Epoch 4/5 starting
+INFO:__main__:[Rank 14] Epoch 4/5 starting
+INFO:__main__:[Rank 1] Epoch 4/5 starting
+INFO:__main__:[Rank 13] Epoch 4/5 starting
+INFO:__main__:[Rank 2] Epoch 4/5 starting
+INFO:__main__:[Rank 12] Epoch 4/5 starting
+INFO:__main__:[Rank 3] Epoch 4/5 starting
+INFO:__main__:[Rank 11] Epoch 4/5 starting
+INFO:__main__:[Rank 4] Epoch 4/5 starting
+INFO:__main__:[Rank 10] Epoch 4/5 starting
+INFO:__main__:[Rank 5] Epoch 4/5 starting
+INFO:__main__:[Rank 9] Epoch 4/5 starting
+INFO:__main__:[Rank 6] Epoch 4/5 starting
+INFO:__main__:[Rank 8] Epoch 4/5 starting
+INFO:__main__:[Rank 7] Epoch 4/5 starting
+INFO:__main__:[Rank 0] Epoch 5/5 starting
+INFO:__main__:[Rank 15] Epoch 5/5 starting
+INFO:__main__:[Rank 14] Epoch 5/5 starting
+INFO:__main__:[Rank 1] Epoch 5/5 starting
+INFO:__main__:[Rank 13] Epoch 5/5 starting
+INFO:__main__:[Rank 2] Epoch 5/5 starting
+INFO:__main__:[Rank 12] Epoch 5/5 starting
+INFO:__main__:[Rank 3] Epoch 5/5 starting
+INFO:__main__:[Rank 11] Epoch 5/5 starting
+INFO:__main__:[Rank 4] Epoch 5/5 starting
+INFO:__main__:[Rank 10] Epoch 5/5 starting
+INFO:__main__:[Rank 5] Epoch 5/5 starting
+INFO:__main__:[Rank 9] Epoch 5/5 starting
+INFO:__main__:[Rank 6] Epoch 5/5 starting
+INFO:__main__:[Rank 8] Epoch 5/5 starting
+INFO:__main__:[Rank 7] Epoch 5/5 starting
+INFO:__main__:[Rank 15] Repetition 1 finished in 1199094.92 ms
+INFO:__main__:[Rank 0] Repetition 1 finished in 1206175.50 ms
+INFO:__main__:[Rank 14] Repetition 1 finished in 1199194.32 ms
+INFO:__main__:[Rank 1] Repetition 1 finished in 1200583.09 ms
+INFO:__main__:[Rank 13] Repetition 1 finished in 1203205.98 ms
+INFO:__main__:[Rank 2] Repetition 1 finished in 1204408.55 ms
+INFO:__main__:[Rank 12] Repetition 1 finished in 1199163.55 ms
+INFO:__main__:[Rank 3] Repetition 1 finished in 1205828.02 ms
+INFO:__main__:[Rank 11] Repetition 1 finished in 1204930.49 ms
+INFO:__main__:[Rank 4] Repetition 1 finished in 1199985.32 ms
+INFO:__main__:[Rank 10] Repetition 1 finished in 1203504.68 ms
+INFO:__main__:[Rank 5] Repetition 1 finished in 1205489.56 ms
+INFO:__main__:[Rank 9] Repetition 1 finished in 1200720.17 ms
+INFO:__main__:[Rank 6] Repetition 1 finished in 1201293.13 ms
+INFO:__main__:[Rank 8] Repetition 1 finished in 1206315.95 ms
+INFO:__main__:[Rank 7] Repetition 1 finished in 1202182.91 ms
+INFO:__main__:[Rank 0] Local accuracy: 72.81%
+INFO:__main__:[Rank 15] Local accuracy: 72.81%
+INFO:__main__:[Rank 14] Local accuracy: 72.81%
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:[Rank 1] Local accuracy: 72.81%
+INFO:__main__:[Rank 13] Local accuracy: 72.81%
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:[Rank 2] Local accuracy: 72.81%
+INFO:__main__:[Rank 12] Local accuracy: 72.81%
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:[Rank 11] Local accuracy: 72.81%
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:[Rank 3] Local accuracy: 72.81%
+INFO:__main__:[Rank 10] Local accuracy: 72.81%
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:[Rank 9] Local accuracy: 72.81%
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:[Rank 4] Local accuracy: 72.81%
+INFO:__main__:[Rank 8] Local accuracy: 72.81%
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:[Rank 5] Local accuracy: 72.81%
+INFO:__main__:[Rank 6] Local accuracy: 72.81%
+INFO:__main__:[Rank 7] Local accuracy: 72.81%
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:[Threads=3] DDP run 1/1 on 16 ranks: 1206175.50 ms, Accuracy: 72.81%
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:Results saved to _benchmark/2nodes_ddp/ddp_benchmark_16_ranks_3_threads.csv
+INFO:__main__:Cleaning up DDP process group

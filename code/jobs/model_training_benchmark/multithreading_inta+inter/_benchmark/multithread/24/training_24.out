@@ -1,0 +1,8 @@
+INFO:__main__:Current working directory: /scratch/kurs_2024_sose_hpc/kurs_2024_sose_hpc_20/projekt/PyTorch-on-HPC/code/jobs/model_training_benchmark/multithreading_inta+inter
+INFO:__main__:Data path exists? True
+INFO:__main__:Number of threads: 24
+INFO:__main__:Running benchmark with 24 threads ...
+INFO:__main__:[24 threads] Run 1/3: 80291.5 ms, Accuracy: 83.60%
+INFO:__main__:[24 threads] Run 2/3: 78677.5 ms, Accuracy: 80.76%
+INFO:__main__:[24 threads] Run 3/3: 79480.7 ms, Accuracy: 84.57%
+INFO:__main__:Results saved to _benchmark/model_training/multicore_model_benchmark_24_threads.csv
