@@ -6,8 +6,8 @@
 #SBATCH --ntasks-per-node=4
 #SBATCH --cpus-per-task=6
 #SBATCH --time=03:00:00
-#SBATCH --output=%u.ddp2nodes2tasks.%j.out
-#SBATCH --error=%u.ddp2nodes2tasks.%j.err
+#SBATCH --output=%u.ddp2nodes4tasks.%j.out
+#SBATCH --error=%u.ddp2nodes4tasks.%j.err
 
 module purge
 module add slurm
@@ -24,7 +24,7 @@ export PYTHONWARNINGS="ignore"
 export MASTER_ADDR=$(scontrol show hostnames $SLURM_JOB_NODELIST | head -n1)
 export MASTER_PORT=12355
 
-OUTPUT_DIR="_benchmark/2nodes_ddp_2task"
+OUTPUT_DIR="_benchmark/2nodes_ddp_4task"
 mkdir -vp ${OUTPUT_DIR}
 
 HOSTS=$(scontrol show hostnames $SLURM_JOB_NODELIST | paste -sd "," -)
