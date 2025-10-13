@@ -167,8 +167,10 @@ def main():
     rank, world_size = setup_ddp()  # returns rank and world_size
     logger.info(f"Starting DDP benchmark with {world_size} ranks (this is rank {rank})")
 
-    for threads in [12, 24]:
-        run_benchmark_ddp_training(
+    threads = int(os.environ.get("SLURM_CPUS_PER_TASK", "1"))
+    logger.info(f"[Rank {rank}] Using {threads} per process")
+    #for threads in [12, 24]:
+    run_benchmark_ddp_training(
             rank=rank,
             world_size=world_size,
             args=args,
