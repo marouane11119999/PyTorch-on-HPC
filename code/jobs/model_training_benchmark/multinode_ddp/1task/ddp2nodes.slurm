@@ -24,14 +24,14 @@ export PYTHONWARNINGS="ignore"
 export MASTER_ADDR=$(scontrol show hostnames $SLURM_JOB_NODELIST | head -n1)
 export MASTER_PORT=12355
 
-OUTPUT_DIR="_benchmark/2nodes_ddp"
+OUTPUT_DIR="_benchmark/2nodes_ddp_1task"
 mkdir -vp ${OUTPUT_DIR}
 
 HOSTS=$(scontrol show hostnames $SLURM_JOB_NODELIST | paste -sd "," -)
 echo "Launching on hosts: $HOSTS"
 
 mpirun -np $SLURM_NTASKS --host $HOSTS \
-    python3 ../../../src/model_training_benchmark/model_training_ddp.py \
+    python3 ../../../../src/model_training_benchmark/model_training_ddp.py \
     --batch_size 128 \
     --num_epochs 5 \
     --num_repeats 1

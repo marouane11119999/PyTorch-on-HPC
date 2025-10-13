@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage{graphicx} % For including images
+\usepackage{booktabs} % For nicer tables
+\usepackage{caption}  % Better captions
+\usepackage{listings} % For code snippets if needed
+\usepackage{hyperref} % For clickable links
+\usepackage{float}
+\usepackage{enumitem} % add this in the preamble
+\usepackage{tcolorbox} % in der Präambel einfügen
+\tcbuselibrary{listings, skins}
+\usepackage{listings}
+\usepackage{tcolorbox}
+\tcbuselibrary{listings, breakable}
+\usepackage{amsmath}
+\usepackage{ragged2e}
+\usepackage[ngerman]{babel}   % für deutsche Sprache
+\usepackage[backend=biber, style=numeric, sorting=nyt]{biblatex} 
+\addbibresource{biblio.bib}
+
+\usepackage{subcaption}
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    
+    % Logo at the top
+    \includegraphics[width=0.3\textwidth]{plots/logo.png}\par
+    \vspace{2cm}
+
+    {\Huge\bfseries Thema: \\ Santander Customer Transaction Prediction \par}
+
+    \vspace{3cm}
+
+    {\large
+    \begin{tabular}{ll}
+        Name: & Marouane Soussi \\
+        Gruppennummer: & 333 \\
+        Übrige Gruppenmitglieder: & Hannah Bremeyer, Zeynep Alarsalan
+        , Jimmy Tran \\
+        Sprecherin: & Zeynep Alarsalan \\
+        Semester: & Sommer 2025/2026 \\
+    \end{tabular}
+    }
+
+    \vfill
+
+    {\large September 2025}
+\end{titlepage}
+
+% ========================
+% Sommaire / Table of Contents
+% ========================
+\tableofcontents
+\newpage
+
+
+% =============================
+\section{Logbuch}
+% =============================
+
+\newpage
+\printbibliography[title={Literaturverzeichnis}]
+\addcontentsline{toc}{section}{Literaturverzeichnis} % fügt es ins Inhaltsverzeichnis ein
+
+
+
+
+\end{document}
