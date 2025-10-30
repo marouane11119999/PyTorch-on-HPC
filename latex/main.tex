@@ -7,12 +7,19 @@
 \usepackage{float}
 \usepackage{enumitem} % add this in the preamble
 \usepackage{tcolorbox} % in der Präambel einfügen
+\usepackage{dirtree}
 \tcbuselibrary{listings, skins}
 \usepackage{listings}
 \usepackage{tcolorbox}
 \tcbuselibrary{listings, breakable}
 \usepackage{amsmath}
 \usepackage{ragged2e}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{tikz}
+\usetikzlibrary{positioning, fit, arrows.meta}
+
 \usepackage[ngerman]{babel}   % für deutsche Sprache
 \usepackage[backend=biber, style=numeric, sorting=nyt]{biblatex} 
 \addbibresource{biblio.bib}
@@ -27,7 +34,7 @@
     \includegraphics[width=0.3\textwidth]{plots/logo.png}\par
     \vspace{2cm}
 
-    {\Huge\bfseries Thema: \\ Santander Customer Transaction Prediction \par}
+    {\Huge\bfseries Thema: \\ Machine Learning Software für HPC\par}
 
     \vspace{3cm}
 
@@ -35,7 +42,7 @@
     \begin{tabular}{ll}
         Name: & Marouane Soussi \\
         Gruppennummer: & 333 \\
-        Übrige Gruppenmitglieder: & Hannah Bremeyer, Zeynep Alarsalan
+        Übrige Gruppenmitglieder: & Zeynep Alarsalan
         , Jimmy Tran \\
         Sprecherin: & Zeynep Alarsalan \\
         Semester: & Sommer 2025/2026 \\
@@ -44,7 +51,7 @@
 
     \vfill
 
-    {\large September 2025}
+    {\large Oktober 2025}
 \end{titlepage}
 
 % ========================
@@ -53,53 +60,31 @@
 \tableofcontents
 \newpage
 
-
+\lstset{
+  basicstyle=\ttfamily\small,
+  frame=single,
+  backgroundcolor=\color{gray!5},
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false,
+  breaklines=true,
+}
 % =============================
 \section{Logbuch}
 % =============================
 
-Vergleiche:
-
-\begin{itemize}
-    \item \textbf{Multithreading:} 
-    \begin{itemize}
-        \item Serial without parallelism
-        \item Intraop parallelism
-        \item Interop parallelism
-        \item Intraop + interop parallelism
-    \end{itemize}
-    
-    \item \textbf{Multiprocessing + Multithreading:} 
-    \begin{itemize}
-        \item Serial
-        \item 2 proc, 12 threads
-        \item 4 proc, 6 threads
-        \item 8 proc, 3 threads
-    \end{itemize}
-    
-    \item \textbf{Multinode DDP:} 
-    \begin{itemize}
-        \item 1 task per node, 12/24 threads
-        \item 2 tasks per node, 12 threads
-        \item 4 tasks per node, 6 threads
-        \item 8 tasks per node, 3 threads
-    \end{itemize}
-    
-    \item \textbf{Tuning:} Show how array jobs can be used to tune hyperparameters with multithreading.
-    
-    \item \textbf{Learning curve:} Show how array jobs can be used to generate a learning curve with multiprocessing and multithreading.
-    
-    \item \textbf{Validation curve:} Show how array jobs can be used to generate a validation curve with multiprocessing and multithreading.
-\end{itemize}
 
 \subsection{Eintrag 1 : Projekt Setup und Bibiliothekauswahl (add meeting date here)}
+\label{lab:eintrag1}
 \subsubsection{Zusammenfassung:}
 \begin{itemize}
+    \item Auswahl der Deep Learning Bibliothek (\texttt{PyTorch}) und der \textbf{FashionMNIST} \cite{xiao2017fashion} 
+        Datensatz für die Experimente
     \item Projektstruktur erstellt
     \item Experimente definiert
     \item GitHub Repository erstellt
     \item LaTeX Vorlage für Bericht erstellt
-    \item Auswahl der Deep Learning Bibliothek (\texttt{PyTorch})
+    
 \end{itemize}
 
 \subsubsection{Details und Arbeitsschritte:}
@@ -113,7 +98,7 @@ Die Experimente wurden in mehreren Kategorien unterteilt:
 \begin{itemize}
     \item Model Training Experimente
     \begin{itemize}
-        \item Serial Training
+        \item Serial Training (ohne Parallelismus zur Referenz)
         \item Multithreading (1 to 24 threads)
         \item Multiprocessing + Multithreading auf einem Knoten (2 proc, 12 threads; 4 proc, 6 threads; 8 proc, 3 threads)
         \item Multinode DDP auf 2 Knoten mit verschiedenen Tasks pro Knoten und Threads pro Task (1 task, 12/24 threads per node; 2 tasks, 12 threads per node; 4 tasks, 6 threads per node; 8 tasks, 3 threads per node)
@@ -122,16 +107,2055 @@ Die Experimente wurden in mehreren Kategorien unterteilt:
     \item Learning Curve mit Multiprocessing + Multithreading
     \item Validation Curve mit Multiprocessing + Multithreading
 \end{itemize}
+Für diese Experimente wurde der \textbf{FashionMNIST} Datensatz verwendet, der 60.000 Trainings- und 10.000 
+Testbilder von Kleidungsstücken in 10 Klassen enthält, darunter T-Shirts, Hosen, Pullover und Schuhe, etc.
+Der Datensatz dient als Standardbenchmark für Bildklassifikationsaufgaben 
+im Deep Learning und ermöglicht die Evaluierung von Modellen und Trainingsmethoden.
 
-Hinsichtlich der Github Repository es wurde eine Struktur erstellt, die den Code, die Job-Skripte und den Bericht organisiert
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{plots/mnist.png}
+    \caption{Beispielbilder aus dem FashionMNIST Datensatz.}
+    \label{fig:mnist_samples}
+\end{figure}
+
+Hinsichtlich der Github Repository es wurde eine Struktur erstellt \ref{fig:dir_structure}, die den Code, die Job-Skripte und den Bericht organisiert
 (\href{https://github.com/marouane11119999/PyTorch-on-HPC}{Link}). 
+
+\begin{figure}[h]
+\centering
+\fboxrule=2pt%
+\fcolorbox{blue!30}{yellow!5}{%
+\begin{minipage}{0.9\textwidth}
+\setlength{\DTbaselineskip}{\baselineskip}%
+\dirtree{%
+.1 \textcolor{blue}{\textbf{pytorchhpc}} .
+.2 \textcolor{blue}{\textbf{code}}.
+.3 \textcolor{blue}{\textbf{jobs}} \DTcomment{\textcolor{red!80!black}{ Slurm-Jobskripte, Ausführungslogs und Output-Dateien}}.
+.3 \textcolor{blue}{\textbf{src}} \DTcomment{\textcolor{red!80!black}{ Zentrale Quellcodedateien, Module und Experimentauswertung}}.
+.2 \textcolor{blue}{\textbf{latex}}.
+.3 \textcolor{blue}{\textbf{plots}} \DTcomment{\textcolor{red!80!black}{ Erzeugte Diagramme, Visualisierungen und Abbildungen}}.
+.3 \textcolor{blue}{\textbf{.tex}} \DTcomment{\textcolor{red!80!black}{ LaTeX-Quelldateien und Dokumentstruktur}}.
+.3 \textcolor{blue}{\textbf{.pdf}}.
+.2 \textcolor{blue}{\textbf{readme.md}} .
+.2 \textcolor{blue}{\textbf{.gitignore}}.
+}
+\end{minipage}%
+}
+\caption{Repository-Struktur}
+\label{fig:dir_structure}
+\end{figure}
+
+
+
+\subsection{Eintrag 2: Data Loading und Model Training Experimente (add meeting date here)}
+\label{lab:eintrag2}
+\subsubsection{Zusammenfassung:}
+\begin{itemize}
+    \item Parallelisierungsmöglichkeiten in \texttt{PyTorch} untersucht und auf die Nutzung in justHPC bezogen
+    \item Erste Experimente zum Datenladen mit unterschiedlichen DataLoader-Workern durchgeführt
+    \item Model Training Experimente definiert und erste Szenarien implementiert
+    \item Ergebnisse gesammelt und analysiert
+\end{itemize}
+
+\subsubsection{Details und Arbeitsschritte:}
+\vspace{0.5em}
+\textbf{PyTorch DataLoader} \mbox{}\\
+Pytorch bietet die Möglichkeit, den Datensatz FashionMNIST mit dem \texttt{DataLoader} Modul zu laden.
+Dieses Modul unterstützt die parallele Datenvorverarbeitung und das Laden von Daten in Batches. 
+PyTorch DataLoader unterstützt standardmäßig Single-Process Datenladen, wobei alle Daten im Hauptprozess geladen werden. 
+Um Datenladen und Trainingsberechnungen parallel zu gestalten und Blockieren durch den Global Interpreter Lock (GIL) zu vermeiden, 
+kann der Parameter \texttt{num\_workers} auf eine positive Zahl gesetzt werden. In diesem Fall erstellt der Hauptprozess 
+für jede Iteration des DataLoaders die angegebene Anzahl von Worker-Prozessen. Diese Worker erhalten eine Kopie des Datensatzes 
+führen dort das Laden und Vorverarbeiten der Daten durch. Diese Architektur ermöglicht paralleles Laden, 
+minimiert CPU-Blocking und kann die Datenvorverarbeitung für große Datensätze deutlich beschleunigen.
+
+Um dieses Konzept zu testen, wurde ein Benchmark-Skript entwickelt, das die Ladezeiten des FashionMNIST-Datensatzes 
+mit unterschiedlichen \texttt{num\_workers} Werten misst. \texttt{data.py} \ref{lst:fashionmnist_dataloader} 
+enthält die Funktionalität zum Laden des Datensatzes und \texttt{data\_loading\_benchmark.py} \ref{lst:data_loading_benchmark} misst die Ladezeiten. 
+Um die Experimente für verschiedene \texttt{num\_workers} Werte durchzuführen, wurde ein Slurm-Jobskript erstellt \ref{lst:slurm_data_loader}.
+
+\begin{lstlisting}[language=Python, caption={\texttt{data.py}: Laden des FashionMNIST-Datensatzes und Erstellen von DataLoaders}, label={lst:fashionmnist_dataloader}, 
+basicstyle=\ttfamily\small, keywordstyle=\color{blue}\bfseries, commentstyle=\color{green!60!black}, stringstyle=\color{orange}]
+def get_dataset(path: Path, download: bool = False):
+    # Define transforms: convert to tensor + normalize
+    transform = transforms.Compose([
+        transforms.ToTensor(),
+        transforms.Normalize((0.5,), (0.5,)) 
+    ])
+    # Load train/test datasets
+    train_dataset = torchvision.datasets.FashionMNIST(
+        root=path,
+        train=True,
+        download=download,
+        transform=transform
+    )
+    test_dataset = torchvision.datasets.FashionMNIST(
+        root=path,
+        train=False,
+        download=download,
+        transform=transform
+    )
+    return train_dataset, test_dataset
+def get_dataloaders(train_dataset: Dataset, test_dataset: Dataset, batch_size: int = 64, num_workers: int = 2):
+    # Wrap in DataLoaders
+    train_loader = torch.utils.data.DataLoader(
+        train_dataset,
+        batch_size=batch_size,
+        shuffle=True,
+        num_workers=num_workers,
+    )
+    test_loader = torch.utils.data.DataLoader(
+        test_dataset,
+        batch_size=batch_size,
+        shuffle=False,
+        num_workers=num_workers,
+    )
+    return train_loader, test_loader
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python, caption={\texttt{data\_loading\_benchmark.py}: Benchmark-Skript zum Messen der Datenladezeiten mit unterschiedlichen DataLoader-Workern}, label={lst:data_loading_benchmark}, 
+basicstyle=\ttfamily\small, keywordstyle=\color{blue}\bfseries, commentstyle=\color{green!60!black}, stringstyle=\color{orange}]
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+def run_benchmark(
+        num_workers: int,
+        train_dataset: Dataset,
+        test_dataset: Dataset,
+        batch_size: int,
+        num_repeats: int
+    ) -> pd.DataFrame:
+    runtimes = []
+    for _ in range(num_repeats):
+        train_loader, test_loader = get_dataloaders(
+            train_dataset=train_dataset,
+            test_dataset=test_dataset,
+            batch_size=batch_size,
+            num_workers=num_workers
+        )
+        t_start = time.perf_counter()
+        for images, labels in train_loader:
+            pass  # testing only data loading time
+        runtimes.append(1000 * (time.perf_counter() - t_start))
+    runtimes = runtimes[1:]  # discard first run (cache warmup)
+    logger.info(
+        f"{num_workers = }: {np.mean(runtimes):.1f} +/- {np.std(runtimes):.1f} ms"
+        f" from {len(runtimes)} runs"
+    )
+    return pd.DataFrame({
+        "num_workers": [num_workers] * len(runtimes),
+        "runtime_ms": runtimes
+    })
+def get_cmdargs():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--batch_size", type=int, default=128)
+    parser.add_argument("--num_repeats", type=int, default=5)
+    parser.add_argument("--workers_list", type=int, nargs="+", default=[1, 2, 4, 8, 12, 24])
+    return parser.parse_args()
+def main():
+    args = get_cmdargs()
+    data_path = Path("_benchmark/data_loading/data")
+    output_path = Path("_benchmark/data_loading")
+    FINAL_PATH = os.path.join(output_path, "data_loading_benchmark.csv")
+    output_path.mkdir(parents=True, exist_ok=True)
+    all_results = []
+    train, test = get_dataset(path=data_path)  # download data once
+    for nw in args.workers_list:
+        df_results = run_benchmark(
+            num_workers=nw,
+            batch_size=args.batch_size,
+            train_dataset=train,
+            test_dataset=test,
+            num_repeats=args.num_repeats
+        )
+        all_results.append(df_results)
+    combined_results = pd.concat(all_results, ignore_index=True)
+    combined_results.to_csv(FINAL_PATH, index=False)
+    logger.info(f"All benchmarks saved to {output_path}")
+    
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=bash, caption={Slurm-Jobskript zum Ausführen des DataLoader-Benchmarks}, label={lst:slurm_data_loader},
+basicstyle=\ttfamily\small, keywordstyle=\color{blue}\bfseries, commentstyle=\color{green!60!black}, stringstyle=\color{orange}]
+#!/usr/bin/env sh
+
+#SBATCH --reservation=hpc-course-sose2025 
+#SBATCH --partition=teaching
+
+#SBATCH --job-name=data_loader_benchmark
+#SBATCH --output=data_loader_benchmark_%j.out
+#SBATCH --error=data_loader_benchmark_%j.err
+
+#SBATCH --time=0-01:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=24
+
+module purge 
+module add slurm 
+module load miniconda3
+source activate pytorchhpc
+python -c "import numpy; import torch; print('Imports OK')"
+echo "Starting at `date`"
+echo "Running on hosts: $SLURM_NODELIST"
+echo "Running on $SLURM_NNODES nodes."
+echo "Running on $SLURM_NPROCS processors."
+echo "Current working directory is `pwd`" 
+
+# Set output directory for benchmark results
+OUTPUT_DIR="_benchmark/data_loading"
+mkdir -vp ${OUTPUT_DIR}
+
+srun python3 ../../src/data_loading_benchmark/data_loading_benchmark.py \
+    --batch_size 128 \
+    --num_repeats 5 \
+    --workers_list 1 2 4 8 12 24 \
+    &> ${OUTPUT_DIR}/benchmark_all_workers.out
+
+echo "Finished at `date`"
+\end{lstlisting}
+
+Dieses Slurm-Jobskript startet den DataLoader-Benchmark auf einem Knoten der 
+HPC-Umgebung und reserviert 24 CPUs für die Datenvorverarbeitung. 
+Es lädt die benötigten Module und aktiviert die \texttt{pytorchhpc}-Umgebung, 
+die speziell erstellt wurde, um alle für dieses Projekt benötigten Python-Pakete bereitzustellen, 
+bevor das Python-Skript \texttt{data\_loading\_benchmark.py} ausgeführt wird. 
+Das Skript durchläuft alle angegebenen \texttt{num\_workers}-Werte (1, 2, 4, 8, 12, 24) 
+und misst die Ladezeit der Daten für jede Worker-Konfiguration, wobei die Ergebnisse in einer 
+CSV-Datei gespeichert werden. Um die Ergebnisse zu visualisieren, wurden 3 Metriken betrachtet:
+\begin{itemize}
+    \item \textbf{Speedup} ($S_n$): Verhältnis der Ladezeit mit 1 Worker ($T_1$) zur Ladezeit mit $n$ Workern ($T_n$)
+    \[
+        S_n = \frac{T_1}{T_n}
+    \]
+
+    \item \textbf{Throughput / Performance} ($P_n$): Anzahl der verarbeiteten Bilder (\textit{work}) pro Zeiteinheit ($T_n$)
+    \[
+        P_n = \frac{\text{work}}{T_n}
+    \]
+
+    \item \textbf{Efficiency} ($E_n$): Verhältnis des Speedups zur Anzahl der Worker ($n$)
+    \[
+        E_n = \frac{S_n}{n}
+    \]
+\end{itemize}
+
+Die Ergebnisse der Experimente sind in Abbildung \ref{fig:data_loading_results} dargestellt.
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=\textwidth]{plots/dataloaderperf.png}
+    \caption{Ergebnisse der DataLoader-Benchmarks mit unterschiedlichen Worker-Anzahlen.}
+    \label{fig:data_loading_results}
+\end{figure}
+
+Das \textbf{Speedup}-Diagramm ($S_n$) zeigt, dass die Daten mit mehr Workern deutlich schneller geladen werden können. 
+Bis zu etwa 24 Worker sinkt die Ladezeit fast im gleichen Verhältnis, wie neue Worker hinzugefügt werden. 
+Im \textbf{Efficiency}-Diagramm ($E_n$) sieht man jedoch, dass die Effizienz nach rund acht Workern deutlich abnimmt. 
+Das bedeutet, dass der zusätzliche Aufwand, viele Worker zu verwalten (z.\,B. Kommunikation und Synchronisation), 
+die Vorteile teilweise wieder verringert. 
+Trotzdem steigt der \textbf{Throughput} ($P_n$) weiter an und erreicht bei 24 Workern seinen höchsten Wert. 
+
+
+\vspace{0.5em}
+\paragraph{Model Training} \label{par:mt}\mbox{}\\
+
+PyTorch bietet verschiedene Möglichkeiten zur Parallelisierung von Trainingsprozessen. Auf Thread-Ebene können Funktionen wie 
+\texttt{torch.set\_num\_threads()} und \texttt{torch.set\_num\_interop\_threads()} verwendet werden, um die Anzahl der Threads für interne Berechnungen 
+und parallele Operationen festzulegen, was insbesondere auf Systemen mit vielen CPU-Kernen relevant ist. 
+
+Für die Verteilung von Berechnungen über mehrere Prozesse oder Geräte stellt PyTorch zwei Hauptstrategien bereit: \\ \texttt{DataParallel (DP)} 
+und \texttt{DistributedDataParallel (DDP)}. DP arbeitet mit einem einzelnen Prozess und mehreren Threads und verteilt Eingabedaten über mehrere GPUs 
+auf derselben Maschine, wobei die Gradienten auf dem Hauptgerät zusammengeführt werden. DDP hingegen verwendet mehrere Prozesse, unterstützt sowohl 
+Training auf einer einzelnen Maschine als auch über mehrere Knoten und synchronisiert die Gradienten während der Rückwärtsrechnung über Kommunikationsroutinen wie \texttt{Gloo} oder \texttt{MPI} \cite{suresh2025communication}.  
+
+Auf Systemen mit mehreren Knoten oder ohne mehrere GPUs macht DP nur eingeschränkt Sinn, da es auf einzelne Maschinen beschränkt ist und durch Thread-Overhead und 
+GIL-Beschränkungen in der Regel langsamer arbeitet als DDP. DDP skaliert hingegen effizient über mehrere Prozesse und Knoten und kann zudem mit Model-Parallelismus kombiniert werden, 
+falls ein Modell zu groß für ein einzelnes Gerät ist. In solchen Szenarien würde jeder DDP-Prozess Teile des Modells parallel berechnen, während die Prozesse gemeinsam Daten parallelisieren. 
+
+In der \textbf{JustHPC}-Architektur verfügt jeder Rechenknoten über 24 Kerne, aufgeteilt auf zwei Sockel mit jeweils einer CPU und 12 Kernen pro CPU 
+(zwei ccNUMA-Domänen). Der verfügbare Arbeitsspeicher pro Knoten beträgt 192\,GB, 
+und die Knoten sind über ein Intel Omni-Path Netzwerk verbunden, das z.B. für MPI-Kommunikation genutzt werden kann. 
+Da in dieser Architektur nur CPUs vorhanden sind und keine GPUs für DP genutzt werden könnten, bietet sich der Einsatz von DistributedDataParallel (DDP) an. 
+Die Hardwarekonfiguration beeinflusst dabei, wie die DDP-Prozesse über die Kerne und Knoten verteilt werden, um die Rechenressourcen effizient zu nutzen.
+
+Die Experimente wurden in mehreren Sczenarien unterteilt:
+\begin{itemize}
+    \item \textbf{Serial Training:} Training ohne Parallelismus als Referenz.
+    \item \textbf{Multithreading:} Training mit verschiedenen Thread-Anzahlen (1 bis 24 Threads) auf einem Knoten (intraop, interop, intraop + interop).
+    \item \textbf{Multiprocessing + Multithreading:} Training mit mehreren Prozessen (2, 4, 8) und jeweils angepasster Thread-Anzahl (12, 6, 3) auf einem Knoten.
+    \item \textbf{Multinode DDP:} Training über zwei Knoten mit verschiedenen Konfigurationen von Tasks pro Knoten und Threads pro Task (1 Task mit 12/24 Threads, 2 Tasks mit 12 Threads, 4 Tasks mit 6 Threads, 8 Tasks mit 3 Threads).
+\end{itemize}
+
+Der erste Schritt bestand darin, ein einfaches neuronales Netzwerk zu implementieren, das auf dem FashionMNIST-Datensatz trainiert werden kann.
+
+\begin{lstlisting}[language=Python, caption={\texttt{model.py}: CNN Modell}, label={lst:model}, 
+basicstyle=\ttfamily\small, keywordstyle=\color{blue}\bfseries, commentstyle=\color{green!60!black}, stringstyle=\color{orange}]
+class SimpleCNN(nn.Module):
+    def __init__(self):
+        super(SimpleCNN,self).__init__()
+        self.conv1 = nn.Conv2d(1, 32, 3, 1)
+        self.conv2 = nn.Conv2d(32, 64, 3, 1)
+        self.fc1 = nn.Linear(9216, 128)
+        self.fc2 = nn.Linear(128, 10)
+    
+    def forward(self, x):
+        # first conv layer + relu
+        x = self.conv1(x)
+        x = F.relu(x) # (32, 26, 26) tensor
+        
+        # second conv layer + relu + maxpool
+        x = self.conv2(x)
+        x = F.relu(x)
+        x = F.max_pool2d(x, 2) # (64, 12, 12) tensor
+        
+        # flatten
+        x = torch.flatten(x, 1) # (9216,) tensor ready for fc layer
+        x = self.fc1(x)
+        x = F.relu(x) # this returns a (128,) tensor
+        
+        x = self.fc2(x) # this returns a (10,) tensor
+        output = F.log_softmax(x, dim=1) # log-probabilities
+        return output
+\end{lstlisting}
+Das implementierte Modell \texttt{SimpleCNN} ist in \ref{lst:model} zu sehen und ist ein einfaches Convolutional Neural Network (CNN), 
+das aus den folgenden groben Komponenten besteht:
+
+\begin{itemize}
+    \item \textbf{Convolutional Layer 1 (\texttt{conv1})}: Extrahiert grundlegende Bildmerkmale aus den Eingabebildern.
+    \item \textbf{Convolutional Layer 2 (\texttt{conv2})}: Extrahiert komplexere Merkmale und reduziert die räumliche Größe.
+    \item \textbf{Flatten und Fully Connected Layers (\texttt{fc1}, \texttt{fc2})}: Wandelt die Feature Maps in einen Vektor um und projiziert auf die Klassenzahl.
+    \item \textbf{Ausgabe}: Log-Softmax-Wahrscheinlichkeiten für die Klassenvorhersage.
+\end{itemize}
+
+Anschließend wurde die Trainings- und Evaluierungslogik implementiert in \ref{lst:training_serial}, die das Modell mit dem FashionMNIST-Datensatz trainiert und validiert, um 
+die ersten Experimente durchzuführen (Serial Training und Training mit \texttt{Pytorch} Multithreading).
+\begin{lstlisting}[language=Python, caption={\texttt{model.py}: CNN Modell}, label={lst:training_serial}, 
+basicstyle=\ttfamily\small, keywordstyle=\color{blue}\bfseries, commentstyle=\color{green!60!black}, stringstyle=\color{orange}]
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+def run_benchmark_serial_training(
+    train_data: Dataset,
+    test_data: Dataset,
+    batch_size: int,
+    num_epochs: int,
+    num_repeats: int
+) -> pd.DataFrame:
+    device = torch.device("cpu")
+    torch.set_num_threads(1) # force single-threaded execution
+    
+    runtimes = []
+    accuracies = []
+    train_loader, test_loader = get_dataloaders(
+        train_dataset=train_data,
+        test_dataset=test_data,
+        batch_size=batch_size,  
+        num_workers=0  # single-threaded data loading
+    )
+    for rep in range(num_repeats):
+        # model setup
+        model = SimpleCNN().to(device)
+        optimizer = optim.SGD(model.parameters(), lr=0.01)
+        criterion = nn.CrossEntropyLoss()
+        
+        start_time = time.perf_counter()
+        for epoch in range(num_epochs):
+            model.train()
+            for batch_idx, (images, labels) in enumerate(train_loader):
+                images, labels = images.to(device), labels.to(device)
+                optimizer.zero_grad()
+                outputs = model(images)
+                loss = criterion(outputs, labels)
+                loss.backward()
+                optimizer.step()
+        runtime = 1000 * (time.perf_counter() - start_time)  # in ms
+        model.eval()
+        total = 0
+        correct = 0
+        with torch.no_grad():
+            for images, labels in test_loader:
+                images, labels = images.to(device), labels.to(device)
+                outputs = model(images)
+                _, predicted = torch.max(outputs.data, 1)
+                total += labels.size(0)
+                correct += (predicted == labels).sum().item()
+        accuracy = 100 * correct / total
+        
+        runtimes.append(runtime)
+        accuracies.append(accuracy)
+        logger.info(
+            f"Run {rep+1}/{num_repeats}: {runtime:.1f} ms, Accuracy: {accuracy:.2f}%"
+        )
+    return pd.DataFrame({
+        "runtime_ms": runtimes,
+        "accuracy": accuracies
+    })
+    
+def get_cmdargs():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--batch_size", type=int, default=128)
+    parser.add_argument("--num_epochs", type=int, default=3)
+    parser.add_argument("--num_repeats", type=int, default=5)
+    return parser.parse_args()
+
+def main():
+    args = get_cmdargs()
+    data_path = Path("/scratch/kurs_2024_sose_hpc/kurs_2024_sose_hpc_20/projekt/PyTorch-on-HPC/code/jobs/model_training_benchmark")
+    output_path = Path("_benchmark/model_training")
+    FINAL_PATH = os.path.join(output_path, "baseline_model_serial_benchmark.csv")
+    output_path.mkdir(parents=True, exist_ok=True)
+    
+    train_data, test_data = get_dataset(path=data_path, download=True)
+    model = SimpleCNN()
+    
+    df_results = run_benchmark_serial_training(
+        train_data=train_data,
+        test_data=test_data,
+        batch_size=args.batch_size,
+        num_epochs=args.num_epochs,
+        num_repeats=args.num_repeats
+    )
+    df_results.to_csv(FINAL_PATH, index=False)
+    logger.info(f"Results saved to {FINAL_PATH}")
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+Das Trainingsskript implementiert eine serielle Trainings-Benchmark für das Modell \texttt{SimpleCNN} auf dem FashionMNIST-Datensatz. Die Hauptschritte sind:
+
+\begin{itemize}
+    \item \textbf{Datenvorbereitung}: Laden von Trainings- und Testdatensatz sowie Erstellen von DataLoadern mit Batch-Größe \texttt{batch\_size}. Hierbei wird bewusst single-threaded geladen (\texttt{num\_workers=0}).
+    
+    \item \textbf{Modellerstellung}: Initialisierung des \texttt{SimpleCNN}-Modells und Zuweisung auf die CPU. Für CPU-Berechnungen wird die Thread-Anzahl auf 1 gesetzt (\texttt{torch.set\_num\_threads(1)}), um serielle Ausführung zu erzwingen.
+    
+    \item \textbf{Training}: Mehrfache Wiederholungen (\texttt{num\_repeats}) über mehrere Epochen (\texttt{num\_epochs}). Pro Batch werden Vorwärtsdurchlauf, Loss-Berechnung, Backpropagation und Parameter-Update durchgeführt.
+    
+    \item \textbf{Evaluation}: Nach dem Training wird das Modell auf den Testdaten evaluiert, um die Genauigkeit (Accuracy) zu berechnen.
+    
+    \item \textbf{Ergebnisaufzeichnung}: Laufzeiten (in ms) und Genauigkeiten werden für jede Wiederholung gespeichert und abschließend in eine CSV-Datei geschrieben.
+\end{itemize}
+
+\paragraph{Serial Training} \mbox{}\\
+Der slurm-Jobskript zum Ausführen des Trainings-Benchmarks ist in \ref{lst:slurm_serial_training} zu sehen. Er 
+startet das serielle Trainings-Benchmark auf einem einzelnen Knoten mit einer CPU pro Task. 
+\begin{lstlisting}[language=bash, caption={Slurm-Jobskript zum Ausführen des Serielles Trainingskript}, label={lst:slurm_serial_training},
+basicstyle=\ttfamily\small, keywordstyle=\color{blue}\bfseries, commentstyle=\color{green!60!black}, stringstyle=\color{orange}]
+#!/usr/bin/env sh
+
+#SBATCH --reservation=hpc-course-sose2025
+#SBATCH --partition=teaching
+
+#SBATCH --job-name=baseline_training
+#SBATCH --output=baseline_training_%j.out
+#SBATCH --error=baseline_training_%j.err
+
+#SBATCH --time=0-02:00:00         
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=1         # serial training
+
+# -------------------------
+# Load environment
+# -------------------------
+module purge
+module add slurm
+module load miniconda3
+source activate pytorchhpc
+
+# Test imports
+python -c "import numpy; import torch; print('Imports OK')"
+
+echo "Starting at `date`"
+echo "Running on hosts: $SLURM_NODELIST"
+echo "Running on $SLURM_NNODES nodes."
+echo "Running on $SLURM_NPROCS processors."
+echo "Current working directory is `pwd`"
+
+# -------------------------
+# Output directory
+# -------------------------
+OUTPUT_DIR="_benchmark/baseline"
+mkdir -vp ${OUTPUT_DIR}
+
+# -------------------------
+# Run baseline training
+# -------------------------
+srun python3 ../src/benchmarks/baseline_training_benchmark.py \
+    --batch_size 128 \
+    --epochs 5 \
+    --num_repeats 3 \
+    &> ${OUTPUT_DIR}/baseline_training.out
+
+echo "Finished at `date`"
+\end{lstlisting}
+
+
+\paragraph{Intraop \texttt{PyTorch} Multithreading} \mbox{}\\
+In diesem Experiment wurde das Trainingsskript angepasst, um die Anzahl der Threads aus dem Slurm-Jobskript (\ref{lst:slurm_serial_training}) zu übernehmen. 
+\texttt{torch.set\_num\_threads()} wird verwendet, um die Anzahl der Intraop-Threads zu setzen. 
+Der Intraop Parallelismus beschreibt die parallele Ausführung einzelner Operationen innerhalb eines Modells, 
+wie z.B. Matrixmultiplikationen oder Faltungen, auf mehreren CPU-Kernen, wodurch die Berechnungen pro Operation beschleunigt werden. 
+Der neue Slurm-Jobskript ist in \ref{lst:slurm_intraop} zu sehen. Er geht durch verschiedene Thread-Anzahlen (1, 2, 4, 6, 8, 12, 16, 20, 24) 
+und führt das Trainingsskript für jede Konfiguration aus. Abschließend werden die Ergebnisse in separaten Verzeichnissen gespeichert. Dabei ist es wichtig,
+die Umgebungsvariablen \texttt{OMP\_NUM\_THREADS} und \texttt{MKL\_NUM\_THREADS} zu setzen, um sicherzustellen,
+dass die Multithreading Bibliotheken (OpenMP und MKL) die gewünschte Thread-Anzahl verwenden \cite{pytorch_threading_env_vars}.
+
+\begin{lstlisting}[language=bash, caption={Slurm-Jobskript zum Ausführen des Serielles Trainingskript}, label={lst:slurm_intraop},
+basicstyle=\ttfamily\small, keywordstyle=\color{blue}\bfseries, commentstyle=\color{green!60!black}, stringstyle=\color{orange}]
+#!/usr/bin/env sh
+#SBATCH --reservation=hpc-course-sose2025
+#SBATCH --partition=teaching
+#SBATCH --job-name=pytorch_multithread
+#SBATCH --output=%u.multithread.%j.out
+#SBATCH --error=%u.multithread.%j.err
+#SBATCH --time=0-02:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=24   # use all cores on one node
+# -------------------------
+# Load environment
+# -------------------------
+module purge
+module add slurm
+module load miniconda3
+source activate pytorchhpc
+
+echo "Starting at $(date)"
+echo "Running on hosts: $SLURM_NODELIST"
+echo "Running on $SLURM_NNODES nodes."
+echo "Running on $SLURM_NPROCS processors."
+echo "Current working directory is $(pwd)"
+
+# -------------------------
+# Output directory
+# -------------------------
+OUTPUT_DIR="_benchmark/multithread"
+mkdir -vp ${OUTPUT_DIR}
+
+# -------------------------
+# Run experiments
+# -------------------------
+# We now test 1, 2, 4, 6, 8, 12, 16, 20, 24 threads
+for nthreads in 1 2 4 6 8 12 16 20 24;
+do
+    export OMP_NUM_THREADS=${nthreads}
+    export MKL_NUM_THREADS=${nthreads}
+
+    echo "=========================================="
+    echo "Running PyTorch training with ${nthreads} threads"
+    echo "=========================================="
+
+    mkdir -vp ${OUTPUT_DIR}/${nthreads}
+
+    srun python3 ../../../src/model_training_benchmark/model_training_multithreading_intraop.py \
+        --batch_size 128 \
+        --num_epochs 5 \
+        --num_repeats 3 \
+        &> ${OUTPUT_DIR}/${nthreads}/training_${nthreads}.out
+done
+source deactivate
+echo "Finished at $(date)"
+\end{lstlisting}
+
+\paragraph{Interop \texttt{PyTorch} Multithreading} \mbox{}\\
+In diesem Experiment wird derselbe Slurm-Job in \ref{lst:slurm_intraop} verwendet, ebenso wie das angepasste Trainingsskript aus dem Intraop-Experiment. 
+Diesmal wird jedoch \texttt{torch.set\_num\_interop\_threads()} verwendet, um die Anzahl der Interop-Threads zu steuern. 
+Im Unterschied zum Intraop Parallelismus, bei dem einzelne Operationen wie Matrixmultiplikationen auf mehreren CPU-Kernen parallelisiert werden, 
+ermöglicht der Interop Parallelismus die parallele Ausführung mehrerer unabhängiger Operationen oder Tasks innerhalb eines Modells. 
+Beispielsweise können verschiedene Layer oder unabhängige Berechnungen gleichzeitig berechnet werden, wodurch das Training insgesamt effizienter wird. 
+Wie beim Intraop-Experiment werden unterschiedliche Thread-Anzahlen (1, 2, 4, 6, 8, 12, 16, 20, 24)  getestet, und die Ergebnisse werden in separaten Verzeichnissen gespeichert, 
+während die Umgebungsvariablen \texttt{OMP\_NUM\_THREADS} und \texttt{MKL\_NUM\_THREADS} gesetzt bleiben \cite{pytorch_threading_env_vars}.
+\vspace{0.5em}
+\paragraph{Hybrid Intra- und Interop \texttt{PyTorch} Multithreading} \mbox{}\\
+In diesem Experiment werden sowohl Intraop- als auch Interop-Threads gleichzeitig genutzt, um die parallele Ausführung innerhalb und zwischen Operationen zu kombinieren. 
+Das Trainingsskript wurde entsprechend angepasst, sodass \texttt{torch.set\_num\_threads()} die Intraop-Threads und \texttt{torch.set\_num\_interop\_threads()} die Interop-Threads steuert. 
+Dadurch können einzelne Operationen wie Matrixmultiplikationen parallelisiert werden (Intraop), während gleichzeitig mehrere unabhängige Operationen oder Layer parallel ausgeführt werden (Interop), 
+was eine effizientere Nutzung der CPU-Kerne ermöglicht. Wie in den vorherigen Experimenten werden verschiedene Kombinationen von Thread-Anzahlen getestet, 
+und die Ergebnisse werden in separaten Verzeichnissen gespeichert, wobei die Umgebungsvariablen \texttt{OMP\_NUM\_THREADS} und \texttt{MKL\_NUM\_THREADS} gesetzt bleiben \cite{pytorch_threading_env_vars}.
+
+\paragraph{Ergebnisse erster Experimente:} \mbox{}\\
+
+\textbf{Serial Training:} \\
+Das serielle Training ergab die in Tabelle~\ref{tab:serial_results} dargestellten Durchschnittswerte. 
+Die Ergebnisse wurden über \textbf{drei aufeinanderfolgende Läufe} gemittelt.
+
+\begin{table}[H]
+\centering
+\caption{Durchschnittliche Ergebnisse des seriellen Trainings}
+\label{tab:serial_results}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Anzahl Threads} & \textbf{Laufzeit [ms]} & \textbf{Genauigkeit [\%]} & \textbf{Typ} \\
+\midrule
+\texttt{<NA>} & 380\,623.28 & 83.74 & serial \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{0.5em}
+\textbf{Interop Multithreading:} \\
+Die Speedup-Kurve in Abbildung~\ref{fig:interop_multithreading} steigt mit der Anzahl der Threads an, jedoch verlangsamt sich die Verbesserungsrate 
+deutlich ab etwa \textbf{8 Threads}. Darüberhinaus nimmt die Effizienz pro Thread stetig mit zunehmender Thread-Anzahl ab. Jeder zusätzliche Thread trägt 
+also weniger zur Gesamtleistung bei. 
+Schließlich beginnt auch die Throughput- (bzw. Rechenleistungs-) Kurve zu stagnieren.  Das bestätigt, dass das Hinzufügen weiterer Threads über eine bestimmte
+Anzahl hinaus keinen proportionalen Leistungsgewinn mehr bringt.
+Im Vergleich zum seriellen Training mit einer Laufzeit von etwa \textbf{380\,623 ms} zeigt das Interop-Multithreading eine deutliche Verbesserung: 
+bei \textbf{8 Threads} reduziert sich die Laufzeit bereits auf rund \textbf{105\,355 ms}, was einem Speedup von etwa 3,5× entspricht. 
+Bei maximaler Auslastung mit \textbf{24 Threads} erreicht das Training eine Laufzeit von \textbf{77\,592 ms}, 
+was einer Beschleunigung um fast \textbf{80\%} gegenüber der seriellen Ausführung entspricht, 
+ohne dass die Modellgenauigkeit signifikant beeinflusst wird. Hinsichtlich der Modellgenauigkeit schwankt diese 
+über alle Thread-Konfigurationen zwischen \textbf{82,75,\%} und \textbf{84,5,\%}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{plots/interop_speedup.png}
+    \caption{Ergebnisse des Interop-Multithreading-Experiments: Speedup, Effizienz und Durchsatz in Abhängigkeit von der Thread-Anzahl.}
+    \label{fig:interop_multithreading}
+\end{figure}
+
+\vspace{0.5em}
+\textbf{Intraop Multithreading:} \\
+
+Die Speedup-Kurve in Abbildung \ref{fig:intraop_multithreading} zeigt einen schnellen Anstieg bis etwa \textbf{16 Threads} und erreicht dabei ein maximales Speedup von über \textbf{4{,}5}. 
+Ab diesem Punkt flacht die Kurve deutlich ab und damit ist der maximale Nutzen ab diesem Punkt erreicht. 
+Die Effizienz-Kurve fällt von \textbf{1{,}0} (perfekte Effizienz) bei einem Thread auf etwa \textbf{0{,}2} bei 24 Threads stark ab. 
+Dieser drastische Rückgang zeigt, dass der mit der Verwaltung vieler Threads innerhalb einer einzelnen Operation verbundene Overhead 
+(z.\,B. Synchronisation oder Konflikte beim gemeinsamen Datenzugriff) die Rechenvorteile schnell überwiegt. 
+Trotz der geringen Effizienz einzelner Threads steigt der gesamte Throughput weiterhin bis etwa 16 Threads an 
+und erreicht dort ein Maximum von rund \textbf{0{,}75 Bildern/ms}, bevor er sich auf einem Plateau einpendelt. 
+Entsprechend zeigt auch die Runtime-Kurve, dass die gesamte Ausführungszeit zunächst stark abnimmt und sich nach etwa 16 Threads stabilisiert, 
+was bestätigt, dass das Hinzufügen weiterer Threads über diesen Punkt hinaus kaum noch praktische Leistungsverbesserungen bringt. 
+Im Vergleich zum seriellen Training mit einer Laufzeit von etwa 380\,623 ms zeigt das Intraop-Multithreading 
+bereits ab 16 Threads eine deutliche Beschleunigung und erreicht eine Laufzeit von rund 84\,000–105\,000 ms, 
+ohne dass die Modellgenauigkeit signifikant beeinträchtigt wird (zwischen 82,2\,\% und 84,6\,\% über alle Thread-Konfigurationen ).
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{plots/intraop_speedup.png}
+    \caption{Ergebnisse des Intraop-Multithreading-Experiments: Speedup, Effizienz und Durchsatz in Abhängigkeit von der Thread-Anzahl.}
+    \label{fig:intraop_multithreading}
+\end{figure}
+
+
+\textbf{Interop + Intraop Multithreading:} \\
+Der Speedup ($\text{S}_n$) in Abbildung \ref{fig:interop_intraop_multithreading} 
+zeigt auch wieder eine deutliche Leistungssteigerung mit zunehmender Thread-Anzahl bis zu einem Maximum bei 16 Threads, 
+gefolgt von einem leichten Rückgang bei höheren Thread-Zahlen. 
+
+\textbf{Anfangsphase (1 bis 16 Threads):} Der Speedup steigt nahezu linear bis zu 8 Threads an. Das Wachstum setzt sich bis 16 Threads fort, 
+verlangsamt sich jedoch zunehmend und erreicht bei $\text{S}_{16} \approx 4{,}8$ 
+seinen Höchstwert.
+
+\textbf{Leistungsabfall (16 bis 24 Threads):} Nach dem Maximum bei 16 Threads sinkt der Speedup bei 20 und 24 Threads wieder leicht ab. 
+Dieser Rückgang deutet darauf hin, dass der mit einer höheren Thread-Anzahl verbundene Verwaltungsaufwand (z.\,B. Synchronisation, Kontextwechsel) 
+die Vorteile der Parallelisierung überwiegt.
+
+Die Modellgenauigkeit bleibt über alle Thread-Konfigurationen relativ stabil und variiert nur geringfügig zwischen \textbf{82,9\,\%} und \textbf{84,4\,\%},
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{plots/interintra_speedup.png}
+    \caption{Ergebnisse des kombinierten Interop- und Intraop-Multithreading-Experiments: Speedup, Effizienz, Durchsatz und Genauigkeit in Abhängigkeit von der Thread-Anzahl.}
+    \label{fig:interop_intraop_multithreading}
+\end{figure}
+
+\textbf{Vergleich:} \\ 
+Bei den gemessenen Ergebnissen erzielt das reine \textbf{Interop-Multithreading} die beste absolute Laufzeit bei \textbf{24 Threads} mit \textbf{77\,591{,}73\,ms}, 
+gefolgt von der \textbf{Hybrid-Konfiguration (Inter+Intra)}, die ihr Minimum bereits bei \textbf{16 Threads} mit \textbf{78\,979{,}97\,ms} erreicht. 
+Das \textbf{Intraop-Multithreading} erreicht seine beste Laufzeit ebenfalls bei \textbf{16 Threads} mit \textbf{82\,625{,}80\,ms} und bleibt damit leicht hinter den anderen beiden Ansätzen. 
+Die Modellgenauigkeit bleibt über alle Konfigurationen weitgehend stabil (zwischen \textbf{82{,}9\,\%} und \textbf{84{,}6\,\%}), 
+sodass die beobachteten Laufzeitgewinne nicht mit einem signifikanten Genauigkeitsverlust einhergehen. 
+
+\subsection{Eintrag 3: DDP Model Training}
+\label{lab:eintrag3}
+\subsubsection{Zusammenfassung:}
+\begin{itemize}
+    \item Model Training mit DistributedDataParallel (DDP) auf 2 Knoten
+    \item Mehrere Konfigurationen mit unterschiedlichen Tasks pro Knoten und Threads pro Task
+    \item Messung von Laufzeit und Modellgenauigkeit
+\end{itemize}
+\subsubsection{Details und Arbeitschritte:}
+wie in Abschnitt \ref{par:mt} beschrieben, wurde DistributedDataParallel (DDP) verwendet, sowohl
+für das Training auf einem einzelnen Knoten mit mehreren Prozessen als auch für das Training über zwei Knoten. Dabei wurden 
+verschiedene Konfigurationen getestet. DistributedDataParallel (\texttt{DDP}) ist ein Modul in \texttt{PyTorch}, das es ermöglicht, ein Modell effizient über mehrere Prozesse und Rechner zu parallelisieren. 
+Jeder Prozess erhält dabei eine eigene Modellkopie, die auf einem oder mehreren Geräten ausgeführt wird. 
+Während des Trainings werden die Gradienten nach jedem Backward-Pass über alle Prozesse synchronisiert, 
+sodass alle Modellkopien konsistent bleiben und identische Gewichtsaktualisierungen erhalten. 
+Dies wird durch kollektive Kommunikationsoperationen des \texttt{torch.distributed}-Pakets realisiert. Auch wenn nur \textbf{ein einzelner Knoten} verwendet wird, bietet DDP wesentliche Vorteile: 
+Statt auf Thread-Level zu parallelisieren (wie bei Intra- oder Interop-Multithreading), nutzt DDP mehrere unabhängige Prozesse, 
+wodurch der Python Global Interpreter Lock (GIL) umgangen wird und die verfügbare Hardware 
+effizienter ausgelastet werden kann \cite{pytorch_ddp_tutorial}. 
+
+\paragraph{Multinode Training} \mbox{}\\
+Für das Multinode-Training wurde ein Slurm-Jobskript erstellt,
+das zwei Knoten reserviert und verschiedene Konfigurationen von Tasks pro Knoten und Threads pro 
+Task durchläuft (siehe Tabelle \ref{tab:multinode_configs}). 
+
+\begin{table}[H]
+\centering
+\caption{Konfigurationen für das Multinode-Training}
+\label{tab:multinode_configs}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Tasks pro Knoten} & \textbf{Threads pro Task} & \textbf{Anmerkungen} \\
+\midrule
+1 & 12 & 2 Experimente (12 und 24 Threads insgesamt) \\
+1 & 24 & 2 Experimente (12 und 24 Threads insgesamt) \\
+2 & 12 & Jeder Task nutzt 12 Threads \\
+4 & 6  & Jeder Task nutzt 6 Threads \\
+8 & 3  & Jeder Task nutzt 3 Threads \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Der Slurm-Jobskript für das erste Experiment ist in \ref{lst:slurm_multinode1} zu sehen.
+\begin{lstlisting}[language=bash, caption={Slurm-Jobskript zum Ausführen des Serielles Trainingskript}, label={lst:slurm_multinode1},
+basicstyle=\ttfamily\small, keywordstyle=\color{blue}\bfseries, commentstyle=\color{green!60!black}, stringstyle=\color{orange}]
+#!/bin/bash
+#SBATCH --reservation=hpc-course-sose2025
+#SBATCH --partition=teaching
+#SBATCH --job-name=ddp_2nodes
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=24
+#SBATCH --time=03:00:00
+#SBATCH --output=%u.ddp2nodes.%j.out
+#SBATCH --error=%u.ddp2nodes.%j.err
+
+module purge
+module add slurm
+module load gcc/13.2.0
+module load openmpi/4.1.6
+module load miniconda3
+source activate pytorchhpc
+
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+export MKL_NUM_THREADS=$SLURM_CPUS_PER_TASK
+export NUMEXPR_NUM_THREADS=$SLURM_CPUS_PER_TASK
+export PYTHONWARNINGS="ignore"
+
+export MASTER_ADDR=$(scontrol show hostnames $SLURM_JOB_NODELIST | head -n1)
+export MASTER_PORT=12355
+
+OUTPUT_DIR="_benchmark/2nodes_ddp_1task"
+mkdir -vp ${OUTPUT_DIR}
+
+HOSTS=$(scontrol show hostnames $SLURM_JOB_NODELIST | paste -sd "," -)
+echo "Launching on hosts: $HOSTS"
+
+mpirun -np $SLURM_NTASKS --host $HOSTS \
+    python3 ../../../../src/model_training_benchmark/model_training_ddp.py \
+    --batch_size 128 \
+    --num_epochs 5 \
+    --num_repeats 1
+
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=python, caption={Slurm-Jobskript zum Ausführen des Serielles Trainingskript}, label={lst:python_multinode1},
+basicstyle=\ttfamily\small, keywordstyle=\color{blue}\bfseries, commentstyle=\color{green!60!black}, stringstyle=\color{orange}]
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+# ---------------------------
+# Distributed setup / cleanup
+# ---------------------------
+def setup_ddp():
+    master_addr = os.environ.get("MASTER_ADDR", "node2-085")  # first node
+    master_port = os.environ.get("MASTER_PORT", "12355")
+    rank = int(os.environ.get("OMPI_COMM_WORLD_RANK", "0"))
+    world_size = int(os.environ.get("OMPI_COMM_WORLD_SIZE", "1"))
+    logger.info(f"Rank {rank}/{world_size} initializing DDP (MASTER={master_addr}:{master_port})")
+
+    dist.init_process_group(
+        backend="gloo",
+        init_method=f"tcp://{master_addr}:{master_port}",
+        rank=rank,
+        world_size=world_size
+    )
+    return rank, world_size
+
+def cleanup_ddp():
+    logger.info("Cleaning up DDP process group")
+    dist.destroy_process_group()
+    
+
+def run_benchmark_ddp_training(
+    rank: int,
+    world_size: int,
+    args,
+    train_data: Dataset,
+    test_data: Dataset,
+    output_path: Path,
+    num_threads: int
+) -> None:
+    """
+    Run DDP benchmark on multiple nodes using MPI backend.
+
+    Each rank trains on its subset of data using DistributedSampler.
+    Only rank 0 gathers results and writes CSV.
+    """
+
+    # set threading
+    os.environ["OMP_NUM_THREADS"] = str(num_threads)
+    os.environ["MKL_NUM_THREADS"] = str(num_threads)
+    os.environ["NUMEXPR_NUM_THREADS"] = str(num_threads)
+    torch.set_num_threads(num_threads)
+
+    device = torch.device("cpu")
+
+    # DistributedSampler ensures each rank gets different data
+    train_sampler = DistributedSampler(
+        train_data, num_replicas=world_size, rank=rank, shuffle=True
+    )
+    train_loader = torch.utils.data.DataLoader(
+        dataset=train_data,
+        batch_size=args.batch_size,
+        sampler=train_sampler,
+        num_workers=0
+    )
+    test_loader = torch.utils.data.DataLoader(
+        dataset=test_data,
+        batch_size=args.batch_size,
+        shuffle=False,
+        num_workers=0
+    )
+    logger.info(f"[Rank {rank}] Data loaders initialized (Train: {len(train_loader)}, Test: {len(test_loader)})")
+    runtimes, accuracies = [], []
+
+    for rep in range(args.num_repeats):
+        model = SimpleCNN().to(device)
+        model = DDP(model)  # wrap for DDP
+        optimizer = optim.SGD(model.parameters(), lr=0.01)
+        criterion = nn.CrossEntropyLoss()
+
+        start_time = time.perf_counter()
+        for epoch in range(args.num_epochs):
+            train_sampler.set_epoch(epoch)  # shuffle differently per epoch
+            model.train()
+            logger.info(f"[Rank {rank}] Epoch {epoch+1}/{args.num_epochs} starting")
+            for images, labels in train_loader:
+                images, labels = images.to(device), labels.to(device)
+                optimizer.zero_grad()
+                outputs = model(images)
+                loss = criterion(outputs, labels)
+                loss.backward()
+                optimizer.step()
+        runtime = 1000 * (time.perf_counter() - start_time)
+        logger.info(f"[Rank {rank}] Repetition {rep+1} finished in {runtime:.2f} ms")
+        # compute accuracy on test set
+        model.eval()
+        total, correct = 0, 0
+        with torch.no_grad():
+            for images, labels in test_loader:
+                outputs = model(images)
+                _, predicted = torch.max(outputs.data, 1)
+                total += labels.size(0)
+                correct += (predicted == labels).sum().item()
+        accuracy = 100 * correct / total
+        logger.info(f"[Rank {rank}] Local accuracy: {accuracy:.2f}%")
+        # gather average accuracy across all ranks to rank 0
+        accuracy_tensor = torch.tensor(accuracy).to(device)
+        dist.reduce(accuracy_tensor, dst=0, op=dist.ReduceOp.AVG)
+
+        if rank == 0:
+            accuracy_avg = accuracy_tensor.item()
+            runtimes.append(runtime)
+            accuracies.append(accuracy_avg)
+            logger.info(
+                f"[Threads={num_threads}] DDP run {rep+1}/{args.num_repeats} "
+                f"on {world_size} ranks: {runtime:.2f} ms, Accuracy: {accuracy_avg:.2f}%"
+            )
+
+    # rank 0 saves results
+    if rank == 0:
+        df = pd.DataFrame({
+            "num_ranks": [world_size] * args.num_repeats,
+            "num_threads": [num_threads] * args.num_repeats,
+            "runtime_ms": runtimes,
+            "accuracy": accuracies
+        })
+        output_path.mkdir(parents=True, exist_ok=True)
+        final_path = output_path / f"ddp_benchmark_{world_size}_ranks_{num_threads}_threads.csv"
+        df.to_csv(final_path, index=False)
+        logger.info(f"Results saved to {final_path}")
+
+    
+def get_cmdargs():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--batch_size", type=int, default=128)
+    parser.add_argument("--num_epochs", type=int, default=3)
+    parser.add_argument("--num_repeats", type=int, default=5)
+    return parser.parse_args()
+
+def main():
+    args = get_cmdargs()
+    data_path = Path("/scratch/kurs_2024_sose_hpc/kurs_2024_sose_hpc_20/projekt/PyTorch-on-HPC/code/jobs/model_training_benchmark/data")
+    output_path = Path("_benchmark/2nodes_ddp")
+    output_path.mkdir(parents=True, exist_ok=True)
+
+    train_data, test_data = get_dataset(data_path)
+
+    rank, world_size = setup_ddp()  # returns rank and world_size
+    logger.info(f"Starting DDP benchmark with {world_size} ranks (this is rank {rank})")
+
+    threads = int(os.environ.get("SLURM_CPUS_PER_TASK", "1"))
+    logger.info(f"[Rank {rank}] Using {threads} per process")
+    for threads in [12, 24]:
+        run_benchmark_ddp_training(
+            rank=rank,
+            world_size=world_size,
+            args=args,
+            train_data=train_data,
+            test_data=test_data,
+            output_path=output_path,
+            num_threads=threads
+        )
+
+    cleanup_ddp()
+
+    
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+Das vorgestellte Trainingsskript implementiert DistributedDataParallel (\texttt{DDP}) in \texttt{PyTorch} für Multi-Node- und Multi-Process-Training. 
+Zunächst werden über die Funktionen \texttt{setup\_ddp()} und \texttt{cleanup\_ddp()} die DDP-Umgebung initialisiert und wieder aufgeräumt. 
+Jeder Prozess erhält eine eigene Kopie des Modells und arbeitet auf einem eigenen Satz von Daten, der durch \texttt{DistributedSampler} zugewiesen wird. 
+Die Synchronisation der Gradienten erfolgt automatisch nach jedem Backward-Pass, sodass alle Modellkopien konsistent bleiben. 
+
+Die Anzahl der Threads pro Prozess wird über Umgebungsvariablen und \texttt{torch.set\_num\_threads()} gesetzt, um die CPU-Auslastung zu steuern. 
+Rank 0 sammelt die Laufzeit- und Genauigkeitswerte aller Prozesse und speichert die Ergebnisse als CSV-Datei. Der output
+
+Die Ausgabe in Abbidung \ref{lst:slurm_output} zeigt, dass jeder Prozess (Rank 0 und Rank 1) seine DataLoader initialisiert und die Epochen parallel startet. 
+Nach jedem Backward-Pass werden die Gradienten synchronisiert, sodass am Ende jedes Ranks die gleiche Modellgenauigkeit erreicht wird. 
+Rank 0 sammelt die Laufzeiten und Genauigkeiten aller Prozesse, speichert die Ergebnisse in CSV-Dateien und beendet anschließend die DDP-Prozessgruppe. 
+Die Logs verdeutlichen, wie DDP die parallele Ausführung über mehrere Prozesse koordiniert und die Berechnungen effizient verteilt.
+\begin{lstlisting}[basicstyle=\ttfamily\small, caption={Beispielausgabe des DDP-Slurm-Jobs}, label={lst:slurm_output}]
+MODULE: Adding module /shared/modulefiles/miniconda3
+mkdir: created directory '_benchmark'
+mkdir: created directory '_benchmark/2nodes_ddp'
+Launching on hosts: node2-085,node2-086
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+    
+
+INFO:__main__:Rank 0/2 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Rank 1/2 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Starting DDP benchmark with 2 ranks (this is rank 0)
+INFO:__main__:Starting DDP benchmark with 2 ranks (this is rank 1)
+INFO:__main__:[Rank 0] Data loaders initialized (Train: 235, Test: 79)
+INFO:__main__:[Rank 1] Data loaders initialized (Train: 235, Test: 79)
+INFO:__main__:[Rank 0] Epoch 1/5 starting
+INFO:__main__:[Rank 1] Epoch 1/5 starting
+...
+INFO:__main__:[Threads=12] DDP run 1/1 on 2 ranks: 5228442.96 ms, Accuracy: 73.64%
+...
+INFO:__main__:[Threads=24] DDP run 1/1 on 2 ranks: 5405020.39 ms, Accuracy: 73.24%
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:Results saved to _benchmark/2nodes_ddp/ddp_benchmark_2_ranks_24_threads.csv
+\end{lstlisting}
+
+Für die anderen Konfigurationen (2, 4, 8 Tasks pro Knoten) wurde ein ähnlicher Slurm-Jobskript erstellt. In \ref{lst:slurm_multinode2}
+ist der Slurm-Jobskript für die Konfiguration mit 2 Tasks pro Knoten zu sehen. Für die restlichen Konfigurationen wurden die Parameter \texttt{--ntasks-per-node} und \texttt{--cpus-per-task} entsprechend angepasst.
+
+\begin{lstlisting}[language=bash, caption={Slurm-Jobskript zum Ausführen des Serielles Trainingskript}, label={lst:slurm_multinode2},
+basicstyle=\ttfamily\small, keywordstyle=\color{blue}\bfseries, commentstyle=\color{green!60!black}, stringstyle=\color{orange}]
+#!/bin/bash
+#SBATCH --reservation=hpc-course-sose2025
+#SBATCH --partition=teaching
+#SBATCH --job-name=ddp_2nodes
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=2
+#SBATCH --cpus-per-task=12
+#SBATCH --time=03:00:00
+#SBATCH --output=%u.ddp2nodes2tasks.%j.out
+#SBATCH --error=%u.ddp2nodes2tasks.%j.err
+
+module purge
+module add slurm
+module load gcc/13.2.0
+module load openmpi/4.1.6
+module load miniconda3
+source activate pytorchhpc
+
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+export MKL_NUM_THREADS=$SLURM_CPUS_PER_TASK
+export NUMEXPR_NUM_THREADS=$SLURM_CPUS_PER_TASK
+export PYTHONWARNINGS="ignore"
+
+export MASTER_ADDR=$(scontrol show hostnames $SLURM_JOB_NODELIST | head -n1)
+export MASTER_PORT=12355
+
+OUTPUT_DIR="_benchmark/2nodes_ddp_2task"
+mkdir -vp ${OUTPUT_DIR}
+
+#HOSTS=$(scontrol show hostnames $SLURM_JOB_NODELIST | paste -sd "," -)
+HOSTS=$(scontrol show hostnames $SLURM_JOB_NODELIST | awk '{print $1":2"}' | paste -sd "," -)
+
+echo "Launching on hosts: $HOSTS"
+
+mpirun -np $SLURM_NTASKS --host $HOSTS \
+    python3 ../../../../src/model_training_benchmark/model_training_ddp.py \
+    --batch_size 128 \
+    --num_epochs 5 \
+    --num_repeats 1
+\end{lstlisting}
+
+
+\begin{lstlisting}[basicstyle=\ttfamily\small, caption={Beispielausgabe des DDP-Slurm-Jobs mit 4 Tasks pro Knoten}, label={lst:slurm_output_2tasks}]
+MODULE: Adding module /shared/modulefiles/miniconda3
+mkdir: created directory '_benchmark'
+mkdir: created directory '_benchmark/2nodes_ddp_4task'
+Launching on hosts: node2-085:4,node2-086:4
+[Gloo] Rank 0 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 1 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 2 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 7 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 3 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 4 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 6 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 5 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+
+
+
+
+INFO:__main__:Rank 0/8 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Rank 3/8 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Rank 1/8 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Rank 2/8 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Rank 5/8 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Rank 7/8 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Rank 4/8 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Rank 6/8 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Starting DDP benchmark with 8 ranks (this is rank 0)
+INFO:__main__:[Rank 0] Using 6 per process
+INFO:__main__:Starting DDP benchmark with 8 ranks (this is rank 1)
+INFO:__main__:[Rank 1] Using 6 per process
+....
+INFO:__main__:[Rank 1] Epoch 1/5 starting
+INFO:__main__:[Rank 5] Epoch 1/5 starting
+....
+INFO:__main__:[Rank 7] Repetition 1 finished in 2187813.35 ms
+INFO:__main__:[Rank 0] Repetition 1 finished in 2190122.79 ms
+....
+INFO:__main__:[Rank 7] Local accuracy: 76.35%
+INFO:__main__:[Rank 0] Local accuracy: 76.35%
+INFO:__main__:[Rank 6] Local accuracy: 76.35%
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:[Rank 5] Local accuracy: 76.35%
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:[Rank 1] Local accuracy: 76.35%
+INFO:__main__:[Rank 4] Local accuracy: 76.35%
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:[Rank 2] Local accuracy: 76.35%
+INFO:__main__:[Rank 3] Local accuracy: 76.35%
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:[Threads=6] DDP run 1/1 on 8 ranks: 2190122.79 ms, Accuracy: 76.35%
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:Results saved to _benchmark/2nodes_ddp/ddp_benchmark_8_ranks_6_threads.csv
+INFO:__main__:Cleaning up DDP process group
+\end{lstlisting}
+
+Ein möglicher Output des Slurm-Jobs für die 4-Tasks-pro-Knoten-Konfiguration ist in \ref{lst:slurm_output_2tasks} zu sehen.Die 
+Ausgabe illustriert die Ausführung des DDP-Trainings über mehrere Knoten und Prozesse. 
+Es werden insgesamt 4 Ranks gestartet, jeweils 4 auf \texttt{node2-085} und \texttt{node2-086}. 
+Die Meldungen des \texttt{Gloo}-Backends bestätigen, dass jeder Rank erfolgreich mit allen anderen Ranks verbunden ist, 
+wodurch die Gradienten während des Trainings korrekt synchronisiert werden. 
+Jeder Rank initialisiert eigene DataLoader, startet parallel die Trainingsepochen und berechnet lokale Genauigkeiten. 
+Rank 0 sammelt anschließend die Laufzeiten und Genauigkeiten aller Ranks, speichert die Ergebnisse in CSV-Dateien und beendet die DDP-Prozessgruppe. 
+Die Ausgabe für die Konfiguration mit 4 Tasks pro Knoten zeigt analog, dass alle 8 Ranks (4 pro Knoten) korrekt vernetzt und synchronisiert sind.
+
+\paragraph{Was ist Gloo?} \mbox{}\\
+Gloo ist ein Kommunikations-Backend in \texttt{PyTorch}, das für das Training über mehrere Prozesse und Knoten verwendet wird. 
+Es sorgt dafür, dass Gradienten und andere Daten zwischen allen Prozessen synchronisiert werden. 
+Ursprünglich wurde versucht, das \texttt{MPI}-Backend zu verwenden, jedoch funktionierte die Konfiguration in der Umgebung nicht zuverlässig, 
+was unter anderem an der MPI-Installation und der Knotenkonfiguration lag. Deshalb wurde auf \texttt{Gloo} gewechselt.
+
+\paragraph{Schwierigkeiten mit MPI} \mbox{}\\
+Während der Implementierung von \texttt{DistributedDataParallel (DDP)} wurde zunächst versucht, das \texttt{MPI}-Backend zu verwenden. 
+Dabei traten jedoch Probleme auf, die verhinderten, dass die Prozesse korrekt initialisiert werden konnten. 
+Insbesondere stellte sich heraus, dass die verwendete \texttt{PyTorch}-Installation kein \texttt{MPI}-Backend enthielt, 
+da \texttt{MPI} nur unterstützt wird, wenn \texttt{PyTorch} aus dem Quellcode auf einem System mit installierter \texttt{MPI}-Bibliothek kompiliert wurde. 
+Dies führte beim Starten des DDP-Jobs zu folgendem Fehler:
+
+\begin{lstlisting}[language=bash, caption={Fehlerausgabe beim Start des DDP-Trainings mit dem MPI-Backend}]
+INFO:__main__:Rank 0/2 initializing DDP using MPI backend
+Traceback (most recent call last):
+  File "model_training_ddp.py", line 196, in <module>
+    main()
+  File "model_training_ddp.py", line 176, in main
+    rank, world_size = setup_ddp()
+  File "model_training_ddp.py", line 50, in setup_ddp
+    dist.init_process_group(
+  ...
+RuntimeError: Distributed package doesn't have MPI built in. 
+MPI is only included if you build PyTorch from source on a host that has MPI installed.
+--------------------------------------------------------------------------
+Primary job terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status.
+--------------------------------------------------------------------------
+\end{lstlisting}
+
+Aus diesem Grund wurde \texttt{Gloo} beibehalten, um eine zuverlässige Demonstration zu gewährleisten.
+
+
+
+\paragraph{Multinode Training: Ergebnisse} \mbox{}\\
+\mbox{}\\
+Die Ergebnisse der Multinode-Experimente sind in Abbildung \ref{fig:multinode_ddp_results} dargestellt. 
+Die Laufzeit sinkt deutlich von über $5000\,\text{s}$ bei 2 Rängen auf etwa $1200\,\text{s}$ bei 16 Rängen, 
+bleibt jedoch weiterhin deutlich über den Laufzeiten der seriellen und der 
+beste Multithreading-Konfiguration. 
+Die DDP-Genauigkeit (Accuracy) wirkt suboptimal und stark inkonsistent: 
+Sie erreicht ihren höchsten Wert von etwa $76{,}3\,\%$ bei 8 Rängen, fällt jedoch auf $71{,}5\,\%$ bei 4 Rängen 
+und sinkt erneut auf $73\,\%$ bei 16 Rängen. 
+Auffällig ist, dass alle DDP-Genauigkeitswerte deutlich unter sowohl der seriellen Genauigkeit 
+($\approx 83{,}8\,\%$) als auch der Multithreading-Maximalgenauigkeit ($\approx 84{,}4\,\%$) liegen. 
+Dies zeigt, dass der verteilte Ansatz zwar eine spürbare Beschleunigung bietet, 
+jedoch eine deutliche, bislang ungeklärte Verschlechterung der Modellqualität mit sich bringt. 
+
+\mbox{}\\
+Es ist jedoch wichtig zu betonen, dass das Distributed Data Parallel (DDP) Training in diesem Experiment 
+nicht sein volles Potenzial entfalten konnte, da der Datensatz und das Modell relativ klein sind. 
+In realistischen Szenarien mit sehr großen Datensätzen oder komplexen Modellen 
+(Training von Large Language Models (LLMs) oder tiefe Bildklassifikationsnetzwerke)
+würde DDP deutlich besser skalieren. 
+In solchen Fällen stößt reines Multithreading schnell an seine Grenzen, 
+da ein einzelner Knoten weder über genügend Speicher noch über ausreichend Rechenkapazität verfügt, 
+um das gesamte Modell effizient zu verarbeiten \cite{osc_ddp}. 
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{plots/multinode_performance.png}
+    \caption{Ergebnisse des Multinode DDP-Trainings: Laufzeit und Modellgenauigkeit in Abhängigkeit von der Konfiguration}
+    \label{fig:multinode_ddp_results}
+\end{figure}
+
+Eine weitere Perspektive der Ergebnisse bietet Abbildung \ref{fig:multinode_ddp_speedup}, die den Speedup, die Effizienz und den Durchsatz 
+des DDP-Trainings in Abhängigkeit von der Anzahl der Ranks und Threads darstellt. Dabei wurden die Metriken wie folgt definiert \cite{reddit_hpc_speedup_efficiency}:
+\begin{itemize}
+    \item \textbf{Speedup (S\textsubscript{n}):} Verhältnis der Laufzeit des seriellen Trainings zur Laufzeit des DDP-Trainings mit n Ranks und k Threads:
+    \[
+        S_n = \frac{T_\text{serial}}{T_n}
+    \]
+    wobei \(T_\text{serial}\) die Laufzeit des seriellen Trainings (1 Node, 1 Prozess und 24 Threads) und \(T_n\) die Laufzeit des Trainings mit n Ranks ist.
+
+    \item \textbf{Effizienz (E\textsubscript{n}):} Verhältnis des Speedups zur Anzahl der Ranks * Threads:
+    \[
+        E_n = \frac{S_n}{n}
+    \]
+    mit \[ n = \text{Anzahl der Ranks * Threads pro Rank} \]
+    \item \textbf{Durchsatz (T\textsubscript{n}):} Anzahl der verarbeiteten Trainingsbeispiele pro Sekunde während des DDP-Trainings mit n Ranks:
+    \[
+        \text{Throughput } T_n = \frac{\text{Gesamtanzahl Trainingsbeispiele}}{T_n \text{ in Sekunden}}
+    \]
+\end{itemize}
+Sowohl der Speedup ($S_n$) als auch der Durchsatz 
+zeigen einen positiven, nahezu linearen Anstieg mit der Anzahl 
+der Prozesse. Das zeigt, dass Multinode Training in gewissem Maße skaliert, wobei
+der absolute Speedup jedoch weiterhin relativ gering bleibt (maximal $\approx 0,3$). Die Effizienz 
+($E_n$) sinkt zunächst beim Übergang von der Konfiguration (2 Prozesse, 12 Threads) auf (2 Prozesse, 24 Threads). Danach steigt sie jedoch ebenfalls nahezu linear mit der Anzahl der Prozesse an.
+Das führt zu der Schlussfolgerung, dass das DDP-Training zwar skaliert,
+aber die absolute Leistung aufgrund des kleinen Modells und Datensatzes begrenzt ist.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{plots/multinode_speedup.png}
+    \caption{Ergebnisse des Multinode DDP-Trainings: Speedup, Effizienz und Durchsatz in Abhängigkeit von der Konfiguration}
+    \label{fig:multinode_ddp_speedup}
+\end{figure}
+
+\subsection{Eintrag 4: Model Training mit Multiprocessing und Multithreading}
+\label{lab:eintrag4}
+\subsubsection{Zusammenfassung:}
+\begin{itemize}
+    \item Kombination von Multiprocessing und Multithreading für Model Training auf einem Knoten
+    \item Verschiedene Konfigurationen mit unterschiedlichen Prozessen pro Knoten und Threads pro Prozess
+    \item Messung von Laufzeit und Modellgenauigkeit
+    \item Vergleich mit den anderen Ansätzen
+\end{itemize}
+\subsubsection{Details und Arbeitschritte:}
+Die Implementierung des Model Trainings mit Multiprocessing und Multithreading erfolgte analog zu den vorherigen Abschnitten. Der slurm-Jobskript \ref{lst:slurm_multinode2} für das Multinode-Training wurde entsprechend angepasst
+, um das Training auf einem einzelnen Knoten mit mehreren Prozessen und Threads pro Prozess durchzuführen. Die Konfigurationen sind in Tabelle \ref{tab:multithreading_configs} dargestellt.
+\begin{table}[H]
+\centering
+\caption{Konfigurationen für das Multiprocessing + Multithreading Training}
+\label{tab:multithreading_configs}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Prozesse pro Knoten} & \textbf{Threads pro Prozess} & \textbf{Anmerkungen} \\
+\midrule
+1 & 24 & Serial Training \\
+2 & 12 & Jeder Prozess nutzt 12 Threads \\
+4 & 6  & Jeder Prozess nutzt 6 Threads \\
+8 & 3  & Jeder Prozess nutzt 3 Threads \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Die Ergebnisse der Experimente sind in Abbildung \ref{fig:mp_mt_results} dargestellt.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{plots/multiprocthread_results.png}
+    \caption{Ergebnisse des Multiprocessing + Multithreading Trainings: Laufzeit und Modellgenauigkeit in Abhängigkeit von der Konfiguration}
+    \label{fig:mp_mt_results}
+\end{figure}
+Die Abbildungen vergleichen die Leistung des \texttt{Distributed Data Parallel (DDP)}-Trainings bei unterschiedlichen Anzahlen von Ranks 
+mit seriellen, Multithreading- und Multinode-Benchmarks. 
+Im Diagramm der Laufzeit (s) ist \texttt{DDP} bei den Ranks (4, 8) deutlich schneller als alle anderen Ansätze und erreicht bei 4 und 8 Ranks die minimale Multithreading-Laufzeit. 
+Bei der Genauigkeit (\%) zeigt \texttt{DDP} ein gemischtes Bild: 
+Die Genauigkeit liegt bei allen Ranks über der seriellen Genauigkeit (grün gestrichelte Linie), 
+bleibt jedoch durchgehend unter der maximalen Multinode-Genauigkeit (braun gestrichelte Linie). 
+Dies deutet darauf hin, dass \texttt{DDP} zwar eine hohe Trainingseffizienz erreicht, 
+aber möglicherweise ein inhärenter Overhead oder eine fehlende Feinabstimmung verhindert, 
+dass die maximale Genauigkeit anderer Multinode-Ansätze erreicht wird.
+
+Die Speedup-, Effizienz- und Durchsatzdiagramme in Abbildung \ref{fig:mp_mt_speedup} 
+bieten eine weitere Perspektive auf die Leistung von \texttt{DDP} im Vergleich zu anderen Ansätzen. 
+Die Kurven zeigen, dass
+sowohl der Speedup ($S_n$) als auch die Leistung bzw.
+der Durchsatz  einen deutlichen Anstieg mit der 
+Anzahl der Prozesse beweisen. Das bedeutet, dass diese Konfiguration von Multiprocessing 
+und Multithreading auf einem Knoten gut skaliert. 
+Der Speedup steigt von ca. 1 auf 14, während die Effizienz ($E_n$)
+ebenfalls zunimmt, wenn auch mit einer leichten Anfangsverzögerung bei 2 Prozessen. 
+Das führt uns zu der Schlussfolgerung, dass die Ressourcennutzung mit steigender Prozessanzahl effektiver 
+wird, und die parallele Verarbeitung zunehmend von den zusätzlichen Prozessen profitiert.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{plots/mt_mp_speedup.png}
+    \caption{Ergebnisse des Multiprocessing + Multithreading Trainings: Speedup, Effizienz und Durchsatz in Abhängigkeit von der Konfiguration}
+    \label{fig:mp_mt_speedup}
+\end{figure}
+
+\subsection{Eintrag 5: Validation Curve und Learning Curve}
+\label{lab:eintrag5}
+\subsubsection{Zusammenfassung:}
+\begin{itemize}
+    \item Slurm Array Job für Validation und Learning Curve implementiert
+    \item Ergebnisse analysiert 
+\end{itemize}
+
+\subsubsection{Details und Arbeitschritte}
+Ein weiterer Anwendungsfall von Pytorch in Kombination mit HPC innerhalb eines Knotens ist die Durchführung von 
+Experimenten wie Validierung und Learning Curves in paralleler Ausführung.  
+Anstatt für jeden zu untersuchenden Parameter ein separates Skript auszuführen und auf dessen Abschluss zu warten, 
+ermöglicht HPC den Einsatz von SLURM-Array-Jobs, die diese Prozesse parallel ausführen.  
+Zusätzlich bietet \texttt{PyTorch} DDP die Möglichkeit, Multiprocessing und Multithreading innerhalb eines Jobs zu nutzen. 
+Im Folgenden werden beide Ansätze erläutert.
+
+\paragraph{Validation Curve} \mbox{} \\ 
+Die Erstellung von \textit{Validation Curves} erfordert, dass für mehrere Parameter zahlreiche Trainingsläufe durchgeführt werden, 
+wobei jeder Parameter über eine Reihe von Werten getestet wird. Es ist daher nicht praktikabel, jeden Lauf einzeln zu starten und abzuwarten.  
+HPC bietet hier die Möglichkeit, Job-Arrays einzureichen, die die Trainingsläufe parallel ausführen und den Prozess erheblich beschleunigen.
+
+Für die Umsetzung wurde dasselbe CNN-Modell \ref{lst:model} verwendet, wobei vier Parameter untersucht wurden: 
+\texttt{learning\_rate}, \texttt{batch\_size}, \texttt{optimizer} und \texttt{num\_epochs}.  
+Für jeden Parameter wurde ein separater SLURM-Job erstellt, wodurch die parallele Durchführung der Trainingsläufe ermöglicht wird.
+
+
+Das Bash-Skript in \ref{lst:bash_run} durchläuft eine Schleife über die vier Parameter 
+und reicht automatisch die entsprechenden Jobs ein. Innerhalb jedes Jobs startet SLURM ein Array von Tasks
+(\ref{lst:slurm_val}), wobei jeder Task einen bestimmten Parameterwert verarbeitet. Die Variable \texttt{ARG\_TYPE}
+wird dabei gesetzt, um anzugeben, welcher Parameter im jeweiligen Durchlauf variiert wird.
+
+Die einzelnen Tasks führen das Python-Skript \ref{lst:validation} aus, das die DDP-Umgebung 
+initialisiert, die Daten lädt und das Modell trainiert. Für jeden Wert des jeweiligen Parameters wird 
+ein Trainingslauf durchgeführt, bei dem Metriken wie Genauigkeit und Laufzeit erfasst werden. Anschließend werden die 
+Ergebnisse in CSV-Dateien gespeichert, die später zur Analyse der Validierungskurven genutzt werden.
+
+Die SLURM-Konfiguration legt unter anderem die Ressourcen fest (Anzahl der Prozesse, Threads pro Task, Laufzeitlimit) und 
+definiert die Umgebungsvariablen für die DDP-Kommunikation. In diesem Setup werden zwei DDP-Prozesse pro Job mit jeweils 
+zwölf Threads ausgeführt. Die parallele Ausführung über SLURM-Array-Jobs ermöglicht eine effiziente Durchführung mehrerer Experimente gleichzeitig.
+
+Abschließend zeigt das Diagramm in \ref{fig:validation_curve_diagram} den gesamten Ablauf Schritt für Schritt: 
+vom Bash-Skript über die SLURM-Array-Jobs bis hin zu den DDP-Prozessen und der Ergebnisgenerierung.
+
+
+\begin{lstlisting}[language=bash, caption={Einreichung der Validation-Curve-Jobs über SLURM}, label={lst:bash_run}]
+#!/bin/bash
+
+# loop over all parameters and set variables for slurm
+for param in learning_rate batch_size optimizer num_epochs; do
+    echo "Submitting validation curve jobs for parameter: $param"
+    sbatch \
+        --export=ARG_TYPE=$param \
+        --output=%u.validation_curve_${param}.%A_%a.out \
+        --error=%u.validation_curve_${param}.%A_%a.err \
+        validation.slurm
+done
+\end{lstlisting}
+
+\begin{lstlisting}[language=bash, caption={SLURM Array-Job zur Ausführung der Validation Kurve}, label={lst:slurm_val}]
+#!/bin/bash
+#SBATCH --reservation=hpc-course-sose2025
+#SBATCH --partition=teaching
+#SBATCH --job-name=validation_curve_ddp
+#SBATCH --array=0-3                    # 4 parameter values per experiment
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=2            # 2 DDP processes per job
+#SBATCH --cpus-per-task=12             # 12 threads per process
+#SBATCH --time=02:00:00
+#SBATCH --output=%u.validation_curve.%A_%a.out
+#SBATCH --error=%u.validation_curve.%A_%a.err
+
+# -----------------------------
+# Environment setup
+# -----------------------------
+module purge
+module add slurm
+module load gcc/13.2.0
+module load openmpi/4.1.6
+module load miniconda3
+source activate pytorchhpc
+
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+export MKL_NUM_THREADS=$SLURM_CPUS_PER_TASK
+export NUMEXPR_NUM_THREADS=$SLURM_CPUS_PER_TASK
+export PYTHONWARNINGS="ignore"
+
+export MASTER_ADDR=$(hostname)
+export MASTER_PORT=12355
+
+# -----------------------------
+# Read parameter type from environment variable
+# -----------------------------
+if [ -z "$ARG_TYPE" ]; then
+    echo "ARG_TYPE not set! Exiting..."
+    exit 1
+fi
+
+echo "Launching validation curve job for ${ARG_TYPE} index $SLURM_ARRAY_TASK_ID on node $(hostname)"
+
+# -----------------------------
+# Output directory setup
+# -----------------------------
+OUTPUT_DIR="_benchmark/validation_curve/${ARG_TYPE}_ddp2proc_${SLURM_CPUS_PER_TASK}threads"
+mkdir -vp ${OUTPUT_DIR}
+
+# -----------------------------
+# Launch DDP Python script
+# -----------------------------
+mpirun -np $SLURM_NTASKS_PER_NODE \
+    python3 ../../src/validation_curve/validation_curve.py \
+    --array_id $SLURM_ARRAY_TASK_ID \
+    --output_dir ${OUTPUT_DIR} \
+    --arg_type $ARG_TYPE \
+    --num_repeats 1
+
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=python, caption={Validation Kurve Python Skript}, label={lst:validation},
+basicstyle=\ttfamily\small, keywordstyle=\color{blue}\bfseries, commentstyle=\color{green!60!black}, stringstyle=\color{orange}]
+# ---------------------------
+# Parameter sets (each of length 4)
+# ---------------------------
+learning_rates  = [1e-4, 5e-4, 1e-3, 5e-3]
+batch_sizes     = [32, 64, 128, 256]
+optimizers      = ['SGD', 'Adam', 'RMSprop', 'AdamW']
+num_epochs_list = [1, 3, 5, 7]
+
+# setup world
+...
+
+# ---------------------------
+# Training logic
+# ---------------------------
+def run_benchmark_ddp_training(rank, world_size, args, train_data, test_data, output_path, num_threads):
+    # Thread setup
+    os.environ["OMP_NUM_THREADS"] = str(num_threads)
+    os.environ["MKL_NUM_THREADS"] = str(num_threads)
+    os.environ["NUMEXPR_NUM_THREADS"] = str(num_threads)
+    torch.set_num_threads(num_threads)
+
+    device = torch.device("cpu")
+
+    # Dataloaders
+    train_sampler = DistributedSampler(train_data, num_replicas=world_size, rank=rank, shuffle=True)
+    train_loader = torch.utils.data.DataLoader(
+        dataset=train_data,
+        batch_size=args.batch_size,
+        sampler=train_sampler,
+        num_workers=0
+    )
+    test_loader = torch.utils.data.DataLoader(
+        dataset=test_data,
+        batch_size=args.batch_size,
+        shuffle=False,
+        num_workers=0
+    )
+    logger.info(f"[Rank {rank}] testing {args.arg_type} Using batch size {args.batch_size}, optimizer {args.optimizer_name}, "
+                f"lr {args.learning_rate}, epochs {args.num_epochs}")
+
+    runtimes, accuracies = [], []
+
+    for rep in range(args.num_repeats):
+        model = SimpleCNN().to(device)
+        model = DDP(model)
+        # Select optimizer
+        if args.optimizer_name == 'SGD':
+            optimizer = optim.SGD(model.parameters(), lr=args.learning_rate)
+        elif args.optimizer_name == 'Adam':
+            optimizer = optim.Adam(model.parameters(), lr=args.learning_rate)
+        elif args.optimizer_name == 'RMSprop':
+            optimizer = optim.RMSprop(model.parameters(), lr=args.learning_rate)
+        elif args.optimizer_name == 'AdamW':
+            optimizer = optim.AdamW(model.parameters(), lr=args.learning_rate)
+        else:
+            raise ValueError(f"Unknown optimizer: {args.optimizer_name}")
+
+        criterion = nn.CrossEntropyLoss()
+
+        start_time = time.perf_counter()
+        # training
+        ...
+        runtime = 1000 * (time.perf_counter() - start_time)
+        logger.info(f"[Rank {rank}] Repetition {rep+1} finished in {runtime:.2f} ms")
+
+        # Validation accuracy
+        ...
+        dist.reduce(accuracy_tensor, dst=0, op=dist.ReduceOp.AVG)
+
+        if rank == 0:
+            # gather accuracy 
+            ...
+
+    # Save results
+    if rank == 0:
+        # save results
+        ...
+
+# ---------------------------
+# Main
+# ---------------------------
+def get_cmdargs():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--array_id", type=int, required=True)
+    parser.add_argument("--output_dir", type=str, required=True)
+    parser.add_argument("--arg_type", type=str, required=True,
+                        choices=["learning_rate", "batch_size", "optimizer", "num_epochs"])
+    parser.add_argument("--num_repeats", type=int, default=1)
+    return parser.parse_args()
+
+
+def main():
+    args = get_cmdargs()
+
+    # Select parameter value
+    if args.arg_type == "learning_rate":
+        args.param_value = learning_rates[args.array_id]
+    elif args.arg_type == "batch_size":
+        args.param_value = batch_sizes[args.array_id]
+    elif args.arg_type == "optimizer":
+        args.param_value = optimizers[args.array_id]
+    elif args.arg_type == "num_epochs":
+        args.param_value = num_epochs_list[args.array_id]
+    else:
+        raise ValueError(f"Invalid arg_type {args.arg_type}")
+
+    # Default values
+    args.learning_rate = 1e-3
+    args.batch_size = 128
+    args.optimizer_name = "SGD"
+    args.num_epochs = 3
+
+    # Override the tested parameter
+    if args.arg_type == "learning_rate":
+        args.learning_rate = args.param_value
+    elif args.arg_type == "batch_size":
+        args.batch_size = args.param_value
+    elif args.arg_type == "optimizer":
+        args.optimizer_name = args.param_value
+    elif args.arg_type == "num_epochs":
+        args.num_epochs = args.param_value
+
+    # Setup data and DDP and run training
+    ....
+\end{lstlisting}
+
+
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    node distance=1.5cm and 2cm,
+    box/.style={rectangle, rounded corners, draw, align=center, fill=gray!10, minimum width=3.6cm, minimum height=0.9cm},
+    arr/.style={-Latex, thick},
+    group/.style={draw, dashed, inner sep=6pt, rounded corners, fill=none}
+]
+
+% Level 1: Submission Script
+\node[box, fill=blue!10] (bash) {Bash-Skript \\ (Schleife über 4 Parameter)};
+
+% Level 2: SLURM Scheduler
+\node[box, fill=orange!10, below=of bash] (slurm) {SLURM Scheduler \\ (Einreichen der Jobs)};
+
+% Level 3: Parameter Jobs
+\node[box, fill=yellow!10, below left=of slurm] (job1) {SLURM-Job 1 \\ \texttt{learning\_rate}};
+\node[box, fill=yellow!10, below= of slurm] (job2) {SLURM-Job 2 \\ \texttt{batch\_size}};
+\node[box, fill=yellow!10, below right=2cm of slurm] (job3) {SLURM-Job 3 \\ \texttt{optimizer}};
+\node[box, fill=yellow!10, below right=4cm of slurm] (job4) {SLURM-Job 4 \\ \texttt{num\_epochs}};
+
+% Group box for array jobs
+\node[group, fit=(job1)(job2)(job3)(job4), 
+      label={[xshift=2cm,yshift=0.2cm]above:SLURM-Array-Jobs}] (array) {};
+
+% Level 4: DDP processes
+\node[box, fill=green!10, below=2cm of job2] (ddp) {PyTorch DDP-Prozesse \\ (2 Prozesse pro Job, 12 Threads pro Prozess)};
+
+% Level 5: Results
+\node[box, fill=purple!10, below=2cm of ddp] (results) {Ergebnisse \\ (Genauigkeit, Laufzeit, CSV-Ausgabe)};
+
+
+% Arrows
+\draw[arr] (bash) -- (slurm);
+\draw[arr] (slurm) -- (array) node[midway, left] {4 parallel Jobs pro Parameter};
+\draw[arr] (job1) -- (ddp);
+\draw[arr] (job2) -- (ddp);
+\draw[arr] (job3) -- (ddp);
+\draw[arr] (job4) -- (ddp);
+\draw[arr] (ddp) -- (results);
+
+\end{tikzpicture}
+\caption{Ablauf der Validierungskurven-Erstellung mit SLURM, Array-Jobs und PyTorch DDP.}
+\label{fig:validation_curve_diagram}
+\end{figure}
+\paragraph{Ergebnisse: } \mbox{}\\
+Nach der Sammlung der Ergebnisse wurden diese analysiert und die folgenden Plots \ref{fig:validation} erstellt: 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{plots/validaton_erg.png}
+    \caption{Ergebnisse der Validation Curve}
+    \label{fig:validation}
+\end{figure}
+
+
+Basierend auf den Validierungskurven scheinen die optimalen Hyperparameter im Allgemeinen eine kleine Batch-Größe zu sein 
+(32 oder 64 liefern die höchste Genauigkeit), eine hohe Lernrate (0{,}005 führt zur höchsten Genauigkeit), eine hohe Anzahl 
+an Epochen (7 ergibt die höchste Genauigkeit) 
+sowie die Optimierer \textit{Adam} oder \textit{AdamW} (beide erreichen eine maximale Genauigkeit von etwa 90–91\%). 
+
+Bezüglich der Laufzeit zeigte sich, dass eine Erhöhung der Lernrate und der Anzahl der Epochen zu einer deutlich längeren Laufzeit führt (außer bei 0{,}001), 
+wobei die Laufzeit mit steigender Epochenzahl nahezu linear zunimmt. Gleichzeitig verbessert sich mit einer größeren Anzahl an Epochen auch die Genauigkeit, 
+da das Modell mehr Trainingszyklen durchläuft. Eine größere Batch-Größe reduziert die Laufzeit erheblich, und der \textit{AdamW}-Optimierer fällt zudem als der 
+schnellste auf. Interessanterweise könnte man erwarten, dass eine große Batch-Größe die Laufzeit verlängert, doch durch die Nutzung von Parallelisierung
+kann die Trainingszeit sogar verkürzt werden.
+
+Zur Veranschaulichung zeigt das folgende Beispiel den typischen Auszug aus einer SLURM-Ausgabedatei für den \texttt{batch\_size}-Job. 
+Hier ist zu erkennen, wie PyTorch \textit{DistributedDataParallel} (DDP) zwei Prozesse initialisiert, die Trainingsergebnisse berechnen und speichern.
+
+\begin{lstlisting}[language=bash, caption={SLURM Array-Job zur Ausführung der Validation Kurve}, label={lst:slurm_val}]
+INFO:__main__:Rank 0/2 initializing DDP (MASTER=node2-087:12355)
+INFO:__main__:Rank 1/2 initializing DDP (MASTER=node2-087:12355)
+INFO:__main__:[Rank 1] testing batch_size Using batch size 32, optimizer SGD, lr 0.001, epochs 3
+INFO:__main__:[Rank 0] testing batch_size Using batch size 32, optimizer SGD, lr 0.001, epochs 3
+INFO:__main__:[Rank 0] Repetition 1 finished in 696726.63 ms
+INFO:__main__:[Rank 1] Repetition 1 finished in 696723.39 ms
+INFO:__main__:[Rank 0] batch_size=32 -> Acc=77.18%, Time=696726.63ms
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:Results saved to _benchmark/validation_curve/batch_size_ddp2proc_12threads/validation_curve_batch_size_32_2r_12t.csv
+INFO:__main__:Cleaning up DDP process group
+\end{lstlisting}
+
+
+Die Ausführung der einzelnen Jobs im Cluster lässt sich in Abbildung~\ref{fig:slurm_jobs_runtime} nachvollziehen. 
+Hier ist zu sehen, wie die vier SLURM-Array-Jobs parallel gestartet werden, wobei jeder Job 2 Prozesse und 12
+Threads verwendet, 
+um die Trainingsläufe weiter zu beschleunigen.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{plots/validation job arrays waiting.png}
+    \caption{Ergebnisse der Validation Curve}
+    \label{fig:slurm_jobs_runtime}
+\end{figure}
+
+\paragraph{Learning Curve} \mbox{} \\ 
+Eine Learning Curve (Lernkurve) beschreibt den Verlauf der Trainings- und Validierungsleistung in Abhängigkeit von der Menge der verwendeten Trainingsdaten. 
+Sie liefert wertvolle Informationen darüber, wie gut ein Modell mit zunehmender Datenmenge lernt und generalisiert. 
+Eine steil ansteigende Lernkurve weist auf ein effektives Lernverhalten hin, während ein frühes Plateau oder eine große Lücke zwischen Trainings- und Validierungskurve 
+auf Overfitting oder eine unzureichende Datenmenge hindeuten kann.
+
+Für die Erstellung der Lernkurven wurde eine HPC-Umgebung verwendet, in der ein einzelnes SLURM-Jobskript als Array-Job definiert war. 
+Jede Array-ID entsprach dabei einer unterschiedlichen Datensatzgröße, basierend auf den Anteilen 
+\texttt{fractions = [0.1, 0.25, 0.5, 0.75, 1.0]}. 
+Somit wurden fünf Trainingsläufe parallel gestartet, wobei jeder Lauf mit einer anderen Teilmenge des Trainingsdatensatzes durchgeführt wurde. 
+Innerhalb jedes Array-Jobs kam \textit{PyTorch DistributedDataParallel} (DDP) mit zwei Prozessen (Rängen) und jeweils zwölf Threads pro Prozess zum Einsatz, 
+um eine effiziente Parallelisierung auf Prozess- und Thread-Ebene zu erreichen. 
+Das zugrunde liegende Workflow-Schema ist in \ref{fig:learning_curve_diagram} dargestellt.
+Das Python Skript zur Ausführung der Learning Curve ist in Listing \ref{lst:learningc}
+
+\begin{lstlisting}[language=python, caption={Validation Kurve Python Skript}, label={lst:learningc},
+basicstyle=\ttfamily\small, keywordstyle=\color{blue}\bfseries, commentstyle=\color{green!60!black}, stringstyle=\color{orange}]
+fractions = [0.1, 0.25, 0.5, 0.75, 1.0]
+# ---------------------------
+# Distributed setup / cleanup
+# ---------------------------
+# same setup
+
+def cleanup_ddp():
+    logger.info("Cleaning up DDP process group")
+    dist.destroy_process_group()
+    
+def run_benchmark_ddp_training(rank, world_size, args, train_data, test_data, output_path, num_threads, fraction):
+
+   # same training workflow + gathering and saving results from rank 0 
+    .....
+
+def get_cmdargs():
+    ...
+
+
+def main():
+    args = get_cmdargs()
+    fraction = fractions[args.array_id]
+
+    train_data, test_data = get_dataset(Path("/scratch/kurs_2024_sose_hpc/kurs_2024_sose_hpc_20/projekt/PyTorch-on-HPC/code/jobs/model_training_benchmark/data"))
+    num_train_samples = int(len(train_data) * fraction)
+    train_data_subset = Subset(train_data, list(range(num_train_samples)))
+
+    rank, world_size = setup_ddp()
+    logger.info(f"Starting DDP benchmark with {world_size} ranks (this is rank {rank})")
+
+    slurm_threads = int(os.environ.get("SLURM_CPUS_PER_TASK", "1"))
+    logger.info(f"Using {slurm_threads} threads per process (from SLURM_CPUS_PER_TASK)")
+
+    run_benchmark_ddp_training(
+        rank=rank,
+        world_size=world_size,
+        args=args,
+        train_data=train_data_subset,
+        test_data=test_data,
+        output_path=Path(args.output_dir),
+        num_threads=slurm_threads,
+        fraction=fraction
+    )
+\end{lstlisting}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    node distance=1.4cm and 1.8cm,
+    box/.style={rectangle, rounded corners, draw, align=center, fill=gray!10, minimum width=3.8cm, minimum height=0.9cm},
+    arr/.style={-Latex, thick},
+    group/.style={draw, dashed, inner sep=6pt, rounded corners, fill=none}
+]
+
+% Level 1: Submission Script
+\node[box, fill=blue!10] (bash) {Bash-Skript \\ (ein SLURM-Array-Job)};
+
+% Level 2: SLURM Scheduler
+\node[box, fill=orange!10, below=of bash] (slurm) {SLURM Scheduler \\ (Einreichen des Array-Jobs)};
+
+% Level 3: Array Job Instances (each = fraction of data)
+\node[box, fill=yellow!10, below left=3cm and -0.5cm of slurm] (job1) {Array-ID 0 \\ \texttt{fraction = 0.1}};
+\node[box, fill=yellow!10, below left=1.5cm and -0.1cm of slurm] (job2) {Array-ID 1 \\ \texttt{fraction = 0.25}};
+\node[box, fill=yellow!10, below right=1.5cm and -0.1cm of slurm] (job3) {Array-ID 2 \\ \texttt{fraction = 0.5}};
+\node[box, fill=yellow!10, below right=3cm and -0.5cm of slurm] (job4) {Array-ID 3 \\ \texttt{fraction = 0.75}};
+\node[box, fill=yellow!10, below=of slurm] (job5) {Array-ID 4 \\ \texttt{fraction = 1.0}};
+
+% Group box for array jobs
+\node[group, fit=(job1)(job2)(job3)(job4)(job5),
+      label={[xshift=2cm,yshift=0.2cm]above:SLURM-Array-Jobs (unterschiedliche Datensatzanteile)}] (array) {};
+
+% Level 4: DDP processes
+\node[box, fill=green!10, below=2.4cm of job5] (ddp) {PyTorch DDP-Prozesse \\ (2 Prozesse pro Array-ID, 12 Threads pro Prozess)};
+
+% Level 5: Results
+\node[box, fill=purple!10, below=2cm of ddp] (results) {Ergebnisse in .csv};
+
+% Arrows
+\draw[arr] (bash) -- (slurm);
+\draw[arr] (slurm) -- (array);
+\draw[arr] (job1) -- (ddp);
+\draw[arr] (job2) -- (ddp);
+\draw[arr] (job3) -- (ddp);
+\draw[arr] (job4) -- (ddp);
+\draw[arr] (job5) -- (ddp);
+\draw[arr] (ddp) -- (results);
+
+\end{tikzpicture}
+\caption{Ablauf der Lernkurven-Erstellung mit einem SLURM-Array-Job}
+\label{fig:learning_curve_diagram}
+\end{figure}
+
+\paragraph{Ergebnisse:} \mbox{}\\
+
+Wie in \ref{fig:learning_curve_diagram} zu sehen, zeigt der linke Plot, dass die Genauigkeit mit zunehmendem Anteil der Trainingsdaten von 0,1 auf etwa 0,75 deutlich steigt, von $69,6\%$ auf ein Maximum von ungefähr $78\%$. 
+Die Nutzung des vollständigen Trainingsdatensatzes (Anteil 1,0) führt erstaunlicherweise jedoch zu einem merklichen Rückgang der Genauigkeit auf etwa $73\%$. 
+
+Der rechte Plot zeigt deutlich, dass die Laufzeit nahezu linear mit dem Anteil der Trainingsdaten zunimmt, von etwa $50\text{ s}$ bei 0,1 auf über $450\text{ s}$ bei 1,0. 
+Mithilfe der HPC Umgebung mit SLURM-Array-Jobs und PyTorch \textit{DistributedDataParallel} (DDP) konnten diese Trainingsläufe parallel ausgeführt werden. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{plots/ergebnis_learning.png}
+    \caption{Ergebnisse der Learning Curve}
+    \label{fig:learning_c}
+\end{figure}
+
+Abbildung~\ref{fig:learning_curve_jobs_queue} zeigt, wie die einzelnen Array-Jobs für die verschiedenen Datenfraktionen 
+in der Warteschlange des HPC-Clusters laufen. Dies veranschaulicht die parallele Nutzung von Ressourcen.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{plots/array jobs waiting.png}
+    \caption{Visualisierung der SLURM-Array-Jobs während der Ausführung im HPC-Cluster. Jede Array-ID entspricht einer anderen Datensatzfraktion.}
+    \label{fig:learning_curve_jobs_queue}
+\end{figure}
+
+Ein Auszug aus einer SLURM-Ausgabedatei eines Array-Jobs (z.\,B. für \texttt{fraction=0.1}) ist in Listing~\ref{lst:slurm_output} dargestellt. 
+Hier ist zu sehen, wie PyTorch DDP die Prozesse initialisiert, die Daten geladen werden, die Epochen starten und die Ergebnisse gespeichert werden.
+
+\begin{lstlisting}[language=bash, caption={SLURM Array-Job zur Ausführung der Validation Kurve}, label={lst:slurm_val}]
+INFO:__main__:Rank 1/2 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Rank 0/2 initializing DDP (MASTER=node2-085:12355)
+INFO:__main__:Starting DDP benchmark with 2 ranks (this is rank 0)
+INFO:__main__:Using 12 threads per process (from SLURM_CPUS_PER_TASK)
+INFO:__main__:Starting DDP benchmark with 2 ranks (this is rank 1)
+INFO:__main__:Using 12 threads per process (from SLURM_CPUS_PER_TASK)
+INFO:__main__:[Rank 0] Data loaders initialized (Train: 24, Test: 79)
+INFO:__main__:[Rank 1] Data loaders initialized (Train: 24, Test: 79)
+INFO:__main__:[Rank 0] Epoch 1/5 starting
+INFO:__main__:[Rank 1] Epoch 1/5 starting
+INFO:__main__:[Rank 0] Epoch 2/5 starting
+INFO:__main__:[Rank 1] Epoch 2/5 starting
+INFO:__main__:[Rank 1] Epoch 3/5 starting
+INFO:__main__:[Rank 0] Epoch 3/5 starting
+INFO:__main__:[Rank 0] Epoch 4/5 starting
+INFO:__main__:[Rank 1] Epoch 4/5 starting
+INFO:__main__:[Rank 1] Epoch 5/5 starting
+INFO:__main__:[Rank 0] Epoch 5/5 starting
+INFO:__main__:[Rank 0] Repetition 1 finished in 47891.42 ms
+INFO:__main__:[Rank 1] Repetition 1 finished in 47891.67 ms
+INFO:__main__:[Rank 1] Local accuracy: 69.64%
+INFO:__main__:[Rank 0] Local accuracy: 69.64%
+INFO:__main__:Cleaning up DDP process group
+INFO:__main__:[Threads=12] DDP run 1/1 on 2 ranks, fraction=0.1: 47891.42 ms, Accuracy: 69.64%
+INFO:__main__:Results saved to _benchmark/learning_curve/frac_0_ddp2proc_12threads/learning_curve_0.1_frac_2_ranks_12_threads.csv
+INFO:__main__:Cleaning up DDP process group
+\end{lstlisting}
+
+
+\subsection{Eintrag 6 : Hyperparameter Search}
+\label{lab:eintrag6}
+\subsubsection{Zusammenfassung:}
+\begin{itemize}
+    \item Hyperparameter Search mittels array jobs implementiert
+    \item Ergebnisse analysiert
+\end{itemize}
+
+\subsubsection{Details und Arbeitsschritte:}
+Die Hyperparametersuche ist ein wichtiger Bestandteil des Deep-Learning-Workflows. 
+Sie ermöglicht es, das implementierte Modell gezielt hinsichtlich der zugrunde liegenden Parameter zu untersuchen. 
+Allerdings ist dieser Vorgang sehr zeitaufwendig. 
+Das HPC-Setup erlaubt in diesem Zusammenhang die Parallelisierung dieser Operation mithilfe von parallelen Array-Jobs. 
+
+Hierbei wurde das ursprüngliche Modell aus Listing~\ref{lst:model} erneut verwendet. 
+Auf die Nutzung von PyTorch DDP für Multiprocessing wurde verzichtet, 
+da der Fokus darauf lag, zu demonstrieren, wie Array-Jobs geschrieben werden können. 
+Das entsprechende SLURM-Array-Job-Skript ist in Abbildung~\ref{lst:slurm_hyper} dargestellt.
+Das Skript nutzt die \texttt{--array}-Direktive, um mehrere Trainingsläufe mit unterschiedlichen Hyperparameter-Kombinationen parallel auszuführen. 
+Jeder Array-Task erhält dabei eine eindeutige \texttt{array\_id}.
+
+
+\begin{lstlisting}[language=bash, caption={SLURM Array-Job zur Ausführung der Hyperparameter Suche}, label={lst:slurm_hyper}]
+
+#!/bin/bash
+#SBATCH --reservation=hpc-course-sose2025
+#SBATCH --partition=teaching
+#SBATCH --job-name=hyperparam_search
+#SBATCH --array=0-8                      # 9 combinations
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --time=00:30:00
+#SBATCH --output=%u.hyperparam.%A_%a.out
+#SBATCH --error=%u.hyperparam.%A_%a.err
+
+module purge
+module add slurm
+module load gcc/13.2.0
+module load miniconda3
+source activate pytorchhpc
+
+echo "Running array job $SLURM_ARRAY_TASK_ID"
+echo "============================================"
+echo " SLURM JOB INFO "
+echo " Job ID: $SLURM_JOB_ID"
+echo " Array Task ID: $SLURM_ARRAY_TASK_ID"
+echo " Node: $(hostname)"
+echo " Start Time: $(date)"
+echo "============================================"
+
+
+
+python3 ../../src/tuning/hyperparameter_search.py \
+    --array_id $SLURM_ARRAY_TASK_ID \
+    --output_dir "_benchmark/hyperparam_search"
+\end{lstlisting}
+Der Trainings-Workflow bleibt derselbe, jedoch wurde das Python-Skript angepasst, 
+um es mit dem SLURM-Job abzustimmen und das Training mit mehreren Parametern zu ermöglichen, 
+wie im entsprechenden Listing \ref{lst:trainig_hyper} dargestellt.
+Das Skript generiert die Kombinationen der Hyperparameter (Lernrate und Batch-Größe) 
+und ordnet diese den jeweiligen Array-Job-IDs zu. 
+Auf diese Weise kann jeder parallel ausgeführte Job eine eigene Konfiguration trainieren 
+und die Ergebnisse automatisiert abspeichern.
+
+\begin{lstlisting}[language=python, caption={Hyperparametersuche}, label={lst:trainig_hyper},
+basicstyle=\ttfamily\small, keywordstyle=\color{blue}\bfseries, commentstyle=\color{green!60!black}, stringstyle=\color{orange}]
+def train_model(lr, batch_size, num_epochs, output_dir):
+    # same serial training worfklow (no multiprocessing/multithreading)
+def get_hyperparams_from_array_id(array_id):
+    # Define grid
+    learning_rates = [0.01, 0.05, 0.1]
+    batch_sizes = [64, 128, 256]
+    num_epochs = 5
+
+    grid = [(lr, bs, num_epochs) for lr in learning_rates for bs in batch_sizes]
+    return grid[array_id]
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--array_id", type=int, required=True)
+    parser.add_argument("--output_dir", type=str, default="_benchmark/hyperparam_search")
+    args = parser.parse_args()
+
+    lr, batch_size, num_epochs = get_hyperparams_from_array_id(args.array_id)
+    output_dir = Path(args.output_dir)
+    train_model(lr, batch_size, num_epochs, output_dir)
+\end{lstlisting}
+
+\paragraph{Ergebnisse:} \mbox{}\\
+Die Ergebnisse in \ref{fig:hyper_plot} zeigen deutlich, dass die Laufzeit (\textit{Runtime}) in Abhängigkeit von der Batch-Größe und der Lernrate variiert. 
+Kleinere Batch-Größen führen tendenziell zu leicht höheren Laufzeiten, da häufiger Gradientenaktualisierungen durchgeführt werden. 
+Mit zunehmender Batch-Größe sinkt die Laufzeit zunächst, steigt bei sehr großen Werten jedoch wieder an.
+
+In Bezug auf die Genauigkeit zeigt sich, dass höhere Lernraten (\( lr = 0.05 \) und \( lr = 0.10 \)) tendenziell zu besseren Ergebnissen führen, insbesondere bei kleineren Batch-Größen. 
+Dies legt nahe, dass eine moderate Lernrate und eine kleinere Batch-Größe in diesem Setup die beste Modellleistung ermöglichen.
+
+Aus HPC-Sicht verdeutlichen diese Ergebnisse den Vorteil einer Parallelisierung der Hyperparametersuche über SLURM-Array-Jobs. 
+Durch die gleichzeitige Ausführung mehrerer Konfigurationen können Laufzeiten erheblich reduziert werden, während gleichzeitig ein breiter Parameterraum effizient untersucht wird. 
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{plots/hyper_plot.png}
+    \caption{Hyperparameter Suche}
+    \label{fig:hyper_plot}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 \newpage
+\section{Zusammenfassung des Logbuchs}
+
+\subsection{Einführung}
+Diese Dokumentation fasst die wesentlichen Arbeitsschritte und Ergebnisse aus dem Logbuch 
+zusammen und demonstriert die Verwendung von \texttt{PyTorch} in Kombination mit HPC-Ressourcen. 
+Der Fokus liegt auf der effizienten Nutzung von Parallelisierungsmöglichkeiten für Deep-Learning-Experimente 
+mit dem FashionMNIST-Datensatz \cite{xiao2017fashion}. Die dokumentierten Experimente umfassen Data Loading, Model 
+Training mit verschiedenen Parallelisierungsansätzen, Hyperparameter-Tuning sowie Validation und Learning Curves.
+
+\subsection{Projektstruktur und Setup}
+Das Projekt wurde in einer strukturierten Repository-Organisation umgesetzt (Abbildung \ref{fig:dir_structure}), 
+die Code, Job-Skripte und Dokumentation klar trennt. Eine spezielle Conda-Umgebung (\texttt{pytorchhpc}) wurde erstellt, 
+um alle benötigten Python-Pakete bereitzustellen. Die HPC-Umgebung \textbf{JustHPC} bietet pro Knoten 24 CPU-Kerne und 192 GB 
+RAM, was ideale Voraussetzungen für paralleles Training bietet.
+
+\subsection{Experiment 1: Data Loading mit PyTorch DataLoader}
+\subsubsection{HPC-Relevanz und Methodik}
+Der \texttt{PyTorch DataLoader} ermöglicht paralleles Laden und Vorverarbeiten von Daten durch die Einstellung des 
+\texttt{num\_workers}-Parameters. Auf HPC-Systemen kann dies die CPU-Auslastung optimieren und Datenengpässe reduzieren. 
+Unser Benchmark-Skript (Listing \ref{lst:data_loading_benchmark}) misst die Ladezeiten für verschiedene \texttt{num\_workers}-Werte (1-24).
+
+\subsubsection{Job-Skript und Ausführung}
+Das Slurm-Jobskript (Listing \ref{lst:slurm_data_loader}) reserviert einen Knoten mit 24 CPUs und führt den Benchmark aus. 
+Die Umgebungsvariablen \texttt{OMP\_NUM\_THREADS} und \texttt{MKL\_NUM\_THREADS} werden gesetzt, um Threading-Bibliotheken zu steuern.
+
+\subsubsection{Ergebnisse und Skalierungsverhalten}
+Die Ergebnisse (Abbildung \ref{fig:data_loading_results}) zeigen ein deutliches Speedup bis zu 24 Workern, wobei die 
+Effizienz ab etwa 8 Workern abnimmt. Dennoch steigt der Durchsatz kontinuierlich, was die Vorteile der Parallelisierung 
+für Datenladevorgänge demonstriert.
+
+\subsection{Experiment 2: Serial Training (Baseline)}
+\subsubsection{Methodik und Implementierung}
+Als Referenz für alle parallelen Ansätze wurde ein serielles Training implementiert (Listing \ref{lst:training_serial}). Das 
+Training verwendet einen einzelnen Thread (\texttt{torch.set\_num\_threads(1)}) und \texttt{num\_workers=0} für das Data Loading.
+
+\subsubsection{Ergebnisse}
+Das serielle Training (Tabelle \ref{tab:serial_results}) ergab eine durchschnittliche Laufzeit von 380.623 ms bei einer Genauigkeit 
+von 83,74\%. Diese Werte dienen als Baseline für die Bewertung aller Parallelisierungsansätze.
+
+\subsection{Experiment 3: Multithreading Training}
+\subsubsection{Intraop Multithreading}
+Das Intraop-Experiment parallelisiert einzelne Operationen innerhalb des Modells. Der Slurm-Job (Listing \ref{lst:slurm_intraop}) 
+testet verschiedene Thread-Anzahlen (1-24) mit \texttt{torch.set\_num\_threads()}. Die Ergebnisse (Abbildung \ref{fig:intraop_multithreading}) 
+zeigen ein maximales Speedup von 4,5 bei 16 Threads.
+
+\subsubsection{Interop Multithreading}
+Das Interop-Experiment parallelisiert unabhängige Operationen zwischen Layer-Berechnungen. Bei 24 Threads erreicht dieser Ansatz die beste 
+absolute Laufzeit von 77.592 ms (Abbildung \ref{fig:interop_multithreading}).
+
+\subsubsection{Hybrid Intraop + Interop}
+Die Kombination beider Ansätze erreicht ihr Performance-Maximum bei 16 Threads mit 78.980 ms Laufzeit (Abbildung 
+\ref{fig:interop_intraop_multithreading}).
+
+\subsection{Experiment 4: Multiprocessing + Multithreading auf einem Knoten}
+\subsubsection{Methodik und Konfiguration}
+Dieses Experiment kombiniert Multiple Prozesse mit Multithreading auf einem einzelnen Knoten (Tabelle \ref{tab:multithreading_configs}). 
+Die Konfigurationen umfassen 2, 4 und 8 Prozesse mit entsprechend angepassten Thread-Anzahlen.
+
+\subsubsection{Ergebnisse und Skalierungsverhalten}
+Die Ergebnisse (Abbildungen \ref{fig:mp_mt_results} und \ref{fig:mp_mt_speedup}) zeigen eine deutliche Skalierung mit zunehmender Prozessanzahl. 
+Der Speedup steigt auf bis zu 14 bei 8 Prozessen, während die Effizienz ebenfalls zunimmt.
+
+\subsection{Experiment 5: Multinode DDP Training}
+\subsubsection{Methodik und Konfiguration}
+Das Distributed Data Parallel (DDP) Training wurde über zwei Knoten mit verschiedenen Konfigurationen implementiert (Tabelle 
+\ref{tab:multinode_configs}). Die Slurm-Jobskripte (Listings \ref{lst:slurm_multinode1} und \ref{lst:slurm_multinode2}) verwenden 
+das \texttt{Gloo}-Backend für die Prozesskommunikation.
+
+\subsubsection{Implementierungsdetails}
+Das DDP-Trainingsskript (Listing \ref{lst:python_multinode1}) initialisiert die Prozessgruppe, verwendet \texttt{DistributedSampler} 
+für Datenverteilung und synchronisiert Gradienten automatisch. Die Ausgaben (Listings \ref{lst:slurm_output} und \ref{lst:slurm_output_2tasks}) 
+zeigen die koordinierte Ausführung über mehrere Knoten.
+
+\subsubsection{Ergebnisse und Skalierungsverhalten}
+Die Ergebnisse (Abbildungen \ref{fig:multinode_ddp_results} und \ref{fig:multinode_ddp_speedup}) zeigen eine signifikante Beschleunigung 
+mit zunehmender Prozessanzahl, allerdings mit reduzierter Modellgenauigkeit (71,5-76,3\% verglichen mit 83,8\% bei seriellem Training).
+
+\subsection{Experiment 6: Hyperparameter Search mit Array Jobs}
+\subsubsection{HPC-Relevanz und Methodik}
+Hyperparameter-Suche ist rechenintensiv und wurde durch SLURM Array Jobs parallelisiert. Das Slurm-Jobskript (Listing \ref{lst:slurm_hyper}) 
+definiert ein Array von 9 Jobs für verschiedene Kombinationen von Lernraten und Batch-Größen.
+
+\subsubsection{Implementierungsdetails}
+Das Python-Skript (Listing \ref{lst:trainig_hyper}) mapped Array-IDs auf spezifische Hyperparameter-Kombinationen und führt serielles Training 
+durch.
+
+\subsubsection{Ergebnisse}
+Die Ergebnisse (Abbildung \ref{fig:hyper_plot}) zeigen systematisch den Einfluss von Hyperparametern auf Laufzeit und Genauigkeit. Durch 
+Parallelisierung wurde die Suchzeit von potentiell Stunden auf Minuten reduziert.
+
+\subsection{Experiment 7: Validation Curves}
+\subsubsection{Methodik und Implementierung}
+Validation Curves wurden für vier Parameter (\texttt{learning\_rate}, \texttt{batch\_size}, \texttt{optimizer}, \texttt{num\_epochs}) mittels 
+SLURM Array Jobs und DDP implementiert. Der Workflow (Abbildung \ref{fig:validation_curve_diagram}) zeigt die parallele Ausführung über multiple 
+Jobs.
+
+\subsubsection{Job-Skript und Ausführung}
+Das Bash-Skript (Listing \ref{lst:bash_run}) reicht Jobs für alle Parameter ein, während das Slurm-Jobskript (Listing \ref{lst:slurm_val}) 
+Array-Jobs für die einzelnen Parameterwerte definiert.
+
+\subsubsection{Ergebnisse}
+Die Validation Curves (Abbildung \ref{fig:validation}) identifizieren optimale Hyperparameter-Kombinationen. Die parallele Ausführung 
+(Abbildung \ref{fig:slurm_jobs_runtime}) demonstriert die Effizienzsteigerung durch HPC-Nutzung.
+
+\subsection{Experiment 8: Learning Curves}
+\subsubsection{Methodik und Implementierung}
+Learning Curves wurden mit einem SLURM Array Job implementiert, der verschiedene Datensatzfraktionen (0.1, 0.25, 0.5, 0.75, 1.0) parallel 
+trainiert. Der Workflow (Abbildung \ref{fig:learning_curve_diagram}) verwendet DDP mit 2 Prozessen und 12 Threads pro Prozess.
+
+\subsubsection{Ergebnisse}
+Die Learning Curves (Abbildung \ref{fig:learning_c}) zeigen den Einfluss der Datenmenge auf Modellperformance. Die Genauigkeit steigt bis 
+zu einer Fraktion von 0.75 auf 78\% und fällt dann leicht ab. Die parallele Ausführung (Abbildung \ref{fig:learning_curve_jobs_queue}) reduziert 
+die Gesamtlaufzeit erheblich.
+
+\subsection{Vergleich aller Experimente}
+\subsubsection{Leistungsvergleich}
+Tabelle \ref{tab:performance_comparison} vergleicht die verschiedenen Parallelisierungsansätze hinsichtlich Laufzeit und Genauigkeit.
+
+\begin{table}[H]
+\centering
+\caption{Leistungsvergleich aller Parallelisierungsansätze}
+\label{tab:performance_comparison}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Experiment} & \textbf{Beste Laufzeit [ms]} & \textbf{Genauigkeit [\%]} & \textbf{Skalierbarkeit} \\
+\midrule
+Serial Training & 380.623 & 83.74 & Keine \\
+Data Loading (24 Workers) & 77.592 & - & Einzelknoten \\
+Intraop Multithreading & 82.626 & 84.60 & Einzelknoten \\
+Interop Multithreading & 77.592 & 84.50 & Einzelknoten \\
+Hybrid Multithreading & 78.980 & 84.40 & Einzelknoten \\
+Multiprocessing + MT & 78.980 & 84.40 & Einzelknoten \\
+DDP Multinode (16 Ranks) & 1.200.000 & 73.00 & Multi-Node \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\subsection{Schlussfolgerung}
+Die umfassenden Experimente demonstrieren die vielfältigen Möglichkeiten, \texttt{PyTorch} mit HPC-Ressourcen zu kombinieren. 
+Jeder Parallelisierungsansatz hat spezifische Stärken und optimale Anwendungsbereiche:
+
+\begin{itemize}
+\item \textbf{Multithreading} eignet sich optimal für Single-Node-Experimente mit moderaten Ressourcenanforderungen
+\item \textbf{Multiprocessing + Multithreading} bietet die beste Performance auf einem einzelnen Knoten
+\item \textbf{DDP} skaliert exzellent für Multi-Node-Szenarien mit großen Modellen
+\item \textbf{Array Jobs} ermöglichen effiziente Hyperparameter-Optimierung und Kurvenberechnung
+\end{itemize}
+
+Die Kombination dieser Ansätze ermöglicht HPC-Nutzern, ihre Deep-Learning-Workflows massiv zu beschleunigen und wertvolle Rechenzeit zu 
+sparen. Die dokumentierten Experimente bieten eine praktische Grundlage für die Optimierung eigener Projekte auf HPC-Clustern und demonstrieren 
+die signifikanten Vorteile der Parallelisierung in jeder Phase des Machine-Learning-Lifecycles.
+
+\subsection{Hilfsmittel und Unterstützung}
+Bei der Erstellung dieser Arbeit wurden verschiedene Hilfsmittel eingesetzt. Der Code und die Konzepte aus der Vorlesung waren
+äußerst hilfreich für die Entwicklung der SLURM-Jobskripte und die Konzeption eines geeigneten Machine-Learning-Workflows.
+Zur Vertiefung des Verständnisses der grundlegenden PyTorch-Konzepte wurde die offizielle PyTorch-Dokumentation herangezogen \cite{pytorch_docs},
+insbesondere zur Implementierung und Anpassung neuronaler Netze.
+Darüber hinaus wurde ChatGPT genutzt, um Vorlagen zu erstellen, den grammatikalischen Stil zu verbessern, bei der Fehlerbehebung in Code
+und Skripten zu unterstützen
+sowie Korrekturen im Text vorzunehmen.
+Drei beispielhafte Prompts in englischer Sprache lauteten:
+\textit{"Create a template for a Python (or Slurm) LaTeX Listing"},
+\textit{"Improve the academic writing style of this text: ..."}
+und
+\textit{"Where is the error in this SLURM job script: ..."}.
+
+
+\newpage 
+\section{Einschätzung der Gruppenmitglieder}
+
+\newpage
 \printbibliography[title={Literaturverzeichnis}]
 \addcontentsline{toc}{section}{Literaturverzeichnis} % fügt es ins Inhaltsverzeichnis ein
+
 
 
 

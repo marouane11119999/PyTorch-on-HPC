@@ -12,22 +12,10 @@ import torchvision.transforms as transforms
 from torch.utils.data import Dataset
 
 def get_dataset(path: Path, download: bool = False):
-    """
-    Load Fashion MNIST dataset and return DataLoaders.
-
-    Args:
-        path (Path): Directory to store/load dataset.
-        batch_size (int): Batch size for DataLoader.
-        num_workers (int): Number of worker processes for data loading.
-
-    Returns:
-        train_loader (DataLoader), test_loader (DataLoader)
-    """
-
     # Define transforms: convert to tensor + normalize
     transform = transforms.Compose([
         transforms.ToTensor(),
-        transforms.Normalize((0.5,), (0.5,))  # mean=0.5, std=0.5
+        transforms.Normalize((0.5,), (0.5,)) 
     ])
 
     # Load train/test datasets
