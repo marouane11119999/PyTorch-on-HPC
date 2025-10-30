@@ -21,11 +21,12 @@
   \datalist[entry]{nyt/global//global/global}
     \entry{reddit_hpc_speedup_efficiency}{misc}{}
       \name{author}{1}{}{%
-        {{hash=a4b9f11bd8e08981a61bdb3f6e54c4f8}{%
+        {{un=0,uniquepart=base,hash=a4b9f11bd8e08981a61bdb3f6e54c4f8}{%
            family={baguettemasterrace},
            familyi={b\bibinitperiod},
            given={Reddit\bibnamedelima User},
-           giveni={R\bibinitperiod\bibinitdelim U\bibinitperiod}}}%
+           giveni={R\bibinitperiod\bibinitdelim U\bibinitperiod},
+           givenun=0}}%
       }
       \strng{namehash}{a4b9f11bd8e08981a61bdb3f6e54c4f8}
       \strng{fullhash}{a4b9f11bd8e08981a61bdb3f6e54c4f8}
@@ -35,6 +36,8 @@
       \strng{authorfullhash}{a4b9f11bd8e08981a61bdb3f6e54c4f8}
       \field{sortinit}{b}
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.reddit.com/r/HPC/comments/1l36sju/how_do_you_compute_speedup_and_efficiency_on/}}
@@ -50,11 +53,12 @@
     \endentry
     \entry{osc_ddp}{misc}{}
       \name{author}{1}{}{%
-        {{hash=09488a275530bd5dce7794dda000dd85}{%
+        {{un=0,uniquepart=base,hash=09488a275530bd5dce7794dda000dd85}{%
            family={Center},
            familyi={C\bibinitperiod},
            given={Ohio\bibnamedelima Supercomputer},
-           giveni={O\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+           giveni={O\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
       }
       \strng{namehash}{09488a275530bd5dce7794dda000dd85}
       \strng{fullhash}{09488a275530bd5dce7794dda000dd85}
@@ -64,6 +68,8 @@
       \strng{authorfullhash}{09488a275530bd5dce7794dda000dd85}
       \field{sortinit}{C}
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Accessed: 2025-10-18}
@@ -78,11 +84,12 @@
     \endentry
     \entry{pytorch_multiprocessing_best_practices}{misc}{}
       \name{author}{1}{}{%
-        {{hash=48ee55e5d73f6a2f16b81e3491657564}{%
+        {{un=0,uniquepart=base,hash=48ee55e5d73f6a2f16b81e3491657564}{%
            family={Contributors},
            familyi={C\bibinitperiod},
            given={PyTorch},
-           giveni={P\bibinitperiod}}}%
+           giveni={P\bibinitperiod},
+           givenun=0}}%
       }
       \list{organization}{1}{%
         {PyTorch}%
@@ -96,6 +103,9 @@
       \field{extraname}{1}
       \field{sortinit}{C}
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://docs.pytorch.org/docs/stable/notes/multiprocessing.html}}
@@ -105,11 +115,12 @@
     \endentry
     \entry{pytorch_threading_env_vars}{misc}{}
       \name{author}{1}{}{%
-        {{hash=48ee55e5d73f6a2f16b81e3491657564}{%
+        {{un=0,uniquepart=base,hash=48ee55e5d73f6a2f16b81e3491657564}{%
            family={Contributors},
            familyi={C\bibinitperiod},
            given={PyTorch},
-           giveni={P\bibinitperiod}}}%
+           giveni={P\bibinitperiod},
+           givenun=0}}%
       }
       \strng{namehash}{48ee55e5d73f6a2f16b81e3491657564}
       \strng{fullhash}{48ee55e5d73f6a2f16b81e3491657564}
@@ -120,6 +131,9 @@
       \field{extraname}{2}
       \field{sortinit}{C}
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Accessed: 2025-10-16}
@@ -134,21 +148,24 @@
     \endentry
     \entry{pytorch_ddp_tutorial}{misc}{}
       \name{author}{3}{}{%
-        {{hash=afdc262afafca53dd29b2814d250884c}{%
+        {{un=0,uniquepart=base,hash=afdc262afafca53dd29b2814d250884c}{%
            family={Li},
            familyi={L\bibinitperiod},
            given={Shen},
-           giveni={S\bibinitperiod}}}%
-        {{hash=881b2cc4926dcc704e16a06cd509111e}{%
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=881b2cc4926dcc704e16a06cd509111e}{%
            family={Zhu},
            familyi={Z\bibinitperiod},
            given={Joe},
-           giveni={J\bibinitperiod}}}%
-        {{hash=301e506648c94944982bc16f4d9763c2}{%
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=301e506648c94944982bc16f4d9763c2}{%
            family={Pandya},
            familyi={P\bibinitperiod},
            given={Chirag},
-           giveni={C\bibinitperiod}}}%
+           giveni={C\bibinitperiod},
+           givenun=0}}%
       }
       \list{organization}{1}{%
         {PyTorch}%
@@ -161,6 +178,8 @@
       \strng{authorfullhash}{33bcef4035ad936590c1632905467b00}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://docs.pytorch.org/tutorials/intermediate/ddp_tutorial.html}}
@@ -170,7 +189,7 @@
     \endentry
     \entry{pytorch_docs}{manual}{}
       \name{author}{1}{}{%
-        {{hash=c390ae15dc416827a5426c11a2962971}{%
+        {{un=0,uniquepart=base,hash=c390ae15dc416827a5426c11a2962971}{%
            family={{PyTorch Contributors}},
            familyi={P\bibinitperiod}}}%
       }
@@ -185,6 +204,8 @@
       \strng{authorfullhash}{c390ae15dc416827a5426c11a2962971}
       \field{sortinit}{P}
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Accessed: 2025-10-30}
@@ -199,11 +220,12 @@
     \endentry
     \entry{suresh2025communication}{misc}{}
       \name{author}{1}{}{%
-        {{hash=c70d0ac09610015f30423619c0e3ae52}{%
+        {{un=0,uniquepart=base,hash=c70d0ac09610015f30423619c0e3ae52}{%
            family={Suresh},
            familyi={S\bibinitperiod},
            given={Rahul},
-           giveni={R\bibinitperiod}}}%
+           giveni={R\bibinitperiod},
+           givenun=0}}%
       }
       \strng{namehash}{c70d0ac09610015f30423619c0e3ae52}
       \strng{fullhash}{c70d0ac09610015f30423619c0e3ae52}
@@ -213,6 +235,8 @@
       \strng{authorfullhash}{c70d0ac09610015f30423619c0e3ae52}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://themlarchitect.com/blog/communication-protocols-for-distributed-ml-nccl-mpi-and-key-patterns/}}
@@ -223,21 +247,24 @@
     \endentry
     \entry{xiao2017fashion}{article}{}
       \name{author}{3}{}{%
-        {{hash=1af11a48cd2fa4be0cc93269e719b54c}{%
+        {{un=0,uniquepart=base,hash=1af11a48cd2fa4be0cc93269e719b54c}{%
            family={Xiao},
            familyi={X\bibinitperiod},
            given={Han},
-           giveni={H\bibinitperiod}}}%
-        {{hash=3c17107e356e9e329a5b82ae2f7cd441}{%
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3c17107e356e9e329a5b82ae2f7cd441}{%
            family={Rasul},
            familyi={R\bibinitperiod},
            given={Kashif},
-           giveni={K\bibinitperiod}}}%
-        {{hash=626b3b250f5889797be5d59aab9e0ac5}{%
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=626b3b250f5889797be5d59aab9e0ac5}{%
            family={Vollgraf},
            familyi={V\bibinitperiod},
            given={Roland},
-           giveni={R\bibinitperiod}}}%
+           giveni={R\bibinitperiod},
+           givenun=0}}%
       }
       \strng{namehash}{5290b4700ff446de9ce062ea732ebd9a}
       \strng{fullhash}{5290b4700ff446de9ce062ea732ebd9a}
@@ -247,6 +274,8 @@
       \strng{authorfullhash}{5290b4700ff446de9ce062ea732ebd9a}
       \field{sortinit}{X}
       \field{sortinithash}{1965c258adceecf23ce3d67b05113442}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{arXiv preprint arXiv:1708.07747}

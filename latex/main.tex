@@ -21,7 +21,7 @@
 \usetikzlibrary{positioning, fit, arrows.meta}
 
 \usepackage[ngerman]{babel}   % für deutsche Sprache
-\usepackage[backend=biber, style=numeric, sorting=nyt]{biblatex} 
+\usepackage[backend=biber, style=authoryear, sorting=nyt]{biblatex}
 \addbibresource{biblio.bib}
 
 \usepackage{subcaption}
@@ -41,7 +41,7 @@
     {\large
     \begin{tabular}{ll}
         Name: & Marouane Soussi \\
-        Gruppennummer: & 333 \\
+        Gruppennummer: & 146 \\
         Übrige Gruppenmitglieder: & Zeynep Alarsalan
         , Jimmy Tran \\
         Sprecherin: & Zeynep Alarsalan \\
@@ -78,7 +78,7 @@
 \label{lab:eintrag1}
 \subsubsection{Zusammenfassung:}
 \begin{itemize}
-    \item Auswahl der Deep Learning Bibliothek (\texttt{PyTorch}) und der \textbf{FashionMNIST} \cite{xiao2017fashion} 
+    \item Auswahl der Deep Learning Bibliothek (\texttt{PyTorch}) und der \textbf{FashionMNIST} \parencite{xiao2017fashion} 
         Datensatz für die Experimente
     \item Projektstruktur erstellt
     \item Experimente definiert
@@ -92,7 +92,7 @@ Im meeting am (add meeting date here) haben wir das Projekt besprochen und die Z
 Bibliothek ausgewählt (in dieser Arbeit \texttt{Pytorch}). Da sie eine breite Unterstützung für verteiltes Training und Multithreading bietet. 
 Außerdem kann man sie HPC Umfeld gut einsetzen. Zur Identifikation der besten Methoden für die geplanten Experimente wurde eine 
 Recherche zu den Parallelisierungsmöglichkeiten in \texttt{PyTorch} durchgeführt. Dabei wurden insbesondere Multithreading-, 
-Multiprocessing-Ansätze und deren unterschiedliche Setups untersucht \cite{pytorch_ddp_tutorial, pytorch_multiprocessing_best_practices}.
+Multiprocessing-Ansätze und deren unterschiedliche Setups untersucht \parencite{pytorch_ddp_tutorial, pytorch_multiprocessing_best_practices}.
 
 Die Experimente wurden in mehreren Kategorien unterteilt:
 \begin{itemize}
@@ -369,7 +369,7 @@ und parallele Operationen festzulegen, was insbesondere auf Systemen mit vielen 
 Für die Verteilung von Berechnungen über mehrere Prozesse oder Geräte stellt PyTorch zwei Hauptstrategien bereit: \\ \texttt{DataParallel (DP)} 
 und \texttt{DistributedDataParallel (DDP)}. DP arbeitet mit einem einzelnen Prozess und mehreren Threads und verteilt Eingabedaten über mehrere GPUs 
 auf derselben Maschine, wobei die Gradienten auf dem Hauptgerät zusammengeführt werden. DDP hingegen verwendet mehrere Prozesse, unterstützt sowohl 
-Training auf einer einzelnen Maschine als auch über mehrere Knoten und synchronisiert die Gradienten während der Rückwärtsrechnung über Kommunikationsroutinen wie \texttt{Gloo} oder \texttt{MPI} \cite{suresh2025communication}.  
+Training auf einer einzelnen Maschine als auch über mehrere Knoten und synchronisiert die Gradienten während der Rückwärtsrechnung über Kommunikationsroutinen wie \texttt{Gloo} oder \texttt{MPI} \parencite{suresh2025communication}.  
 
 Auf Systemen mit mehreren Knoten oder ohne mehrere GPUs macht DP nur eingeschränkt Sinn, da es auf einzelne Maschinen beschränkt ist und durch Thread-Overhead und 
 GIL-Beschränkungen in der Regel langsamer arbeitet als DDP. DDP skaliert hingegen effizient über mehrere Prozesse und Knoten und kann zudem mit Model-Parallelismus kombiniert werden, 
@@ -602,7 +602,7 @@ wie z.B. Matrixmultiplikationen oder Faltungen, auf mehreren CPU-Kernen, wodurch
 Der neue Slurm-Jobskript ist in \ref{lst:slurm_intraop} zu sehen. Er geht durch verschiedene Thread-Anzahlen (1, 2, 4, 6, 8, 12, 16, 20, 24) 
 und führt das Trainingsskript für jede Konfiguration aus. Abschließend werden die Ergebnisse in separaten Verzeichnissen gespeichert. Dabei ist es wichtig,
 die Umgebungsvariablen \texttt{OMP\_NUM\_THREADS} und \texttt{MKL\_NUM\_THREADS} zu setzen, um sicherzustellen,
-dass die Multithreading Bibliotheken (OpenMP und MKL) die gewünschte Thread-Anzahl verwenden \cite{pytorch_threading_env_vars}.
+dass die Multithreading Bibliotheken (OpenMP und MKL) die gewünschte Thread-Anzahl verwenden \parencite{pytorch_threading_env_vars}.
 
 \begin{lstlisting}[language=bash, caption={Slurm-Jobskript zum Ausführen des Serielles Trainingskript}, label={lst:slurm_intraop},
 basicstyle=\ttfamily\small, keywordstyle=\color{blue}\bfseries, commentstyle=\color{green!60!black}, stringstyle=\color{orange}]
@@ -668,14 +668,14 @@ Im Unterschied zum Intraop Parallelismus, bei dem einzelne Operationen wie Matri
 ermöglicht der Interop Parallelismus die parallele Ausführung mehrerer unabhängiger Operationen oder Tasks innerhalb eines Modells. 
 Beispielsweise können verschiedene Layer oder unabhängige Berechnungen gleichzeitig berechnet werden, wodurch das Training insgesamt effizienter wird. 
 Wie beim Intraop-Experiment werden unterschiedliche Thread-Anzahlen (1, 2, 4, 6, 8, 12, 16, 20, 24)  getestet, und die Ergebnisse werden in separaten Verzeichnissen gespeichert, 
-während die Umgebungsvariablen \texttt{OMP\_NUM\_THREADS} und \texttt{MKL\_NUM\_THREADS} gesetzt bleiben \cite{pytorch_threading_env_vars}.
+während die Umgebungsvariablen \texttt{OMP\_NUM\_THREADS} und \texttt{MKL\_NUM\_THREADS} gesetzt bleiben \parencite{pytorch_threading_env_vars}.
 \vspace{0.5em}
 \paragraph{Hybrid Intra- und Interop \texttt{PyTorch} Multithreading} \mbox{}\\
 In diesem Experiment werden sowohl Intraop- als auch Interop-Threads gleichzeitig genutzt, um die parallele Ausführung innerhalb und zwischen Operationen zu kombinieren. 
 Das Trainingsskript wurde entsprechend angepasst, sodass \texttt{torch.set\_num\_threads()} die Intraop-Threads und \texttt{torch.set\_num\_interop\_threads()} die Interop-Threads steuert. 
 Dadurch können einzelne Operationen wie Matrixmultiplikationen parallelisiert werden (Intraop), während gleichzeitig mehrere unabhängige Operationen oder Layer parallel ausgeführt werden (Interop), 
 was eine effizientere Nutzung der CPU-Kerne ermöglicht. Wie in den vorherigen Experimenten werden verschiedene Kombinationen von Thread-Anzahlen getestet, 
-und die Ergebnisse werden in separaten Verzeichnissen gespeichert, wobei die Umgebungsvariablen \texttt{OMP\_NUM\_THREADS} und \texttt{MKL\_NUM\_THREADS} gesetzt bleiben \cite{pytorch_threading_env_vars}.
+und die Ergebnisse werden in separaten Verzeichnissen gespeichert, wobei die Umgebungsvariablen \texttt{OMP\_NUM\_THREADS} und \texttt{MKL\_NUM\_THREADS} gesetzt bleiben \parencite{pytorch_threading_env_vars}.
 
 \paragraph{Ergebnisse erster Experimente:} \mbox{}\\
 
@@ -791,7 +791,7 @@ sodass alle Modellkopien konsistent bleiben und identische Gewichtsaktualisierun
 Dies wird durch kollektive Kommunikationsoperationen des \texttt{torch.distributed}-Pakets realisiert. Auch wenn nur \textbf{ein einzelner Knoten} verwendet wird, bietet DDP wesentliche Vorteile: 
 Statt auf Thread-Level zu parallelisieren (wie bei Intra- oder Interop-Multithreading), nutzt DDP mehrere unabhängige Prozesse, 
 wodurch der Python Global Interpreter Lock (GIL) umgangen wird und die verfügbare Hardware 
-effizienter ausgelastet werden kann \cite{pytorch_ddp_tutorial}. 
+effizienter ausgelastet werden kann \parencite{pytorch_ddp_tutorial}. 
 
 \paragraph{Multinode Training} \mbox{}\\
 Für das Multinode-Training wurde ein Slurm-Jobskript erstellt,
@@ -1233,7 +1233,7 @@ In realistischen Szenarien mit sehr großen Datensätzen oder komplexen Modellen
 würde DDP deutlich besser skalieren. 
 In solchen Fällen stößt reines Multithreading schnell an seine Grenzen, 
 da ein einzelner Knoten weder über genügend Speicher noch über ausreichend Rechenkapazität verfügt, 
-um das gesamte Modell effizient zu verarbeiten \cite{osc_ddp}. 
+um das gesamte Modell effizient zu verarbeiten \parencite{osc_ddp}. 
 
 
 \begin{figure}[H]
@@ -1244,7 +1244,7 @@ um das gesamte Modell effizient zu verarbeiten \cite{osc_ddp}.
 \end{figure}
 
 Eine weitere Perspektive der Ergebnisse bietet Abbildung \ref{fig:multinode_ddp_speedup}, die den Speedup, die Effizienz und den Durchsatz 
-des DDP-Trainings in Abhängigkeit von der Anzahl der Ranks und Threads darstellt. Dabei wurden die Metriken wie folgt definiert \cite{reddit_hpc_speedup_efficiency}:
+des DDP-Trainings in Abhängigkeit von der Anzahl der Ranks und Threads darstellt. Dabei wurden die Metriken wie folgt definiert \parencite{reddit_hpc_speedup_efficiency}:
 \begin{itemize}
     \item \textbf{Speedup (S\textsubscript{n}):} Verhältnis der Laufzeit des seriellen Trainings zur Laufzeit des DDP-Trainings mit n Ranks und k Threads:
     \[
@@ -1987,7 +1987,7 @@ Durch die gleichzeitige Ausführung mehrerer Konfigurationen können Laufzeiten 
 Diese Dokumentation fasst die wesentlichen Arbeitsschritte und Ergebnisse aus dem Logbuch 
 zusammen und demonstriert die Verwendung von \texttt{PyTorch} in Kombination mit HPC-Ressourcen. 
 Der Fokus liegt auf der effizienten Nutzung von Parallelisierungsmöglichkeiten für Deep-Learning-Experimente 
-mit dem FashionMNIST-Datensatz \cite{xiao2017fashion}. Die dokumentierten Experimente umfassen Data Loading, Model 
+mit dem FashionMNIST-Datensatz \parencite{xiao2017fashion}. Die dokumentierten Experimente umfassen Data Loading, Model 
 Training mit verschiedenen Parallelisierungsansätzen, Hyperparameter-Tuning sowie Validation und Learning Curves.
 
 \subsection{Projektstruktur und Setup}
@@ -2137,7 +2137,7 @@ die signifikanten Vorteile der Parallelisierung in jeder Phase des Machine-Learn
 \subsection{Hilfsmittel und Unterstützung}
 Bei der Erstellung dieser Arbeit wurden verschiedene Hilfsmittel eingesetzt. Der Code und die Konzepte aus der Vorlesung waren
 äußerst hilfreich für die Entwicklung der SLURM-Jobskripte und die Konzeption eines geeigneten Machine-Learning-Workflows.
-Zur Vertiefung des Verständnisses der grundlegenden PyTorch-Konzepte wurde die offizielle PyTorch-Dokumentation herangezogen \cite{pytorch_docs},
+Zur Vertiefung des Verständnisses der grundlegenden PyTorch-Konzepte wurde die offizielle PyTorch-Dokumentation herangezogen \parencite{pytorch_docs},
 insbesondere zur Implementierung und Anpassung neuronaler Netze.
 Darüber hinaus wurde ChatGPT genutzt, um Vorlagen zu erstellen, den grammatikalischen Stil zu verbessern, bei der Fehlerbehebung in Code
 und Skripten zu unterstützen
@@ -2151,6 +2151,13 @@ und
 
 \newpage 
 \section{Einschätzung der Gruppenmitglieder}
+\textbf{Zeynep:} Eine grundsätzlich engagierte Arbeitsweise war erkennbar, jedoch erfolgte der Projektstart relativ spät. 
+Dadurch kam es zu Verzögerungen in der Abstimmung, was die Kommunikation innerhalb der Gruppe erschwerte und 
+die Synchronisation der Arbeitsschritte beeinträchtigte.\\
+\mbox{} \\
+\textbf{Jimmy:} Auch hier begann die aktive Mitarbeit erst verspätet, wodurch sich ähnliche Kommunikationsprobleme und 
+Koordinationsschwierigkeiten ergaben. Eine frühere Einbindung in die Projektplanung hätte zu einer 
+effizienteren Zusammenarbeit und klareren Aufgabenteilung beigetragen.
 
 \newpage
 \printbibliography[title={Literaturverzeichnis}]

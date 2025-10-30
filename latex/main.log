@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.30)  30 OCT 2025 15:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.30)  30 OCT 2025 20:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -676,7 +676,7 @@ Package biblatex Info: ... file 'blx-dm.def' found.
 File: blx-dm.def 2023/03/05 v3.19 biblatex localization (PK/MW)
 )
 Package biblatex Info: Trying to load biblatex style data model...
-Package biblatex Info: ... file 'numeric.dbx' not found.
+Package biblatex Info: ... file 'authoryear.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
 \c@afterword=\count380
@@ -784,10 +784,10 @@ File: biblatex.def 2023/03/05 v3.19 biblatex compatibility (PK/MW)
 \biburllcskip=\muskip21
 \c@smartand=\count456
 )
-Package biblatex Info: Trying to load bibliography style 'numeric'...
-Package biblatex Info: ... file 'numeric.bbx' found.
- (C:\Users\marou\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\numeric.bbx
-File: numeric.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'authoryear'...
+Package biblatex Info: ... file 'authoryear.bbx' found.
+ (C:\Users\marou\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\authoryear.bbx
+File: authoryear.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
 Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
  (C:\Users\marou\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\standard.bbx
@@ -795,21 +795,17 @@ File: standard.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
 \c@bbx:relatedcount=\count457
 \c@bbx:relatedtotal=\count458
 ))
-Package biblatex Info: Trying to load citation style 'numeric'...
-Package biblatex Info: ... file 'numeric.cbx' found.
- (C:\Users\marou\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/cbx\numeric.cbx
-File: numeric.cbx 2023/03/05 v3.19 biblatex citation style (PK/MW)
+Package biblatex Info: Trying to load citation style 'authoryear'...
+Package biblatex Info: ... file 'authoryear.cbx' found.
+ (C:\Users\marou\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/cbx\authoryear.cbx
+File: authoryear.cbx 2023/03/05 v3.19 biblatex citation style (PK/MW)
 Package biblatex Info: Redefining '\cite'.
 Package biblatex Info: Redefining '\parencite'.
 Package biblatex Info: Redefining '\footcite'.
 Package biblatex Info: Redefining '\footcitetext'.
 Package biblatex Info: Redefining '\smartcite'.
-Package biblatex Info: Redefining '\supercite'.
 Package biblatex Info: Redefining '\textcite'.
 Package biblatex Info: Redefining '\textcites'.
-Package biblatex Info: Redefining '\cites'.
-Package biblatex Info: Redefining '\parencites'.
-Package biblatex Info: Redefining '\smartcites'.
 )
 Package biblatex Info: Trying to load configuration file...
 Package biblatex Info: ... file 'biblatex.cfg' found.
@@ -948,13 +944,12 @@ l.59 ...ntierungsdetails}{50}{subsubsection.2.8.2}
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 81.
  (C:\Users\marou\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-)
-<plots/mnist.png, id=316, 671.3883pt x 251.4996pt>
+) [3]
+<plots/mnist.png, id=326, 671.3883pt x 251.4996pt>
 File: plots/mnist.png Graphic file (type png)
 <use plots/mnist.png>
 Package pdftex.def Info: plots/mnist.png  used on input line 117.
 (pdftex.def)             Requested size: 276.00105pt x 103.38795pt.
- [3]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 144.
  [4 <./plots/mnist.png>]
@@ -1215,7 +1210,22 @@ Overfull \hbox (16.3073pt too wide) in paragraph at lines 2138--2150
 \T1/cmr/m/n/10 Learning-Workflows. Zur Ver-tie-fung des Ver-ständ-nis-ses der grund-le-gen-den PyTorch-
  []
 
-[52] [53] [54] (main.aux)
+[52] [53]
+Overfull \hbox (7.11513pt too wide) in paragraph at lines 2163--2163
+[][][]\T1/cmr/m/n/10 (2025b). \T1/cmr/m/it/10 Threa-ding En-vi-ron-ment Va-ria-bles\T1/cmr/m/n/10 . Ac-ces-sed: 2025-10-16. \T1/cmr/m/sc/10 url\T1/cmr/m/n/10 : []$\T1/cmtt/m/n/10 https :
+ []
+
+
+Overfull \hbox (0.66925pt too wide) in paragraph at lines 2163--2163
+\T1/cmtt/m/n/10 / / docs . pytorch . org / docs / stable / threading _ environment _ variables .
+ []
+
+
+Overfull \hbox (14.80286pt too wide) in paragraph at lines 2163--2163
+\T1/cmr/m/it/10 bu-ted ML: A De-ep Di-ve in-to NC-CL, MPI, and Gloo\T1/cmr/m/n/10 . []$\T1/cmtt/m/n/10 https : / / themlarchitect .
+ []
+
+[54] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -1231,17 +1241,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 38012 strings out of 474486
- 747727 string characters out of 5743755
+ 38034 strings out of 474486
+ 748092 string characters out of 5743755
  2542542 words of memory out of 5000000
- 58610 multiletter control sequences out of 15000+600000
+ 58632 multiletter control sequences out of 15000+600000
  573816 words of font info for 68 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  83i,9n,93p,722b,2371s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1000.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecit0900.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx0700.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0900.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk><C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (55 pages, 1446546 bytes).
+Output written on main.pdf (55 pages, 1447576 bytes).
 PDF statistics:
- 2628 PDF objects out of 2984 (max. 8388607)
+ 2629 PDF objects out of 2984 (max. 8388607)
  1174 named destinations out of 1200 (max. 500000)
  544 words of extra memory for PDF output out of 10000 (max. 10000000)
 
