@@ -1,35 +1,35 @@
 \babel@toc {ngerman}{}\relax 
 \contentsline {section}{\numberline {1}Logbuch}{3}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Eintrag 1 : Projekt Setup und Bibiliothekauswahl (add meeting date here)}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.1}Eintrag 1 : Projekt Setup und Bibiliothekauswahl (01.09.2025)}{3}{subsection.1.1}%
 \contentsline {subsubsection}{\numberline {1.1.1}Zusammenfassung:}{3}{subsubsection.1.1.1}%
 \contentsline {subsubsection}{\numberline {1.1.2}Details und Arbeitsschritte:}{3}{subsubsection.1.1.2}%
-\contentsline {subsection}{\numberline {1.2}Eintrag 2: Data Loading und Model Training Experimente (add meeting date here)}{4}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.2}Eintrag 2: Data Loading und Model Training Experimente (03.09.2025)}{4}{subsection.1.2}%
 \contentsline {subsubsection}{\numberline {1.2.1}Zusammenfassung:}{4}{subsubsection.1.2.1}%
-\contentsline {subsubsection}{\numberline {1.2.2}Details und Arbeitsschritte:}{5}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.2}Details und Arbeitsschritte:}{4}{subsubsection.1.2.2}%
 \contentsline {paragraph}{Model Training}{9}{section*.5}%
 \contentsline {paragraph}{Serial Training}{13}{section*.6}%
-\contentsline {paragraph}{Intraop \texttt {PyTorch} Multithreading}{15}{section*.7}%
+\contentsline {paragraph}{Intraop \texttt {PyTorch} Multithreading}{14}{section*.7}%
 \contentsline {paragraph}{Interop \texttt {PyTorch} Multithreading}{16}{section*.8}%
 \contentsline {paragraph}{Hybrid Intra- und Interop \texttt {PyTorch} Multithreading}{16}{section*.9}%
-\contentsline {paragraph}{Ergebnisse erster Experimente:}{17}{section*.10}%
-\contentsline {subsection}{\numberline {1.3}Eintrag 3: DDP Model Training}{19}{subsection.1.3}%
+\contentsline {paragraph}{Ergebnisse erster Experimente:}{16}{section*.10}%
+\contentsline {subsection}{\numberline {1.3}Eintrag 3: DDP Model Training (15.09.2025)}{19}{subsection.1.3}%
 \contentsline {subsubsection}{\numberline {1.3.1}Zusammenfassung:}{19}{subsubsection.1.3.1}%
-\contentsline {subsubsection}{\numberline {1.3.2}Details und Arbeitschritte:}{20}{subsubsection.1.3.2}%
+\contentsline {subsubsection}{\numberline {1.3.2}Details und Arbeitschritte:}{19}{subsubsection.1.3.2}%
 \contentsline {paragraph}{Multinode Training}{20}{section*.15}%
 \contentsline {paragraph}{Was ist Gloo?}{28}{section*.17}%
-\contentsline {paragraph}{Schwierigkeiten mit MPI}{29}{section*.18}%
+\contentsline {paragraph}{Schwierigkeiten mit MPI}{28}{section*.18}%
 \contentsline {paragraph}{Multinode Training: Ergebnisse}{29}{section*.19}%
-\contentsline {subsection}{\numberline {1.4}Eintrag 4: Model Training mit Multiprocessing und Multithreading}{31}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.4}Eintrag 4: Model Training mit Multiprocessing und Multithreading (17.09.2025)}{31}{subsection.1.4}%
 \contentsline {subsubsection}{\numberline {1.4.1}Zusammenfassung:}{31}{subsubsection.1.4.1}%
-\contentsline {subsubsection}{\numberline {1.4.2}Details und Arbeitschritte:}{32}{subsubsection.1.4.2}%
-\contentsline {subsection}{\numberline {1.5}Eintrag 5: Validation Curve und Learning Curve}{33}{subsection.1.5}%
+\contentsline {subsubsection}{\numberline {1.4.2}Details und Arbeitschritte:}{31}{subsubsection.1.4.2}%
+\contentsline {subsection}{\numberline {1.5}Eintrag 5: Validation Curve und Learning Curve (01.10.2025)}{33}{subsection.1.5}%
 \contentsline {subsubsection}{\numberline {1.5.1}Zusammenfassung:}{33}{subsubsection.1.5.1}%
 \contentsline {subsubsection}{\numberline {1.5.2}Details und Arbeitschritte}{33}{subsubsection.1.5.2}%
 \contentsline {paragraph}{Validation Curve}{33}{section*.25}%
 \contentsline {paragraph}{Ergebnisse: }{39}{section*.27}%
 \contentsline {paragraph}{Learning Curve}{41}{section*.30}%
 \contentsline {paragraph}{Ergebnisse:}{43}{section*.32}%
-\contentsline {subsection}{\numberline {1.6}Eintrag 6 : Hyperparameter Search}{45}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.6}Eintrag 6 : Hyperparameter Search (02.10.2025)}{45}{subsection.1.6}%
 \contentsline {subsubsection}{\numberline {1.6.1}Zusammenfassung:}{45}{subsubsection.1.6.1}%
 \contentsline {subsubsection}{\numberline {1.6.2}Details und Arbeitsschritte:}{45}{subsubsection.1.6.2}%
 \contentsline {paragraph}{Ergebnisse:}{47}{section*.35}%
@@ -69,5 +69,7 @@
 \contentsline {subsubsection}{\numberline {2.11.1}Leistungsvergleich}{51}{subsubsection.2.11.1}%
 \contentsline {subsection}{\numberline {2.12}Schlussfolgerung}{52}{subsection.2.12}%
 \contentsline {subsection}{\numberline {2.13}Hilfsmittel und Unterstützung}{52}{subsection.2.13}%
-\contentsline {section}{\numberline {3}Einschätzung der Gruppenmitglieder}{53}{section.3}%
-\contentsline {section}{Literaturverzeichnis}{54}{section*.38}%
+\contentsline {section}{\numberline {3}Einschätzung der Gruppenmitglieder:}{53}{section.3}%
+\contentsline {section}{\numberline {4}Ergebnisse:}{54}{section.4}%
+\contentsline {section}{\numberline {5}Protokolle der Gruppentreffen:}{55}{section.5}%
+\contentsline {section}{Literaturverzeichnis}{58}{section*.42}%

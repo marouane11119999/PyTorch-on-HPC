@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.30)  30 OCT 2025 20:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.30)  2 NOV 2025 21:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -569,6 +569,16 @@ Package: ragged2e 2023/06/22 v3.6 ragged2e Package
 \RaggedLeftParindent=\skip66
 \RaggedRightParindent=\skip67
 \JustifyingParindent=\skip68
+) (C:\Users\marou\AppData\Local\Programs\MiKTeX\tex/latex/graphics\rotating.sty
+Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
+ (C:\Users\marou\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+)
+\c@r@tfl@t=\count331
+\rotFPtop=\skip69
+\rotFPbot=\skip70
+\rot@float@box=\box82
+\rot@mess@toks=\toks42
 ) (C:\Users\marou\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 ) (C:\Users\marou\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarypositioning.code.tex
@@ -583,12 +593,12 @@ File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfarrowlinewidth=\dimen302
 ) (C:\Users\marou\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
 Package: babel 2024/01/07 v24.1 The Babel package
-\babel@savecnt=\count331
+\babel@savecnt=\count332
 \U@D=\dimen303
 \l@unhyphenated=\language79
  (C:\Users\marou\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
 \bbl@readstream=\read4
-\bbl@dirlevel=\count332
+\bbl@dirlevel=\count333
 
 *************************************
 * Local config file bblopts.cfg used
@@ -607,69 +617,67 @@ Package babel Info: Importing font and identification data for ngerman
 Package: biblatex 2023/03/05 v3.19 programmable bibliographies (PK/MW)
  (C:\Users\marou\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count333
+\lrq@indent=\count334
  (C:\Users\marou\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
-)) (C:\Users\marou\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
-Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
-)
-\c@tabx@nest=\count334
-\c@listtotal=\count335
-\c@listcount=\count336
-\c@liststart=\count337
-\c@liststop=\count338
-\c@citecount=\count339
-\c@citetotal=\count340
-\c@multicitecount=\count341
-\c@multicitetotal=\count342
-\c@instcount=\count343
-\c@maxnames=\count344
-\c@minnames=\count345
-\c@maxitems=\count346
-\c@minitems=\count347
-\c@citecounter=\count348
-\c@maxcitecounter=\count349
-\c@savedcitecounter=\count350
-\c@uniquelist=\count351
-\c@uniquename=\count352
-\c@refsection=\count353
-\c@refsegment=\count354
-\c@maxextratitle=\count355
-\c@maxextratitleyear=\count356
-\c@maxextraname=\count357
-\c@maxextradate=\count358
-\c@maxextraalpha=\count359
-\c@abbrvpenalty=\count360
-\c@highnamepenalty=\count361
-\c@lownamepenalty=\count362
-\c@maxparens=\count363
-\c@parenlevel=\count364
-\blx@tempcnta=\count365
-\blx@tempcntb=\count366
-\blx@tempcntc=\count367
-\c@blx@maxsection=\count368
-\blx@maxsegment@0=\count369
-\blx@notetype=\count370
-\blx@parenlevel@text=\count371
-\blx@parenlevel@foot=\count372
-\blx@sectionciteorder@0=\count373
-\blx@sectionciteorderinternal@0=\count374
-\blx@entrysetcounter=\count375
-\blx@biblioinstance=\count376
-\labelnumberwidth=\skip69
-\labelalphawidth=\skip70
-\biblabelsep=\skip71
-\bibitemsep=\skip72
-\bibnamesep=\skip73
-\bibinitsep=\skip74
-\bibparsep=\skip75
-\bibhang=\skip76
+))
+\c@tabx@nest=\count335
+\c@listtotal=\count336
+\c@listcount=\count337
+\c@liststart=\count338
+\c@liststop=\count339
+\c@citecount=\count340
+\c@citetotal=\count341
+\c@multicitecount=\count342
+\c@multicitetotal=\count343
+\c@instcount=\count344
+\c@maxnames=\count345
+\c@minnames=\count346
+\c@maxitems=\count347
+\c@minitems=\count348
+\c@citecounter=\count349
+\c@maxcitecounter=\count350
+\c@savedcitecounter=\count351
+\c@uniquelist=\count352
+\c@uniquename=\count353
+\c@refsection=\count354
+\c@refsegment=\count355
+\c@maxextratitle=\count356
+\c@maxextratitleyear=\count357
+\c@maxextraname=\count358
+\c@maxextradate=\count359
+\c@maxextraalpha=\count360
+\c@abbrvpenalty=\count361
+\c@highnamepenalty=\count362
+\c@lownamepenalty=\count363
+\c@maxparens=\count364
+\c@parenlevel=\count365
+\blx@tempcnta=\count366
+\blx@tempcntb=\count367
+\blx@tempcntc=\count368
+\c@blx@maxsection=\count369
+\blx@maxsegment@0=\count370
+\blx@notetype=\count371
+\blx@parenlevel@text=\count372
+\blx@parenlevel@foot=\count373
+\blx@sectionciteorder@0=\count374
+\blx@sectionciteorderinternal@0=\count375
+\blx@entrysetcounter=\count376
+\blx@biblioinstance=\count377
+\labelnumberwidth=\skip71
+\labelalphawidth=\skip72
+\biblabelsep=\skip73
+\bibitemsep=\skip74
+\bibnamesep=\skip75
+\bibinitsep=\skip76
+\bibparsep=\skip77
+\bibhang=\skip78
 \blx@bcfin=\read5
 \blx@bcfout=\write4
 \blx@langwohyphens=\language80
-\c@mincomprange=\count377
-\c@maxcomprange=\count378
-\c@mincompwidth=\count379
+\c@mincomprange=\count378
+\c@maxcomprange=\count379
+\c@mincompwidth=\count380
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
  (C:\Users\marou\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-dm.def
@@ -679,88 +687,88 @@ Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'authoryear.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count380
-\c@savedafterword=\count381
-\c@annotator=\count382
-\c@savedannotator=\count383
-\c@author=\count384
-\c@savedauthor=\count385
-\c@bookauthor=\count386
-\c@savedbookauthor=\count387
-\c@commentator=\count388
-\c@savedcommentator=\count389
-\c@editor=\count390
-\c@savededitor=\count391
-\c@editora=\count392
-\c@savededitora=\count393
-\c@editorb=\count394
-\c@savededitorb=\count395
-\c@editorc=\count396
-\c@savededitorc=\count397
-\c@foreword=\count398
-\c@savedforeword=\count399
-\c@holder=\count400
-\c@savedholder=\count401
-\c@introduction=\count402
-\c@savedintroduction=\count403
-\c@namea=\count404
-\c@savednamea=\count405
-\c@nameb=\count406
-\c@savednameb=\count407
-\c@namec=\count408
-\c@savednamec=\count409
-\c@translator=\count410
-\c@savedtranslator=\count411
-\c@shortauthor=\count412
-\c@savedshortauthor=\count413
-\c@shorteditor=\count414
-\c@savedshorteditor=\count415
-\c@labelname=\count416
-\c@savedlabelname=\count417
-\c@institution=\count418
-\c@savedinstitution=\count419
-\c@lista=\count420
-\c@savedlista=\count421
-\c@listb=\count422
-\c@savedlistb=\count423
-\c@listc=\count424
-\c@savedlistc=\count425
-\c@listd=\count426
-\c@savedlistd=\count427
-\c@liste=\count428
-\c@savedliste=\count429
-\c@listf=\count430
-\c@savedlistf=\count431
-\c@location=\count432
-\c@savedlocation=\count433
-\c@organization=\count434
-\c@savedorganization=\count435
-\c@origlocation=\count436
-\c@savedoriglocation=\count437
-\c@origpublisher=\count438
-\c@savedorigpublisher=\count439
-\c@publisher=\count440
-\c@savedpublisher=\count441
-\c@language=\count442
-\c@savedlanguage=\count443
-\c@origlanguage=\count444
-\c@savedoriglanguage=\count445
-\c@pageref=\count446
-\c@savedpageref=\count447
-\shorthandwidth=\skip77
-\shortjournalwidth=\skip78
-\shortserieswidth=\skip79
-\shorttitlewidth=\skip80
-\shortauthorwidth=\skip81
-\shorteditorwidth=\skip82
-\locallabelnumberwidth=\skip83
-\locallabelalphawidth=\skip84
-\localshorthandwidth=\skip85
-\localshortjournalwidth=\skip86
-\localshortserieswidth=\skip87
-\localshorttitlewidth=\skip88
-\localshortauthorwidth=\skip89
-\localshorteditorwidth=\skip90
+\c@afterword=\count381
+\c@savedafterword=\count382
+\c@annotator=\count383
+\c@savedannotator=\count384
+\c@author=\count385
+\c@savedauthor=\count386
+\c@bookauthor=\count387
+\c@savedbookauthor=\count388
+\c@commentator=\count389
+\c@savedcommentator=\count390
+\c@editor=\count391
+\c@savededitor=\count392
+\c@editora=\count393
+\c@savededitora=\count394
+\c@editorb=\count395
+\c@savededitorb=\count396
+\c@editorc=\count397
+\c@savededitorc=\count398
+\c@foreword=\count399
+\c@savedforeword=\count400
+\c@holder=\count401
+\c@savedholder=\count402
+\c@introduction=\count403
+\c@savedintroduction=\count404
+\c@namea=\count405
+\c@savednamea=\count406
+\c@nameb=\count407
+\c@savednameb=\count408
+\c@namec=\count409
+\c@savednamec=\count410
+\c@translator=\count411
+\c@savedtranslator=\count412
+\c@shortauthor=\count413
+\c@savedshortauthor=\count414
+\c@shorteditor=\count415
+\c@savedshorteditor=\count416
+\c@labelname=\count417
+\c@savedlabelname=\count418
+\c@institution=\count419
+\c@savedinstitution=\count420
+\c@lista=\count421
+\c@savedlista=\count422
+\c@listb=\count423
+\c@savedlistb=\count424
+\c@listc=\count425
+\c@savedlistc=\count426
+\c@listd=\count427
+\c@savedlistd=\count428
+\c@liste=\count429
+\c@savedliste=\count430
+\c@listf=\count431
+\c@savedlistf=\count432
+\c@location=\count433
+\c@savedlocation=\count434
+\c@organization=\count435
+\c@savedorganization=\count436
+\c@origlocation=\count437
+\c@savedoriglocation=\count438
+\c@origpublisher=\count439
+\c@savedorigpublisher=\count440
+\c@publisher=\count441
+\c@savedpublisher=\count442
+\c@language=\count443
+\c@savedlanguage=\count444
+\c@origlanguage=\count445
+\c@savedoriglanguage=\count446
+\c@pageref=\count447
+\c@savedpageref=\count448
+\shorthandwidth=\skip79
+\shortjournalwidth=\skip80
+\shortserieswidth=\skip81
+\shorttitlewidth=\skip82
+\shortauthorwidth=\skip83
+\shorteditorwidth=\skip84
+\locallabelnumberwidth=\skip85
+\locallabelalphawidth=\skip86
+\localshorthandwidth=\skip87
+\localshortjournalwidth=\skip88
+\localshortserieswidth=\skip89
+\localshorttitlewidth=\skip90
+\localshortauthorwidth=\skip91
+\localshorteditorwidth=\skip92
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
  (C:\Users\marou\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-compat.def
@@ -770,19 +778,19 @@ Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
  (C:\Users\marou\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.def
 File: biblatex.def 2023/03/05 v3.19 biblatex compatibility (PK/MW)
-\c@textcitecount=\count448
-\c@textcitetotal=\count449
-\c@textcitemaxnames=\count450
-\c@biburlbigbreakpenalty=\count451
-\c@biburlbreakpenalty=\count452
-\c@biburlnumpenalty=\count453
-\c@biburlucpenalty=\count454
-\c@biburllcpenalty=\count455
+\c@textcitecount=\count449
+\c@textcitetotal=\count450
+\c@textcitemaxnames=\count451
+\c@biburlbigbreakpenalty=\count452
+\c@biburlbreakpenalty=\count453
+\c@biburlnumpenalty=\count454
+\c@biburlucpenalty=\count455
+\c@biburllcpenalty=\count456
 \biburlbigskip=\muskip18
 \biburlnumskip=\muskip19
 \biburlucskip=\muskip20
 \biburllcskip=\muskip21
-\c@smartand=\count456
+\c@smartand=\count457
 )
 Package biblatex Info: Trying to load bibliography style 'authoryear'...
 Package biblatex Info: ... file 'authoryear.bbx' found.
@@ -792,8 +800,8 @@ Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
  (C:\Users\marou\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\standard.bbx
 File: standard.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count457
-\c@bbx:relatedtotal=\count458
+\c@bbx:relatedcount=\count458
+\c@bbx:relatedtotal=\count459
 ))
 Package biblatex Info: Trying to load citation style 'authoryear'...
 Package biblatex Info: ... file 'authoryear.cbx' found.
@@ -818,8 +826,8 @@ Package biblatex Info: Document encoding is UTF8 ....
 Package: expl3 2024-01-04 L3 programming layer (loader) 
  (C:\Users\marou\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count459
-\l__pdf_internal_box=\box82
+\l__color_backend_stack_int=\count460
+\l__pdf_internal_box=\box83
 ))
 Package biblatex Info: ... and expl3
 (biblatex)             2024-01-04 L3 programming layer (loader) 
@@ -832,16 +840,16 @@ Package: blx-case-expl3 2023/03/05 v3.19 expl3 case changing code for biblatex
 )) (C:\Users\marou\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
 Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
 Package caption Info: New subtype `subfigure' on input line 238.
-\c@subfigure=\count460
+\c@subfigure=\count461
 Package caption Info: New subtype `subtable' on input line 238.
-\c@subtable=\count461
+\c@subtable=\count462
 )
 
 Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (biblatex)                Loading 'csquotes' recommended.
 
-\@quotelevel=\count462
-\@quotereset=\count463
+\@quotelevel=\count463
+\@quotereset=\count464
 (main.aux
 
 LaTeX Warning: Label `lst:slurm_val' multiply defined.
@@ -852,37 +860,37 @@ LaTeX Warning: Label `lst:slurm_val' multiply defined.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
  (C:\Users\marou\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count464
+\scratchcounter=\count465
 \scratchdimen=\dimen304
-\scratchbox=\box83
-\nofMPsegments=\count465
-\nofMParguments=\count466
-\everyMPshowfont=\toks42
-\MPscratchCnt=\count467
+\scratchbox=\box84
+\nofMPsegments=\count466
+\nofMParguments=\count467
+\everyMPshowfont=\toks43
+\MPscratchCnt=\count468
 \MPscratchDim=\dimen305
-\MPnumerator=\count468
-\makeMPintoPDFobject=\count469
-\everyMPtoPDFconversion=\toks43
+\MPnumerator=\count469
+\makeMPintoPDFobject=\count470
+\everyMPtoPDFconversion=\toks44
 ) (C:\Users\marou\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -893,9 +901,10 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
+Package caption Info: rotating package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count470
-Package hyperref Info: Link coloring OFF on input line 28.
+\c@lstlisting=\count471
+Package hyperref Info: Link coloring OFF on input line 29.
  (main.out) (main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
@@ -922,42 +931,58 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (main.bbl)
-Package biblatex Info: Reference section=0 on input line 28.
-Package biblatex Info: Reference segment=0 on input line 28.
-<plots/logo.png, id=234, 116.68594pt x 44.41594pt>
+Package biblatex Info: Reference section=0 on input line 29.
+Package biblatex Info: Reference segment=0 on input line 29.
+<plots/logo.png, id=242, 116.68594pt x 44.41594pt>
 File: plots/logo.png Graphic file (type png)
 <use plots/logo.png>
-Package pdftex.def Info: plots/logo.png  used on input line 34.
+Package pdftex.def Info: plots/logo.png  used on input line 35.
 (pdftex.def)             Requested size: 103.50105pt x 39.39856pt.
  [1
 
 {C:/Users/marou/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./plots/logo.png>] (main.toc
+Overfull \hbox (12.94373pt too wide) in paragraph at lines 6--6
+ [][] [][]\T1/cmr/m/n/10 Eintrag 2: Da-ta Loa-ding und Mo-del Trai-ning Ex-pe-ri-men-te (03.09.2025)[] [][]  
+ []
+
+
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.59 ...ntierungsdetails}{50}{subsubsection.2.8.2}
+l.60 ...2.8.3}Ergebnisse}{50}{subsubsection.2.8.3}
                                                   % [1])
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
  [2]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 81.
- (C:\Users\marou\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
+Overfull \hbox (44.98415pt too wide) in paragraph at lines 78--78
+[]\T1/cmr/bx/n/12 Eintrag 1 : Pro-jekt Se-tup und Bi-bi-lio-the-k-aus-wahl (01.09.2025) 
+ []
+
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 82.
+(C:\Users\marou\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-) [3]
+)
 <plots/mnist.png, id=326, 671.3883pt x 251.4996pt>
 File: plots/mnist.png Graphic file (type png)
 <use plots/mnist.png>
-Package pdftex.def Info: plots/mnist.png  used on input line 117.
+Package pdftex.def Info: plots/mnist.png  used on input line 118.
 (pdftex.def)             Requested size: 276.00105pt x 103.38795pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 144.
- [4 <./plots/mnist.png>]
-Overfull \hbox (12.41273pt too wide) in paragraph at lines 163--172
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 145.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[3]
+Overfull \hbox (12.41273pt too wide) in paragraph at lines 164--172
 \T1/cmr/m/n/10 Pytorch bie-tet die Mög-lich-keit, den Da-ten-satz Fa-shion-M-NIST mit dem \T1/cmtt/m/n/10 DataLoader
  []
 
-
+[4 <./plots/mnist.png>]
 Overfull \hbox (11.44073pt too wide) in paragraph at lines 173--177
 \T1/cmr/m/n/10 die La-de-zei-ten des FashionMNIST-Datensatzes mit un-ter-schied-li-chen \T1/cmtt/m/n/10 num_workers
  []
@@ -973,12 +998,12 @@ File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) (C:\Users\marou\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) [7]
-<plots/dataloaderperf.png, id=465, 1308.8097pt x 369.2997pt>
+<plots/dataloaderperf.png, id=488, 1308.8097pt x 369.2997pt>
 File: plots/dataloaderperf.png Graphic file (type png)
 <use plots/dataloaderperf.png>
 Package pdftex.def Info: plots/dataloaderperf.png  used on input line 349.
 (pdftex.def)             Requested size: 345.0pt x 97.34552pt.
- [8]
+ [8 <./plots/dataloaderperf.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 363--364
 
  []
@@ -988,9 +1013,14 @@ Overfull \hbox (28.9431pt too wide) in paragraph at lines 365--368
 \T1/cmr/m/n/10 nings-pro-zes-sen. Auf Thread-Ebene kön-nen Funk-tio-nen wie \T1/cmtt/m/n/10 torch.set_num_threads()
  []
 
-[9 <./plots/dataloaderperf.png>] [10] [11] [12]
+[9] [10] [11] [12]
 Overfull \hbox (7.76108pt too wide) in paragraph at lines 535--536
 \T1/cmr/m/n/10 chen (\T1/cmtt/m/n/10 num_epochs\T1/cmr/m/n/10 ). Pro Batch wer-den Vor-wärts-durch-lauf, Loss-Berechnung,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 542--546
+
  []
 
 [13]
@@ -999,41 +1029,43 @@ Overfull \hbox (9.42009pt too wide) in paragraph at lines 597--606
  []
 
 [14] [15]
-Overfull \hbox (47.9596pt too wide) in paragraph at lines 673--679
+Overfull \hbox (47.9596pt too wide) in paragraph at lines 673--680
 \T1/cmtt/m/n/10 torch.set_num_threads() \T1/cmr/m/n/10 die Intraop-Threads und \T1/cmtt/m/n/10 torch.set_num_interop_threads()
  []
 
-[16]
-Underfull \hbox (badness 10000) in paragraph at lines 680--681
+
+Underfull \hbox (badness 10000) in paragraph at lines 681--682
 
  []
 
-<plots/interop_speedup.png, id=771, 1308.8097pt x 369.2997pt>
+[16]
+<plots/interop_speedup.png, id=783, 1308.8097pt x 369.2997pt>
 File: plots/interop_speedup.png Graphic file (type png)
 <use plots/interop_speedup.png>
-Package pdftex.def Info: plots/interop_speedup.png  used on input line 715.
+Package pdftex.def Info: plots/interop_speedup.png  used on input line 716.
 (pdftex.def)             Requested size: 345.0pt x 97.34552pt.
-[17]
-Underfull \hbox (badness 10000) in paragraph at lines 721--722
+
+Underfull \hbox (badness 10000) in paragraph at lines 722--723
 
  []
 
-<plots/intraop_speedup.png, id=780, 1308.8097pt x 369.2997pt>
+[17 <./plots/interop_speedup.png>]
+<plots/intraop_speedup.png, id=792, 1308.8097pt x 369.2997pt>
 File: plots/intraop_speedup.png Graphic file (type png)
 <use plots/intraop_speedup.png>
-Package pdftex.def Info: plots/intraop_speedup.png  used on input line 740.
+Package pdftex.def Info: plots/intraop_speedup.png  used on input line 741.
 (pdftex.def)             Requested size: 345.0pt x 97.34552pt.
-[18 <./plots/interop_speedup.png> <./plots/intraop_speedup.png>]
-Overfull \hbox (1.99031pt too wide) in paragraph at lines 755--758
+
+Overfull \hbox (1.99031pt too wide) in paragraph at lines 756--758
 []\T1/cmr/bx/n/10 Leistungsabfall (16 bis 24 Threads): \T1/cmr/m/n/10 Nach dem Ma-xi-mum bei 16 Threads
  []
 
-<plots/interintra_speedup.png, id=790, 1308.8097pt x 369.2997pt>
+<plots/interintra_speedup.png, id=794, 1308.8097pt x 369.2997pt>
 File: plots/interintra_speedup.png Graphic file (type png)
 <use plots/interintra_speedup.png>
 Package pdftex.def Info: plots/interintra_speedup.png  used on input line 764.
 (pdftex.def)             Requested size: 345.0pt x 97.34552pt.
-[19 <./plots/interintra_speedup.png>]
+[18 <./plots/intraop_speedup.png>] [19 <./plots/interintra_speedup.png>]
 Overfull \hbox (72.33609pt too wide) in paragraph at lines 805--816
  [][] 
  []
@@ -1058,174 +1090,698 @@ Overfull \hbox (4.56464pt too wide) in paragraph at lines 1207--1208
 [][][][] 
  []
 
-[29]
-<plots/multinode_performance.png, id=1191, 1004.553pt x 354.123pt>
+<plots/multinode_performance.png, id=1178, 1004.553pt x 354.123pt>
 File: plots/multinode_performance.png Graphic file (type png)
 <use plots/multinode_performance.png>
-Package pdftex.def Info: plots/multinode_performance.png  used on input line 1241.
+Package pdftex.def Info: plots/multinode_performance.png  used on input line 1240.
 (pdftex.def)             Requested size: 345.0pt x 121.616pt.
- [30 <./plots/multinode_performance.png>]
+[29]
 <plots/multinode_speedup.png, id=1205, 737.8767pt x 281.853pt>
 File: plots/multinode_speedup.png Graphic file (type png)
 <use plots/multinode_speedup.png>
-Package pdftex.def Info: plots/multinode_speedup.png  used on input line 1275.
+Package pdftex.def Info: plots/multinode_speedup.png  used on input line 1274.
 (pdftex.def)             Requested size: 345.0pt x 131.78711pt.
-
-Overfull \hbox (37.09608pt too wide) in paragraph at lines 1296--1306
+ [30 <./plots/multinode_performance.png>]
+Overfull \hbox (37.09608pt too wide) in paragraph at lines 1295--1305
  [][] 
  []
 
 [31 <./plots/multinode_speedup.png>]
-<plots/multiprocthread_results.png, id=1214, 1004.553pt x 354.123pt>
+<plots/multiprocthread_results.png, id=1225, 1004.553pt x 354.123pt>
 File: plots/multiprocthread_results.png Graphic file (type png)
 <use plots/multiprocthread_results.png>
-Package pdftex.def Info: plots/multiprocthread_results.png  used on input line 1311.
+Package pdftex.def Info: plots/multiprocthread_results.png  used on input line 1310.
 (pdftex.def)             Requested size: 345.0pt x 121.616pt.
 
-Overfull \hbox (36.63014pt too wide) in paragraph at lines 1315--1324
+Overfull \hbox (36.63014pt too wide) in paragraph at lines 1314--1323
 \T1/cmtt/m/n/10 (DDP)\T1/cmr/m/n/10 -Trainings bei un-ter-schied-li-chen An-zah-len von Ranks mit se-ri-el-len, Multithreading-
  []
 
-<plots/mt_mp_speedup.png, id=1216, 732.0951pt x 281.853pt>
+<plots/mt_mp_speedup.png, id=1227, 732.0951pt x 281.853pt>
 File: plots/mt_mp_speedup.png Graphic file (type png)
 <use plots/mt_mp_speedup.png>
-Package pdftex.def Info: plots/mt_mp_speedup.png  used on input line 1338.
+Package pdftex.def Info: plots/mt_mp_speedup.png  used on input line 1337.
 (pdftex.def)             Requested size: 345.0pt x 132.82788pt.
-[32 <./plots/multiprocthread_results.png>] [33 <./plots/mt_mp_speedup.png>]
-Overfull \hbox (3.44746pt too wide) in paragraph at lines 1374--1378
+[32 <./plots/multiprocthread_results.png>]
+Overfull \hbox (39.11197pt too wide) in paragraph at lines 1342--1342
+[]\T1/cmr/bx/n/12 Eintrag 5: Va-li-da-ti-on Cur-ve und Lear-ning Cur-ve (01.10.2025) 
+ []
+
+[33 <./plots/mt_mp_speedup.png>]
+Overfull \hbox (3.44746pt too wide) in paragraph at lines 1373--1377
 []\T1/cmr/m/n/10 Die ein-zel-nen Tasks füh-ren das Python-Skript []16[] aus, das die DDP-Umgebung
  []
 
 [34] [35] [36] [37]
-Overfull \hbox (113.27234pt too wide) in paragraph at lines 1632--1633
+Overfull \hbox (113.27234pt too wide) in paragraph at lines 1631--1632
  [][] 
  []
 
 [38]
-<plots/validaton_erg.png, id=1454, 1075.3776pt x 570.933pt>
+<plots/validaton_erg.png, id=1464, 1075.3776pt x 570.933pt>
 File: plots/validaton_erg.png Graphic file (type png)
 <use plots/validaton_erg.png>
-Package pdftex.def Info: plots/validaton_erg.png  used on input line 1641.
+Package pdftex.def Info: plots/validaton_erg.png  used on input line 1640.
 (pdftex.def)             Requested size: 345.0pt x 183.164pt.
  [39] [40 <./plots/validaton_erg.png>]
-<plots/validation job arrays waiting.png, id=1473, 522.15076pt x 107.2005pt>
+<plots/validation job arrays waiting.png, id=1483, 522.15076pt x 107.2005pt>
 File: plots/validation job arrays waiting.png Graphic file (type png)
 <use plots/validation job arrays waiting.png>
-Package pdftex.def Info: plots/validation job arrays waiting.png  used on input line 1682.
+Package pdftex.def Info: plots/validation job arrays waiting.png  used on input line 1681.
 (pdftex.def)             Requested size: 345.0pt x 70.83269pt.
  [41 <./plots/validation job arrays waiting.png>]
-Overfull \hbox (13.73907pt too wide) in paragraph at lines 1791--1792
+Overfull \hbox (13.73907pt too wide) in paragraph at lines 1790--1791
  [][] 
  []
 
 [42]
-Underfull \hbox (badness 10000) in paragraph at lines 1796--1797
+Underfull \hbox (badness 10000) in paragraph at lines 1795--1796
 
  []
 
-<plots/ergebnis_learning.png, id=1539, 859.2903pt x 281.853pt>
+<plots/ergebnis_learning.png, id=1549, 859.2903pt x 281.853pt>
 File: plots/ergebnis_learning.png Graphic file (type png)
 <use plots/ergebnis_learning.png>
-Package pdftex.def Info: plots/ergebnis_learning.png  used on input line 1806.
+Package pdftex.def Info: plots/ergebnis_learning.png  used on input line 1805.
 (pdftex.def)             Requested size: 345.0pt x 113.16066pt.
 [43]
-<plots/array jobs waiting.png, id=1546, 476.982pt x 67.452pt>
+<plots/array jobs waiting.png, id=1556, 476.982pt x 67.452pt>
 File: plots/array jobs waiting.png Graphic file (type png)
 <use plots/array jobs waiting.png>
-Package pdftex.def Info: plots/array jobs waiting.png  used on input line 1816.
+Package pdftex.def Info: plots/array jobs waiting.png  used on input line 1815.
 (pdftex.def)             Requested size: 241.49895pt x 34.15201pt.
 
-Overfull \hbox (42.3261pt too wide) in paragraph at lines 1821--1823
+Overfull \hbox (42.3261pt too wide) in paragraph at lines 1820--1822
 []\T1/cmr/m/n/10 Ein Aus-zug aus ei-ner SLURM-Ausgabedatei ei-nes Array-Jobs (z.B. für \T1/cmtt/m/n/10 fraction=0.1\T1/cmr/m/n/10 )
  []
 
 [44 <./plots/ergebnis_learning.png> <./plots/array jobs waiting.png>]
-Overfull \hbox (21.74377pt too wide) in paragraph at lines 1863--1867
+Overfull \hbox (21.74377pt too wide) in paragraph at lines 1862--1866
 \T1/cmr/m/n/10 Die Hy-per-pa-ra-me-ter-su-che ist ein wich-ti-ger Be-stand-teil des Deep-Learning-Workflows.
  []
 
 [45] [46]
-<plots/hyper_plot.png, id=1645, 859.2903pt x 354.123pt>
+<plots/hyper_plot.png, id=1655, 859.2903pt x 354.123pt>
 File: plots/hyper_plot.png Graphic file (type png)
 <use plots/hyper_plot.png>
-Package pdftex.def Info: plots/hyper_plot.png  used on input line 1955.
+Package pdftex.def Info: plots/hyper_plot.png  used on input line 1954.
 (pdftex.def)             Requested size: 241.49895pt x 99.5212pt.
  [47 <./plots/hyper_plot.png>]
-Overfull \hbox (53.125pt too wide) in paragraph at lines 1987--1992
+Overfull \hbox (53.125pt too wide) in paragraph at lines 1986--1991
 \T1/cmr/m/n/10 von Par-al-le-li-sie-rungs-mög-lich-kei-ten für Deep-Learning-Experimente mit dem FashionMNIST-
  []
 
 
-Overfull \hbox (5.6366pt too wide) in paragraph at lines 2001--2004
+Overfull \hbox (5.6366pt too wide) in paragraph at lines 2000--2003
 \T1/cmr/m/n/10 Benchmark-Skript (Lis-ting []2[]) misst die La-de-zei-ten für ver-schie-de-ne \T1/cmtt/m/n/10 num_workers\T1/cmr/m/n/10 -
  []
 
 
-Overfull \hbox (32.30229pt too wide) in paragraph at lines 2006--2008
+Overfull \hbox (32.30229pt too wide) in paragraph at lines 2005--2007
 \T1/cmr/m/n/10 den Bench-mark aus. Die Um-ge-bungs-va-ria-blen \T1/cmtt/m/n/10 OMP_NUM_THREADS \T1/cmr/m/n/10 und \T1/cmtt/m/n/10 MKL_NUM_THREADS
  []
 
 
-Overfull \hbox (65.57304pt too wide) in paragraph at lines 2016--2018
+Overfull \hbox (65.57304pt too wide) in paragraph at lines 2015--2017
 \T1/cmr/m/n/10 tiert (Lis-ting []5[]). Das Trai-ning ver-wen-det einen ein-zel-nen Thread (\T1/cmtt/m/n/10 torch.set_num_threads(1)\T1/cmr/m/n/10 )
  []
 
 [48]
-Overfull \hbox (3.80371pt too wide) in paragraph at lines 2020--2022
+Overfull \hbox (3.80371pt too wide) in paragraph at lines 2019--2021
 \T1/cmr/m/n/10 Das se-ri-el-le Trai-ning (Ta-bel-le []1[]) er-gab ei-ne durch-schnitt-li-che Lauf-zeit von 380.623
  []
 
 [49]
-Overfull \hbox (1.13362pt too wide) in paragraph at lines 2061--2061
+Overfull \hbox (1.13362pt too wide) in paragraph at lines 2060--2060
 []\T1/cmr/bx/n/12 Experiment 6: Hy-per-pa-ra-me-ter Search mit Ar-ray Jobs 
  []
 
 
-Overfull \hbox (11.74622pt too wide) in paragraph at lines 2067--2069
+Overfull \hbox (11.74622pt too wide) in paragraph at lines 2066--2068
 \T1/cmr/m/n/10 Das Python-Skript (Lis-ting []21[]) map-ped Array-IDs auf spe-zi-fi-sche Hyperparameter-
  []
 
 [50]
-Overfull \hbox (70.60057pt too wide) in paragraph at lines 2106--2119
+Overfull \hbox (70.60057pt too wide) in paragraph at lines 2105--2118
  [][] 
  []
 
 
-Overfull \hbox (18.579pt too wide) in paragraph at lines 2123--2125
+Overfull \hbox (18.579pt too wide) in paragraph at lines 2122--2124
 \T1/cmr/m/n/10 Die um-fas-sen-den Ex-pe-ri-men-te de-mons-trie-ren die viel-fäl-ti-gen Mög-lich-kei-ten, \T1/cmtt/m/n/10 PyTorch
  []
 
 [51]
-Overfull \hbox (3.38078pt too wide) in paragraph at lines 2130--2131
+Overfull \hbox (3.38078pt too wide) in paragraph at lines 2129--2130
 []\T1/cmr/bx/n/10 Array Jobs \T1/cmr/m/n/10 er-mög-li-chen ef-fi-zi-en-te Hyperparameter-Optimierung und Kur-
  []
 
 
-Overfull \hbox (9.33492pt too wide) in paragraph at lines 2133--2136
+Overfull \hbox (9.33492pt too wide) in paragraph at lines 2132--2135
 []\T1/cmr/m/n/10 Die Kom-bi-na-ti-on die-ser An-sät-ze er-mög-licht HPC-Nutzern, ih-re Deep-Learning-
  []
 
 
-Overfull \hbox (16.3073pt too wide) in paragraph at lines 2138--2150
+Overfull \hbox (16.3073pt too wide) in paragraph at lines 2137--2149
 \T1/cmr/m/n/10 Learning-Workflows. Zur Ver-tie-fung des Ver-ständ-nis-ses der grund-le-gen-den PyTorch-
  []
 
-[52] [53]
-Overfull \hbox (7.11513pt too wide) in paragraph at lines 2163--2163
+[52]
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+[]\T1/cmr/m/n/10 Läuft sta-bil auf
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 HPC, ein-fa-che
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Conda-Integration,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+[]\T1/cmr/m/n/10 Vollständig kom-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 pa-ti-bel, nutzt
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 op-ti-mier-te
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 MKL-/oneDAL-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Bibliotheken au-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 to-ma-tisch. Sta-bil
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+[]\T1/cmr/m/n/10 Integration pro-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 blem-los mög-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 lich, un-ter-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 stützt SLURM,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 MPI/Gloo-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Backends und
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+[]\T1/cmr/m/n/10 Mehrere In-te-gra-ti-ons-
+ []
+
+
+Underfull \hbox (badness 4569) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 un-ter-stützt MPI und
+ []
+
+
+Underfull \hbox (badness 1668) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 DRMAA, PBS; ein-fa-
+ []
+
+
+Underfull \hbox (badness 1590) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 cher Cluster-Start via
+ []
+
+
+Underfull \hbox (badness 1466) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 pro-blem-los via Con-da
+ []
+
+
+Underfull \hbox (badness 4168) in paragraph at lines 2187--2187
+\T1/cmtt/m/n/10 n_jobs\T1/cmr/m/n/10 , gu-te Be-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+[]\T1/cmr/m/n/10 Interne Thread-
+ []
+
+
+Underfull \hbox (badness 7613) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Verwaltung, leicht
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 bes-se-re CPU-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Ausnutzung als
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Standard-Scikit-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+[]\T1/cmr/m/n/10 Umfassende
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Multi-Node- und
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Multi-Thread-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Unterstützung,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 fle-xi-bel kon-fi-gu-
+ []
+
+
+Underfull \hbox (badness 7704) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 rier-bar, Ba-ckends:
+ []
+
+
+Underfull \hbox (badness 7308) in paragraph at lines 2187--2187
+[]\T1/cmr/m/n/10 Einfach im-ple-men-tier-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+[]\T1/cmr/m/n/10 Gute CPU-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Skalierung für
+ []
+
+
+Underfull \hbox (badness 2990) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Workloads, ab 24
+ []
+
+
+Underfull \hbox (badness 7099) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Learn, ge-ring-fü-gig
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 sta-bi-le-re Res-sour-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 cen-nut-zung bei
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 hö-he-ren CPU-
+ []
+
+
+Underfull \hbox (badness 3108) in paragraph at lines 2187--2187
+[]\T1/cmr/m/n/10 Lineare Ska-lie-rung
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 kön-nen durch
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Kommunikations-
+ []
+
+
+Underfull \hbox (badness 3907) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Overhead li-mi-tiert
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+[]\T1/cmr/m/n/10 Hauptmerkmal: Ver-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 ar-bei-tung von Da-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 ten, die grö-ÿer als
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 RAM sind, durch
+ []
+
+
+Underfull \hbox (badness 3019) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Chunk-Aufteilung und
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Ver-tei-lung über vie-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 le Cluster-Knoten;
+ []
+
+
+Underfull \hbox (badness 3861) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Over-head bei klei-nen
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+[]\T1/cmr/m/n/10 Sehr ge-ring,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Standard-Importe
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 und Fit-Aufrufe
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 ge-nü-gen, mi-ni-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 ma-le Jobskript-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+[]\T1/cmr/m/n/10 Minimal, nur
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmtt/m/n/10 patch_sklearn()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 nö-tig, be-ste-hen-de
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Skrip-te un-ver-än-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+[]\T1/cmr/m/n/10 Grundsetup
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 ein-fach, DDP-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Implementierung
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 und Job-Skripte
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 er-for-dern tiefe-re
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+[]\T1/cmr/m/n/10 Einfache Im-ple-men-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 tie-rung mit Conda-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Umgebung und
+ []
+
+
+Underfull \hbox (badness 2134) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Batch-Datei; op-tio-na-le
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Funk-tio-nen er-hö-hen
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+[]\T1/cmr/m/n/10 Parallele Cross-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 kei-ne zu-sätz-li-che
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+[]\T1/cmr/m/n/10 Stabil und kom-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 pa-ti-bel, kei-ne
+ []
+
+
+Underfull \hbox (badness 2818) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 si-gni-fi-kan-te Zeiter-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+[]\T1/cmr/m/n/10 Integration mit
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 SLURM-Array-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Mul-ti-pro-ces-sing
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+[]\T1/cmr/m/n/10 DDP-Prozesse
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 dungs-pro-ble-men,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 MPI-Integration
+ []
+
+
+Underfull \hbox (badness 2221) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 ging für Dia-gno-se
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+[]\T1/cmr/m/n/10 Worker wer-den bei
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Pro-ble-men neu ge-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 st-ar-tet oder pau-
+ []
+
+
+Underfull \hbox (badness 3861) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 siert, Das-h-board und
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Vor-ge-hens-wei-se und
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+[]\T1/cmr/m/n/10 Sehr leicht ver-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 ständ-li-che API,
+ []
+
+
+Underfull \hbox (badness 1033) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 gu-te Do-ku-men-ta-ti-
+ []
+
+
+Underfull \hbox (badness 1939) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 on, kei-ne Cluster-
+ []
+
+
+Underfull \hbox (badness 6348) in paragraph at lines 2187--2187
+[]\T1/cmr/m/n/10 API iden-tisch zu
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+[]\T1/cmr/m/n/10 Umfangreiche
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Do-ku-men-ta-ti-on,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 HPC-Aspekte er-
+ []
+
+
+Underfull \hbox (badness 1953) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 for-dern zu-sätz-li-che
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+[]\T1/cmr/m/n/10 Umfangreiche, gut
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 struk-tu-rier-te Do-ku-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Er-klä-run-gen ein-zel-ner
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
+\T1/cmr/m/n/10 Pa-ra-me-ter könn-ten
+ []
+
+[53] [54]
+Overfull \hbox (4.24106pt too wide) in paragraph at lines 2232--2233
+[]\T1/cmr/m/n/10 Zeynep: Un-ter-su-chung von \T1/cmr/m/it/10 Scikit-Learn \T1/cmr/m/n/10 so-wie der \T1/cmr/m/it/10 In-tel Ex-ten-si-on for Scikit-
+ []
+
+[55]
+Overfull \hbox (5.79747pt too wide) in paragraph at lines 2248--2248
+[][]\T1/cmr/bx/n/12 Zweites Grup-pen-tref-fen (Zwi-schen-stand und tech-ni-sche Her-
+ []
+
+[56]
+Overfull \hbox (29.78885pt too wide) in paragraph at lines 2272--2272
+[][]\T1/cmr/bx/n/12 Drittes Grup-pen-tref-fen (Er-geb-nis-se und Dis-kus-si-on - 02.11.2025) 
+ []
+
+[57]
+Overfull \hbox (7.11513pt too wide) in paragraph at lines 2306--2306
 [][][]\T1/cmr/m/n/10 (2025b). \T1/cmr/m/it/10 Threa-ding En-vi-ron-ment Va-ria-bles\T1/cmr/m/n/10 . Ac-ces-sed: 2025-10-16. \T1/cmr/m/sc/10 url\T1/cmr/m/n/10 : []$\T1/cmtt/m/n/10 https :
  []
 
 
-Overfull \hbox (0.66925pt too wide) in paragraph at lines 2163--2163
+Overfull \hbox (0.66925pt too wide) in paragraph at lines 2306--2306
 \T1/cmtt/m/n/10 / / docs . pytorch . org / docs / stable / threading _ environment _ variables .
  []
 
 
-Overfull \hbox (14.80286pt too wide) in paragraph at lines 2163--2163
+Overfull \hbox (14.80286pt too wide) in paragraph at lines 2306--2306
 \T1/cmr/m/it/10 bu-ted ML: A De-ep Di-ve in-to NC-CL, MPI, and Gloo\T1/cmr/m/n/10 . []$\T1/cmtt/m/n/10 https : / / themlarchitect .
  []
 
-[54] (main.aux)
+[58] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -1235,23 +1791,23 @@ L3 programming layer <2024-01-04>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: E9C2508F31A2B3576E3320A9E9DBD163;12143.
+(rerunfilecheck)             Checksum: F0BCA45E66BF57185457875C34402D16;12615.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 38034 strings out of 474486
- 748092 string characters out of 5743755
- 2542542 words of memory out of 5000000
- 58632 multiletter control sequences out of 15000+600000
+ 38149 strings out of 474486
+ 750266 string characters out of 5743755
+ 2556542 words of memory out of 5000000
+ 58730 multiletter control sequences out of 15000+600000
  573816 words of font info for 68 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 83i,9n,93p,722b,2371s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,11n,93p,722b,2371s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1000.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecit0900.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx0700.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0900.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk><C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (55 pages, 1447576 bytes).
+Output written on main.pdf (59 pages, 1473771 bytes).
 PDF statistics:
- 2629 PDF objects out of 2984 (max. 8388607)
- 1174 named destinations out of 1200 (max. 500000)
- 544 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2700 PDF objects out of 2984 (max. 8388607)
+ 1188 named destinations out of 1200 (max. 500000)
+ 560 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -2374,6 +2374,11 @@
     <bcf:citekey order="9" intorder="1">reddit_hpc_speedup_efficiency</bcf:citekey>
     <bcf:citekey order="10" intorder="1">xiao2017fashion</bcf:citekey>
     <bcf:citekey order="11" intorder="1">pytorch_docs</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">sklearn_intelex</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">scikit-learn</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">higgs_280</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">SpotifyDataset</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">xiao2017fashion</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">

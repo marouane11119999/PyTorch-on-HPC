@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1761852028.82411 "main.bcf" "main.bbl" "main" 1761852820.37359 0
-  "biblio.bib" 1761833476 3425 ef594383fc504c267054bb72cb0164eb ""
-  "main.bcf" 1761852819 108670 e7f49a6516bdd0294cc35b80d26307b3 "pdflatex"
+["biber main"] 1762094679.67246 "main.bcf" "main.bbl" "main" 1762116458.84668 0
+  "biblio.bib" 1762093345 4524 ab54fe0a7e9bf24700aec4952a679ca3 ""
+  "main.bcf" 1762116458 109015 599438e3930412b5cba79aee2f19b44d "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1761852814.22256 "c:/Users/marou/Desktop/Uni/HPC/Projekt/latex/main.tex" "main.pdf" "main" 1761852820.37509 0
+["pdflatex"] 1762116452.78458 "c:/Users/marou/Desktop/Uni/HPC/Projekt/latex/main.tex" "main.pdf" "main" 1762116458.84788 0
   "C:/Users/marou/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1760549742 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/marou/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx0700.pk" 1760873143 17380 a9911ea180a3f38d85c5bc12726e1367 ""
   "C:/Users/marou/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1000.pk" 1760550330 25420 70e1e78b4c7d54821628f350e1205bcc ""
@@ -178,6 +178,7 @@
   "C:/Users/marou/AppData/Local/Programs/MiKTeX/tex/latex/graphics/graphicx.sty" 1665067579 8010 a8d949cbdbc5c983593827c9eec252e1 ""
   "C:/Users/marou/AppData/Local/Programs/MiKTeX/tex/latex/graphics/keyval.sty" 1665067579 2671 7e67d78d9b88c845599a85b2d41f2e39 ""
   "C:/Users/marou/AppData/Local/Programs/MiKTeX/tex/latex/graphics/mathcolor.ltx" 1665067579 3171 1cf0d440b5464e2f034398ce4ef36f75 ""
+  "C:/Users/marou/AppData/Local/Programs/MiKTeX/tex/latex/graphics/rotating.sty" 1665067579 7060 497c495d7b832441a479571bbce898ae ""
   "C:/Users/marou/AppData/Local/Programs/MiKTeX/tex/latex/graphics/trig.sty" 1665067579 4023 293ea1c16429fc0c4cf605f4da1791a9 ""
   "C:/Users/marou/AppData/Local/Programs/MiKTeX/tex/latex/hycolor/hycolor.sty" 1580380792 18571 4c28a13fc3d975e6e81c9bea1d697276 ""
   "C:/Users/marou/AppData/Local/Programs/MiKTeX/tex/latex/hyperref/hpdftex.def" 1701020798 48154 77bec99bb3bbdf933bcecb211f7f4038 ""
@@ -225,13 +226,13 @@
   "C:/Users/marou/AppData/Local/Programs/MiKTeX/tex/latex/trimspaces/trimspaces.sty" 1253169183 1380 971a51b00a14503ddf754cab24c3f209 ""
   "C:/Users/marou/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/marou/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "c:/Users/marou/Desktop/Uni/HPC/Projekt/latex/main.tex" 1761852813 108839 112019cbe8d9435c05b5e19a6026d21d ""
-  "main.aux" 1761852819 25967 9eda6171133e618bc9fda1a1bd5de667 "pdflatex"
-  "main.bbl" 1761852032 12118 c6ad7fd6d691ff98003cfa3d94cf2cd1 "biber main"
-  "main.out" 1761852819 12143 e9c2508f31a2b3576e3320a9e9dbd163 "pdflatex"
-  "main.run.xml" 1761852819 2337 75f00ad282a5d773f1c33a6ec4757c33 "pdflatex"
-  "main.tex" 1761852813 108839 112019cbe8d9435c05b5e19a6026d21d ""
-  "main.toc" 1761852819 6803 ac8de2b11953ae6f48949aa1d3aa1733 "pdflatex"
+  "c:/Users/marou/Desktop/Uni/HPC/Projekt/latex/main.tex" 1762116451 120875 d6990cbadfabc31cdc17c7a2589f6756 ""
+  "main.aux" 1762116458 27762 604f9a805d807c73c50e0480fb0d988d "pdflatex"
+  "main.bbl" 1762094683 16162 705d6076703105dce7bf1457f7f016f0 "biber main"
+  "main.out" 1762116458 12615 f0bca45e66bf57185457875c34402d16 "pdflatex"
+  "main.run.xml" 1762116458 2337 75f00ad282a5d773f1c33a6ec4757c33 "pdflatex"
+  "main.tex" 1762116451 120875 d6990cbadfabc31cdc17c7a2589f6756 ""
+  "main.toc" 1762116458 6989 00ef87da3af30500ddbf73d2ddf67b8c "pdflatex"
   "plots/array jobs waiting.png" 1760263917 16354 94830132ca512aab0552ff93a5ea1ceb ""
   "plots/dataloaderperf.png" 1760594736 71073 2b918461c15a943baa1f7b495110fec2 ""
   "plots/ergebnis_learning.png" 1761239419 54149 91d83b4a1c8cc6ac3c1bced4a529c1c8 ""
