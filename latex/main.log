@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.30)  2 NOV 2025 21:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.30)  7 NOV 2025 11:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -850,14 +850,7 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 
 \@quotelevel=\count463
 \@quotereset=\count464
-(main.aux
-
-LaTeX Warning: Label `lst:slurm_val' multiply defined.
-
-
-LaTeX Warning: Label `lst:slurm_val' multiply defined.
-
-)
+(main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
@@ -933,7 +926,7 @@ Package biblatex Info: ... file 'main.bbl' found.
  (main.bbl)
 Package biblatex Info: Reference section=0 on input line 29.
 Package biblatex Info: Reference segment=0 on input line 29.
-<plots/logo.png, id=242, 116.68594pt x 44.41594pt>
+<plots/logo.png, id=262, 116.68594pt x 44.41594pt>
 File: plots/logo.png Graphic file (type png)
 <use plots/logo.png>
 Package pdftex.def Info: plots/logo.png  used on input line 35.
@@ -949,7 +942,7 @@ Overfull \hbox (12.94373pt too wide) in paragraph at lines 6--6
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.60 ...2.8.3}Ergebnisse}{50}{subsubsection.2.8.3}
+l.60 ...Search mit Array Jobs}{51}{subsection.2.8}
                                                   % [1])
 \tf@toc=\write6
 \openout6 = `main.toc'.
@@ -963,7 +956,7 @@ LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 82
 (C:\Users\marou\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-<plots/mnist.png, id=326, 671.3883pt x 251.4996pt>
+<plots/mnist.png, id=351, 671.3883pt x 251.4996pt>
 File: plots/mnist.png Graphic file (type png)
 <use plots/mnist.png>
 Package pdftex.def Info: plots/mnist.png  used on input line 118.
@@ -998,7 +991,7 @@ File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) (C:\Users\marou\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) [7]
-<plots/dataloaderperf.png, id=488, 1308.8097pt x 369.2997pt>
+<plots/dataloaderperf.png, id=513, 1308.8097pt x 369.2997pt>
 File: plots/dataloaderperf.png Graphic file (type png)
 <use plots/dataloaderperf.png>
 Package pdftex.def Info: plots/dataloaderperf.png  used on input line 349.
@@ -1039,7 +1032,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 681--682
  []
 
 [16]
-<plots/interop_speedup.png, id=783, 1308.8097pt x 369.2997pt>
+<plots/interop_speedup.png, id=808, 1308.8097pt x 369.2997pt>
 File: plots/interop_speedup.png Graphic file (type png)
 <use plots/interop_speedup.png>
 Package pdftex.def Info: plots/interop_speedup.png  used on input line 716.
@@ -1050,7 +1043,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 722--723
  []
 
 [17 <./plots/interop_speedup.png>]
-<plots/intraop_speedup.png, id=792, 1308.8097pt x 369.2997pt>
+<plots/intraop_speedup.png, id=817, 1308.8097pt x 369.2997pt>
 File: plots/intraop_speedup.png Graphic file (type png)
 <use plots/intraop_speedup.png>
 Package pdftex.def Info: plots/intraop_speedup.png  used on input line 741.
@@ -1060,7 +1053,7 @@ Overfull \hbox (1.99031pt too wide) in paragraph at lines 756--758
 []\T1/cmr/bx/n/10 Leistungsabfall (16 bis 24 Threads): \T1/cmr/m/n/10 Nach dem Ma-xi-mum bei 16 Threads
  []
 
-<plots/interintra_speedup.png, id=794, 1308.8097pt x 369.2997pt>
+<plots/interintra_speedup.png, id=819, 1308.8097pt x 369.2997pt>
 File: plots/interintra_speedup.png Graphic file (type png)
 <use plots/interintra_speedup.png>
 Package pdftex.def Info: plots/interintra_speedup.png  used on input line 764.
@@ -1090,13 +1083,13 @@ Overfull \hbox (4.56464pt too wide) in paragraph at lines 1207--1208
 [][][][] 
  []
 
-<plots/multinode_performance.png, id=1178, 1004.553pt x 354.123pt>
+<plots/multinode_performance.png, id=1202, 1004.553pt x 354.123pt>
 File: plots/multinode_performance.png Graphic file (type png)
 <use plots/multinode_performance.png>
 Package pdftex.def Info: plots/multinode_performance.png  used on input line 1240.
 (pdftex.def)             Requested size: 345.0pt x 121.616pt.
 [29]
-<plots/multinode_speedup.png, id=1205, 737.8767pt x 281.853pt>
+<plots/multinode_speedup.png, id=1230, 737.8767pt x 281.853pt>
 File: plots/multinode_speedup.png Graphic file (type png)
 <use plots/multinode_speedup.png>
 Package pdftex.def Info: plots/multinode_speedup.png  used on input line 1274.
@@ -1107,146 +1100,156 @@ Overfull \hbox (37.09608pt too wide) in paragraph at lines 1295--1305
  []
 
 [31 <./plots/multinode_speedup.png>]
-<plots/multiprocthread_results.png, id=1225, 1004.553pt x 354.123pt>
+<plots/multiprocthread_results.png, id=1250, 1004.553pt x 354.123pt>
 File: plots/multiprocthread_results.png Graphic file (type png)
 <use plots/multiprocthread_results.png>
 Package pdftex.def Info: plots/multiprocthread_results.png  used on input line 1310.
 (pdftex.def)             Requested size: 345.0pt x 121.616pt.
 
-Overfull \hbox (36.63014pt too wide) in paragraph at lines 1314--1323
+Overfull \hbox (36.63014pt too wide) in paragraph at lines 1314--1320
 \T1/cmtt/m/n/10 (DDP)\T1/cmr/m/n/10 -Trainings bei un-ter-schied-li-chen An-zah-len von Ranks mit se-ri-el-len, Multithreading-
  []
 
-<plots/mt_mp_speedup.png, id=1227, 732.0951pt x 281.853pt>
+<plots/mt_mp_speedup.png, id=1252, 732.0951pt x 281.853pt>
 File: plots/mt_mp_speedup.png Graphic file (type png)
 <use plots/mt_mp_speedup.png>
-Package pdftex.def Info: plots/mt_mp_speedup.png  used on input line 1337.
+Package pdftex.def Info: plots/mt_mp_speedup.png  used on input line 1333.
 (pdftex.def)             Requested size: 345.0pt x 132.82788pt.
 [32 <./plots/multiprocthread_results.png>]
-Overfull \hbox (39.11197pt too wide) in paragraph at lines 1342--1342
+Overfull \hbox (39.11197pt too wide) in paragraph at lines 1338--1338
 []\T1/cmr/bx/n/12 Eintrag 5: Va-li-da-ti-on Cur-ve und Lear-ning Cur-ve (01.10.2025) 
  []
 
 [33 <./plots/mt_mp_speedup.png>]
-Overfull \hbox (3.44746pt too wide) in paragraph at lines 1373--1377
+Overfull \hbox (3.44746pt too wide) in paragraph at lines 1369--1373
 []\T1/cmr/m/n/10 Die ein-zel-nen Tasks füh-ren das Python-Skript []16[] aus, das die DDP-Umgebung
  []
 
 [34] [35] [36] [37]
-Overfull \hbox (113.27234pt too wide) in paragraph at lines 1631--1632
+Overfull \hbox (113.27234pt too wide) in paragraph at lines 1626--1627
  [][] 
  []
 
 [38]
-<plots/validaton_erg.png, id=1464, 1075.3776pt x 570.933pt>
+<plots/validaton_erg.png, id=1488, 1075.3776pt x 570.933pt>
 File: plots/validaton_erg.png Graphic file (type png)
 <use plots/validaton_erg.png>
-Package pdftex.def Info: plots/validaton_erg.png  used on input line 1640.
+Package pdftex.def Info: plots/validaton_erg.png  used on input line 1635.
 (pdftex.def)             Requested size: 345.0pt x 183.164pt.
  [39] [40 <./plots/validaton_erg.png>]
-<plots/validation job arrays waiting.png, id=1483, 522.15076pt x 107.2005pt>
+<plots/validation job arrays waiting.png, id=1509, 522.15076pt x 107.2005pt>
 File: plots/validation job arrays waiting.png Graphic file (type png)
 <use plots/validation job arrays waiting.png>
-Package pdftex.def Info: plots/validation job arrays waiting.png  used on input line 1681.
+Package pdftex.def Info: plots/validation job arrays waiting.png  used on input line 1675.
 (pdftex.def)             Requested size: 345.0pt x 70.83269pt.
  [41 <./plots/validation job arrays waiting.png>]
-Overfull \hbox (13.73907pt too wide) in paragraph at lines 1790--1791
+Overfull \hbox (13.73907pt too wide) in paragraph at lines 1782--1783
  [][] 
  []
 
 [42]
-Underfull \hbox (badness 10000) in paragraph at lines 1795--1796
+Underfull \hbox (badness 10000) in paragraph at lines 1787--1788
 
  []
 
-<plots/ergebnis_learning.png, id=1549, 859.2903pt x 281.853pt>
+<plots/ergebnis_learning.png, id=1573, 859.2903pt x 281.853pt>
 File: plots/ergebnis_learning.png Graphic file (type png)
 <use plots/ergebnis_learning.png>
-Package pdftex.def Info: plots/ergebnis_learning.png  used on input line 1805.
+Package pdftex.def Info: plots/ergebnis_learning.png  used on input line 1797.
 (pdftex.def)             Requested size: 345.0pt x 113.16066pt.
 [43]
-<plots/array jobs waiting.png, id=1556, 476.982pt x 67.452pt>
+<plots/array jobs waiting.png, id=1581, 476.982pt x 67.452pt>
 File: plots/array jobs waiting.png Graphic file (type png)
 <use plots/array jobs waiting.png>
-Package pdftex.def Info: plots/array jobs waiting.png  used on input line 1815.
+Package pdftex.def Info: plots/array jobs waiting.png  used on input line 1807.
 (pdftex.def)             Requested size: 241.49895pt x 34.15201pt.
 
-Overfull \hbox (42.3261pt too wide) in paragraph at lines 1820--1822
+Overfull \hbox (42.3261pt too wide) in paragraph at lines 1812--1814
 []\T1/cmr/m/n/10 Ein Aus-zug aus ei-ner SLURM-Ausgabedatei ei-nes Array-Jobs (z.B. für \T1/cmtt/m/n/10 fraction=0.1\T1/cmr/m/n/10 )
  []
 
 [44 <./plots/ergebnis_learning.png> <./plots/array jobs waiting.png>]
-Overfull \hbox (21.74377pt too wide) in paragraph at lines 1862--1866
+Overfull \hbox (21.74377pt too wide) in paragraph at lines 1854--1858
 \T1/cmr/m/n/10 Die Hy-per-pa-ra-me-ter-su-che ist ein wich-ti-ger Be-stand-teil des Deep-Learning-Workflows.
  []
 
 [45] [46]
-<plots/hyper_plot.png, id=1655, 859.2903pt x 354.123pt>
+<plots/hyper_plot.png, id=1679, 859.2903pt x 354.123pt>
 File: plots/hyper_plot.png Graphic file (type png)
 <use plots/hyper_plot.png>
-Package pdftex.def Info: plots/hyper_plot.png  used on input line 1954.
+Package pdftex.def Info: plots/hyper_plot.png  used on input line 1946.
 (pdftex.def)             Requested size: 241.49895pt x 99.5212pt.
  [47 <./plots/hyper_plot.png>]
-Overfull \hbox (53.125pt too wide) in paragraph at lines 1986--1991
+Overfull \hbox (53.125pt too wide) in paragraph at lines 1978--1983
 \T1/cmr/m/n/10 von Par-al-le-li-sie-rungs-mög-lich-kei-ten für Deep-Learning-Experimente mit dem FashionMNIST-
  []
 
 
-Overfull \hbox (5.6366pt too wide) in paragraph at lines 2000--2003
+Overfull \hbox (5.6366pt too wide) in paragraph at lines 1992--1995
 \T1/cmr/m/n/10 Benchmark-Skript (Lis-ting []2[]) misst die La-de-zei-ten für ver-schie-de-ne \T1/cmtt/m/n/10 num_workers\T1/cmr/m/n/10 -
  []
 
 
-Overfull \hbox (32.30229pt too wide) in paragraph at lines 2005--2007
+Overfull \hbox (32.30229pt too wide) in paragraph at lines 1997--1999
 \T1/cmr/m/n/10 den Bench-mark aus. Die Um-ge-bungs-va-ria-blen \T1/cmtt/m/n/10 OMP_NUM_THREADS \T1/cmr/m/n/10 und \T1/cmtt/m/n/10 MKL_NUM_THREADS
  []
 
 
-Overfull \hbox (65.57304pt too wide) in paragraph at lines 2015--2017
+Overfull \hbox (65.57304pt too wide) in paragraph at lines 2007--2009
 \T1/cmr/m/n/10 tiert (Lis-ting []5[]). Das Trai-ning ver-wen-det einen ein-zel-nen Thread (\T1/cmtt/m/n/10 torch.set_num_threads(1)\T1/cmr/m/n/10 )
  []
 
 [48]
-Overfull \hbox (3.80371pt too wide) in paragraph at lines 2019--2021
+Overfull \hbox (3.80371pt too wide) in paragraph at lines 2011--2013
 \T1/cmr/m/n/10 Das se-ri-el-le Trai-ning (Ta-bel-le []1[]) er-gab ei-ne durch-schnitt-li-che Lauf-zeit von 380.623
  []
 
+
+Overfull \hbox (11.07971pt too wide) in paragraph at lines 2016--2019
+\T1/cmr/m/n/10 Multithreading er-mög-licht die ef-fi-zi-en-te Nut-zung mehr-ker-ni-ger CPU-Architekturen
+ []
+
+
+Overfull \hbox (7.55943pt too wide) in paragraph at lines 2016--2019
+\T1/cmr/m/n/10 . Die Ana-ly-se von Intraop- und Interop-Parallelisierung lie-fert Ein-bli-cke in Thread-
+ []
+
+
+Overfull \hbox (9.33014pt too wide) in paragraph at lines 2025--2030
+\T1/cmr/m/n/10 dig-lich der ver-wen-de-te Be-fehl än-dert sich zu \T1/cmtt/m/n/10 torch.set_num_interop_threads()\T1/cmr/m/n/10 .
+ []
+
+
+Overfull \hbox (12.07947pt too wide) in paragraph at lines 2037--2041
+\T1/cmr/m/n/10 Die Kom-bi-na-ti-on von Mul-ti-pro-ces-sing und Mul-ti-threa-ding ist in HPC-Umgebungen
+ []
+
 [49]
-Overfull \hbox (1.13362pt too wide) in paragraph at lines 2060--2060
+Overfull \hbox (1.13362pt too wide) in paragraph at lines 2069--2069
 []\T1/cmr/bx/n/12 Experiment 6: Hy-per-pa-ra-me-ter Search mit Ar-ray Jobs 
  []
 
-
-Overfull \hbox (11.74622pt too wide) in paragraph at lines 2066--2068
+[50]
+Overfull \hbox (11.74622pt too wide) in paragraph at lines 2075--2077
 \T1/cmr/m/n/10 Das Python-Skript (Lis-ting []21[]) map-ped Array-IDs auf spe-zi-fi-sche Hyperparameter-
  []
 
-[50]
-Overfull \hbox (70.60057pt too wide) in paragraph at lines 2105--2118
+[51]
+Overfull \hbox (70.60057pt too wide) in paragraph at lines 2119--2132
  [][] 
  []
 
 
-Overfull \hbox (18.579pt too wide) in paragraph at lines 2122--2124
+Overfull \hbox (18.579pt too wide) in paragraph at lines 2136--2138
 \T1/cmr/m/n/10 Die um-fas-sen-den Ex-pe-ri-men-te de-mons-trie-ren die viel-fäl-ti-gen Mög-lich-kei-ten, \T1/cmtt/m/n/10 PyTorch
  []
 
-[51]
-Overfull \hbox (3.38078pt too wide) in paragraph at lines 2129--2130
+
+Overfull \hbox (3.38078pt too wide) in paragraph at lines 2143--2144
 []\T1/cmr/bx/n/10 Array Jobs \T1/cmr/m/n/10 er-mög-li-chen ef-fi-zi-en-te Hyperparameter-Optimierung und Kur-
  []
 
-
-Overfull \hbox (9.33492pt too wide) in paragraph at lines 2132--2135
-[]\T1/cmr/m/n/10 Die Kom-bi-na-ti-on die-ser An-sät-ze er-mög-licht HPC-Nutzern, ih-re Deep-Learning-
- []
-
-
-Overfull \hbox (16.3073pt too wide) in paragraph at lines 2137--2149
-\T1/cmr/m/n/10 Learning-Workflows. Zur Ver-tie-fung des Ver-ständ-nis-ses der grund-le-gen-den PyTorch-
- []
-
-[52]
+[52] [53]
 Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
 []\T1/cmr/m/n/10 Läuft sta-bil auf
  []
@@ -1751,63 +1754,89 @@ Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
 \T1/cmr/m/n/10 Pa-ra-me-ter könn-ten
  []
 
-[53] [54]
-Overfull \hbox (4.24106pt too wide) in paragraph at lines 2232--2233
+
+Overfull \hbox (2.70676pt too wide) in paragraph at lines 2161--2188
+\T1/cmr/m/n/10 Jedes Grup-pen-mit-glied hat sich für ei-ne Soft-wa-re ent-schie-den (sie-he Ab-schnitt []5[]).
+ []
+
+
+Overfull \hbox (2.22188pt too wide) in paragraph at lines 2190--2195
+\T1/cmr/m/n/10 Ta-bel-le []5[], in-di-ziert si-gni-fi-kan-te Di-ver-gen-zen in der Eig-nung für High-Performance
+ []
+
+[54]
+Overfull \hbox (43.90614pt too wide) in paragraph at lines 2196--2208
+\T1/cmr/m/n/10 Memory-Architektur ei-nes Ein-zel-kno-tens li-mi-tiert, wo-bei die Ef-fi-zi-enz der Multiprocessing-
+ []
+
+
+Overfull \hbox (7.00104pt too wide) in paragraph at lines 2219--2229
+[]\T1/cmr/m/n/10 Dask hin-ge-gen fo-kus-siert pri-mär auf die Da-ten-ver-ar-bei-tung der Hauptspeicher-
+ []
+
+
+Overfull \hbox (2.83948pt too wide) in paragraph at lines 2219--2229
+\T1/cmr/m/n/10 Da-ten-struk-tu-ren (\T1/cmtt/m/n/10 dask.array\T1/cmr/m/n/10 , \T1/cmtt/m/n/10 dask.dataframe\T1/cmr/m/n/10 ). Die ho-he HPC-Kompatibilität
+ []
+
+[55] [56]
+Overfull \hbox (4.24106pt too wide) in paragraph at lines 2256--2257
 []\T1/cmr/m/n/10 Zeynep: Un-ter-su-chung von \T1/cmr/m/it/10 Scikit-Learn \T1/cmr/m/n/10 so-wie der \T1/cmr/m/it/10 In-tel Ex-ten-si-on for Scikit-
  []
 
-[55]
-Overfull \hbox (5.79747pt too wide) in paragraph at lines 2248--2248
+
+Overfull \hbox (5.79747pt too wide) in paragraph at lines 2272--2272
 [][]\T1/cmr/bx/n/12 Zweites Grup-pen-tref-fen (Zwi-schen-stand und tech-ni-sche Her-
  []
 
-[56]
-Overfull \hbox (29.78885pt too wide) in paragraph at lines 2272--2272
+[57]
+Overfull \hbox (29.78885pt too wide) in paragraph at lines 2296--2296
 [][]\T1/cmr/bx/n/12 Drittes Grup-pen-tref-fen (Er-geb-nis-se und Dis-kus-si-on - 02.11.2025) 
  []
 
-[57]
-Overfull \hbox (7.11513pt too wide) in paragraph at lines 2306--2306
-[][][]\T1/cmr/m/n/10 (2025b). \T1/cmr/m/it/10 Threa-ding En-vi-ron-ment Va-ria-bles\T1/cmr/m/n/10 . Ac-ces-sed: 2025-10-16. \T1/cmr/m/sc/10 url\T1/cmr/m/n/10 : []$\T1/cmtt/m/n/10 https :
+[58]
+Overfull \hbox (7.54555pt too wide) in paragraph at lines 2331--2352
+\T1/cmr/m/n/10 ple-men-tie-rung und An-pas-sung neu-ro-na-ler Net-ze. Dar-über hin-aus wur-de ChatGPT
+ []
+
+[59]
+Overfull \hbox (0.66925pt too wide) in paragraph at lines 2354--2354
+\T1/cmtt/m/n/10 HPC / comments / 1l36sju / how _ do _ you _ compute _ speedup _ and _ efficiency _
  []
 
 
-Overfull \hbox (0.66925pt too wide) in paragraph at lines 2306--2306
-\T1/cmtt/m/n/10 / / docs . pytorch . org / docs / stable / threading _ environment _ variables .
+Overfull \hbox (5.91797pt too wide) in paragraph at lines 2354--2354
+[]$\T1/cmtt/m/n/10 https : / / docs . pytorch . org / stable / threading _ environment _ variables .
  []
 
 
-Overfull \hbox (14.80286pt too wide) in paragraph at lines 2306--2306
+Overfull \hbox (14.80286pt too wide) in paragraph at lines 2354--2354
 \T1/cmr/m/it/10 bu-ted ML: A De-ep Di-ve in-to NC-CL, MPI, and Gloo\T1/cmr/m/n/10 . []$\T1/cmtt/m/n/10 https : / / themlarchitect .
  []
 
-[58] (main.aux)
+[60] [61] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: F0BCA45E66BF57185457875C34402D16;12615.
+(rerunfilecheck)             Checksum: 54A4393B92B859EA2BFE529A21A36D07;13219.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 38149 strings out of 474486
- 750266 string characters out of 5743755
+ 38183 strings out of 474486
+ 751105 string characters out of 5743755
  2556542 words of memory out of 5000000
- 58730 multiletter control sequences out of 15000+600000
+ 58753 multiletter control sequences out of 15000+600000
  573816 words of font info for 68 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 83i,11n,93p,722b,2371s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,12n,93p,722b,2371s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1000.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecit0900.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx0700.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0900.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\marou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk><C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/marou/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (59 pages, 1473771 bytes).
+Output written on main.pdf (62 pages, 1487555 bytes).
 PDF statistics:
- 2700 PDF objects out of 2984 (max. 8388607)
- 1188 named destinations out of 1200 (max. 500000)
- 560 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2759 PDF objects out of 2984 (max. 8388607)
+ 1199 named destinations out of 1200 (max. 500000)
+ 600 words of extra memory for PDF output out of 10000 (max. 10000000)
 

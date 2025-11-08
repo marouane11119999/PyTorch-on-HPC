@@ -432,7 +432,7 @@ das aus den folgenden groben Komponenten besteht:
 
 Anschließend wurde die Trainings- und Evaluierungslogik implementiert in \ref{lst:training_serial}, die das Modell mit dem FashionMNIST-Datensatz trainiert und validiert, um 
 die ersten Experimente durchzuführen (Serial Training und Training mit \texttt{Pytorch} Multithreading).
-\begin{lstlisting}[language=Python, caption={\texttt{model.py}: CNN Modell}, label={lst:training_serial}, 
+\begin{lstlisting}[language=Python, caption={Python Skript zur seriellen Training}, label={lst:training_serial}, 
 basicstyle=\ttfamily\small, keywordstyle=\color{blue}\bfseries, commentstyle=\color{green!60!black}, stringstyle=\color{orange}]
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -602,9 +602,9 @@ wie z.B. Matrixmultiplikationen oder Faltungen, auf mehreren CPU-Kernen, wodurch
 Der neue Slurm-Jobskript ist in \ref{lst:slurm_intraop} zu sehen. Er geht durch verschiedene Thread-Anzahlen (1, 2, 4, 6, 8, 12, 16, 20, 24) 
 und führt das Trainingsskript für jede Konfiguration aus. Abschließend werden die Ergebnisse in separaten Verzeichnissen gespeichert. Dabei ist es wichtig,
 die Umgebungsvariablen \texttt{OMP\_NUM\_THREADS} und \texttt{MKL\_NUM\_THREADS} zu setzen, um sicherzustellen,
-dass die Multithreading Bibliotheken (OpenMP und MKL) die gewünschte Thread-Anzahl verwenden \parencite{pytorch_threading_env_vars}.
+dass die Multithreading Bibliotheken (OpenMP und MKL) die gewünschte Thread-Anzahl verwenden \parencite{pytorch2025threading}.
 
-\begin{lstlisting}[language=bash, caption={Slurm-Jobskript zum Ausführen des Serielles Trainingskript}, label={lst:slurm_intraop},
+\begin{lstlisting}[language=bash, caption={Slurm-Jobskript zum Ausführen von Intraop Multithreading Trainingskript}, label={lst:slurm_intraop},
 basicstyle=\ttfamily\small, keywordstyle=\color{blue}\bfseries, commentstyle=\color{green!60!black}, stringstyle=\color{orange}]
 #!/usr/bin/env sh
 #SBATCH --reservation=hpc-course-sose2025
@@ -668,7 +668,7 @@ Im Unterschied zum Intraop Parallelismus, bei dem einzelne Operationen wie Matri
 ermöglicht der Interop Parallelismus die parallele Ausführung mehrerer unabhängiger Operationen oder Tasks innerhalb eines Modells. 
 Beispielsweise können verschiedene Layer oder unabhängige Berechnungen gleichzeitig berechnet werden, wodurch das Training insgesamt effizienter wird. 
 Wie beim Intraop-Experiment werden unterschiedliche Thread-Anzahlen (1, 2, 4, 6, 8, 12, 16, 20, 24)  getestet, und die Ergebnisse werden in separaten Verzeichnissen gespeichert, 
-während die Umgebungsvariablen \texttt{OMP\_NUM\_THREADS} und \texttt{MKL\_NUM\_THREADS} gesetzt bleiben \parencite{pytorch_threading_env_vars}.
+während die Umgebungsvariablen \texttt{OMP\_NUM\_THREADS} und \texttt{MKL\_NUM\_THREADS} gesetzt bleiben \parencite{pytorch2025threading}.
 \vspace{0.5em}
 \paragraph{Hybrid Intra- und Interop \texttt{PyTorch} Multithreading} \mbox{}\\
 In diesem Experiment werden sowohl Intraop- als auch Interop-Threads gleichzeitig genutzt, um die parallele Ausführung innerhalb und zwischen Operationen zu kombinieren. 
@@ -676,7 +676,7 @@ Das Trainingsskript wurde entsprechend angepasst, sodass \texttt{torch.set\_num\
 Dadurch können einzelne Operationen wie Matrixmultiplikationen parallelisiert werden (Intraop), während gleichzeitig mehrere unabhängige Operationen oder Layer parallel ausgeführt werden (Interop). 
 Wie in den vorherigen Experimenten werden verschiedene Kombinationen von Thread-Anzahlen getestet, 
 und die Ergebnisse werden in separaten Verzeichnissen gespeichert, wobei die Umgebungsvariablen \texttt{OMP\_NUM\_THREADS} und \texttt{MKL\_NUM\_THREADS} gesetzt bleiben 
-\parencite{pytorch_threading_env_vars}.
+\parencite{pytorch2025threading}.
 
 \paragraph{Ergebnisse erster Experimente:} \mbox{}\\
 
@@ -744,7 +744,7 @@ ohne dass die Modellgenauigkeit signifikant beeinträchtigt wird (zwischen 82,2\
 \end{figure}
 
 
-\textbf{Interop + Intraop Multithreading:} \\
+\textbf{Interop + Intraop Multithreading:} \mbox{}\\
 Der Speedup ($\text{S}_n$) in Abbildung \ref{fig:interop_intraop_multithreading} 
 zeigt auch wieder eine deutliche Leistungssteigerung mit zunehmender Thread-Anzahl bis zu einem Maximum bei 16 Threads, 
 gefolgt von einem leichten Rückgang bei höheren Thread-Zahlen. 
@@ -1108,7 +1108,7 @@ mpirun -np $SLURM_NTASKS --host $HOSTS \
     --num_repeats 1
 \end{lstlisting}
 
-
+\newpage
 \begin{lstlisting}[basicstyle=\ttfamily\small, caption={Beispielausgabe des DDP-Slurm-Jobs mit 4 Tasks pro Knoten}, label={lst:slurm_output_2tasks}]
 MODULE: Adding module /shared/modulefiles/miniconda3
 mkdir: created directory '_benchmark'
@@ -1186,7 +1186,7 @@ Dabei traten jedoch Probleme auf, die verhinderten, dass die Prozesse korrekt in
 Insbesondere stellte sich heraus, dass die verwendete \texttt{PyTorch}-Installation kein \texttt{MPI}-Backend enthielt, 
 da \texttt{MPI} nur unterstützt wird, wenn \texttt{PyTorch} aus dem Quellcode auf einem System mit installierter \texttt{MPI}-Bibliothek kompiliert wurde. 
 Dies führte beim Starten des DDP-Jobs zu folgendem Fehler:
-
+\newpage
 \begin{lstlisting}[language=bash, caption={Fehlerausgabe beim Start des DDP-Trainings mit dem MPI-Backend}]
 INFO:__main__:Rank 0/2 initializing DDP using MPI backend
 Traceback (most recent call last):
@@ -1314,12 +1314,9 @@ Die Ergebnisse der Experimente sind in Abbildung \ref{fig:mp_mt_results} dargest
 Die Abbildungen vergleichen die Leistung des \texttt{Distributed Data Parallel (DDP)}-Trainings bei unterschiedlichen Anzahlen von Ranks 
 mit seriellen, Multithreading- und Multinode-Benchmarks. 
 Im Diagramm der Laufzeit (s) ist \texttt{DDP} bei den Ranks (4, 8) deutlich schneller als alle anderen Ansätze und erreicht bei 4 und 8 Ranks die minimale Multithreading-Laufzeit. 
-Bei der Genauigkeit (\%) zeigt \texttt{DDP} ein gemischtes Bild: 
-Die Genauigkeit liegt bei allen Ranks über der seriellen Genauigkeit (grün gestrichelte Linie), 
-bleibt jedoch durchgehend unter der maximalen Multinode-Genauigkeit (braun gestrichelte Linie). 
-Dies deutet darauf hin, dass \texttt{DDP} zwar eine hohe Trainingseffizienz erreicht, 
-aber möglicherweise ein inhärenter Overhead oder eine fehlende Feinabstimmung verhindert, 
-dass die maximale Genauigkeit anderer Multinode-Ansätze erreicht wird.
+Die Genauigkeit (\%) liegt jedoch unter der der anderen Ansätze, 
+was vermutlich auf Kommunikationsprobleme zwischen den Prozessen zurückzuführen ist, 
+die die Synchronisation von Gradienten erschweren.
 
 Die Speedup-, Effizienz- und Durchsatzdiagramme in Abbildung \ref{fig:mp_mt_speedup} 
 bieten eine weitere Perspektive auf die Leistung von \texttt{DDP} im Vergleich zu anderen Ansätzen. 
@@ -1330,8 +1327,7 @@ Anzahl der Prozesse beweisen. Das bedeutet, dass diese Konfiguration von Multipr
 und Multithreading auf einem Knoten gut skaliert. 
 Der Speedup steigt von ca. 1 auf 14, während die Effizienz ($E_n$)
 ebenfalls zunimmt, wenn auch mit einer leichten Anfangsverzögerung bei 2 Prozessen. 
-Das führt uns zu der Schlussfolgerung, dass die Ressourcennutzung mit steigender Prozessanzahl effektiver 
-wird, und die parallele Verarbeitung zunehmend von den zusätzlichen Prozessen profitiert.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{plots/mt_mp_speedup.png}
@@ -1379,11 +1375,10 @@ Die SLURM-Konfiguration legt unter anderem die Ressourcen fest (Anzahl der Proze
 definiert die Umgebungsvariablen für die DDP-Kommunikation. In diesem Setup werden zwei DDP-Prozesse pro Job mit jeweils 
 zwölf Threads ausgeführt. Die parallele Ausführung über SLURM-Array-Jobs ermöglicht eine effiziente Durchführung mehrerer Experimente gleichzeitig.
 
-Abschließend zeigt das Diagramm in \ref{fig:validation_curve_diagram} den gesamten Ablauf Schritt für Schritt: 
-vom Bash-Skript über die SLURM-Array-Jobs bis hin zu den DDP-Prozessen und der Ergebnisgenerierung.
+Das Diagramm in \ref{fig:validation_curve_diagram} zeigt den gesamten Ablauf Schritt für Schritt.
 
 
-\begin{lstlisting}[language=bash, caption={Einreichung der Validation-Curve-Jobs über SLURM}, label={lst:bash_run}]
+\begin{lstlisting}[language=bash, caption={Einreichung der Validation Curve Jobs über SLURM}, label={lst:bash_run}]
 #!/bin/bash
 
 # loop over all parameters and set variables for slurm
@@ -1651,13 +1646,12 @@ sowie die Optimierer \textit{Adam} oder \textit{AdamW} (beide erreichen eine max
 Bezüglich der Laufzeit zeigte sich, dass eine Erhöhung der Lernrate und der Anzahl der Epochen zu einer deutlich längeren Laufzeit führt (außer bei 0{,}001), 
 wobei die Laufzeit mit steigender Epochenzahl nahezu linear zunimmt. Gleichzeitig verbessert sich mit einer größeren Anzahl an Epochen auch die Genauigkeit, 
 da das Modell mehr Trainingszyklen durchläuft. Eine größere Batch-Größe reduziert die Laufzeit erheblich, und der \textit{AdamW}-Optimierer fällt zudem als der 
-schnellste auf. Interessanterweise könnte man erwarten, dass eine große Batch-Größe die Laufzeit verlängert, doch durch die Nutzung von Parallelisierung
-kann die Trainingszeit sogar verkürzt werden.
+schnellste auf.
 
 Zur Veranschaulichung zeigt das folgende Beispiel den typischen Auszug aus einer SLURM-Ausgabedatei für den \texttt{batch\_size}-Job. 
 Hier ist zu erkennen, wie PyTorch \textit{DistributedDataParallel} (DDP) zwei Prozesse initialisiert, die Trainingsergebnisse berechnen und speichern.
 
-\begin{lstlisting}[language=bash, caption={SLURM Array-Job zur Ausführung der Validation Kurve}, label={lst:slurm_val}]
+\begin{lstlisting}[language=bash, caption={SLURM Array-Job: Ausgabe der Validierungskurve mit DDP}, label={lst:slurm_val_out}]
 INFO:__main__:Rank 0/2 initializing DDP (MASTER=node2-087:12355)
 INFO:__main__:Rank 1/2 initializing DDP (MASTER=node2-087:12355)
 INFO:__main__:[Rank 1] testing batch_size Using batch size 32, optimizer SGD, lr 0.001, epochs 3
@@ -1679,26 +1673,24 @@ um die Trainingsläufe weiter zu beschleunigen.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{plots/validation job arrays waiting.png}
-    \caption{Ergebnisse der Validation Curve}
+    \caption{Visualisierung der SLURM-Array-Jobs während der Ausführung
+im HPC-Cluster. Jede Array-ID entspricht einer anderen Konfiguration.}
     \label{fig:slurm_jobs_runtime}
 \end{figure}
 
 \paragraph{Learning Curve} \mbox{} \\ 
 Eine Learning Curve (Lernkurve) beschreibt den Verlauf der Trainings- und Validierungsleistung in Abhängigkeit von der Menge der verwendeten Trainingsdaten. 
 Sie liefert wertvolle Informationen darüber, wie gut ein Modell mit zunehmender Datenmenge lernt und generalisiert. 
-Eine steil ansteigende Lernkurve weist auf ein effektives Lernverhalten hin, während ein frühes Plateau oder eine große Lücke zwischen Trainings- und Validierungskurve 
-auf Overfitting oder eine unzureichende Datenmenge hindeuten kann.
 
-Für die Erstellung der Lernkurven wurde eine HPC-Umgebung verwendet, in der ein einzelnes SLURM-Jobskript als Array-Job definiert war. 
+Analog zu der Validation Curve Setup wurde wieder eine Array-Jobs Umgebung erstellt.
 Jede Array-ID entsprach dabei einer unterschiedlichen Datensatzgröße, basierend auf den Anteilen 
 \texttt{fractions = [0.1, 0.25, 0.5, 0.75, 1.0]}. 
 Somit wurden fünf Trainingsläufe parallel gestartet, wobei jeder Lauf mit einer anderen Teilmenge des Trainingsdatensatzes durchgeführt wurde. 
-Innerhalb jedes Array-Jobs kam \textit{PyTorch DistributedDataParallel} (DDP) mit zwei Prozessen (Rängen) und jeweils zwölf Threads pro Prozess zum Einsatz, 
-um eine effiziente Parallelisierung auf Prozess- und Thread-Ebene zu erreichen. 
+Innerhalb jedes Array-Jobs kam nochmal \textit{PyTorch DistributedDataParallel} (DDP) mit zwei Prozessen (Rängen) und jeweils zwölf Threads pro Prozess zum Einsatz. 
 Das zugrunde liegende Workflow-Schema ist in \ref{fig:learning_curve_diagram} dargestellt.
-Das Python Skript zur Ausführung der Learning Curve ist in Listing \ref{lst:learningc}
+Das Python Skript zur Ausführung der Learning Curve ist in Listing \ref{lst:learningc} zu sehen.
 
-\begin{lstlisting}[language=python, caption={Validation Kurve Python Skript}, label={lst:learningc},
+\begin{lstlisting}[language=python, caption={Learning Kurve Python Skript}, label={lst:learningc},
 basicstyle=\ttfamily\small, keywordstyle=\color{blue}\bfseries, commentstyle=\color{green!60!black}, stringstyle=\color{orange}]
 fractions = [0.1, 0.25, 0.5, 0.75, 1.0]
 # ---------------------------
@@ -1794,7 +1786,7 @@ def main():
 
 \paragraph{Ergebnisse:} \mbox{}\\
 
-Wie in \ref{fig:learning_curve_diagram} zu sehen, zeigt der linke Plot, dass die Genauigkeit mit zunehmendem Anteil der Trainingsdaten von 0,1 auf etwa 0,75 deutlich steigt, von $69,6\%$ auf ein Maximum von ungefähr $78\%$. 
+Wie in \ref{fig:learning_c} zu sehen, zeigt der linke Plot, dass die Genauigkeit mit zunehmendem Anteil der Trainingsdaten von 0,1 auf etwa 0,75 deutlich steigt, von $69,6\%$ auf ein Maximum von ungefähr $78\%$. 
 Die Nutzung des vollständigen Trainingsdatensatzes (Anteil 1,0) führt erstaunlicherweise jedoch zu einem merklichen Rückgang der Genauigkeit auf etwa $73\%$. 
 
 Der rechte Plot zeigt deutlich, dass die Laufzeit nahezu linear mit dem Anteil der Trainingsdaten zunimmt, von etwa $50\text{ s}$ bei 0,1 auf über $450\text{ s}$ bei 1,0. 
@@ -1803,7 +1795,7 @@ Mithilfe der HPC Umgebung mit SLURM-Array-Jobs und PyTorch \textit{DistributedDa
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{plots/ergebnis_learning.png}
-    \caption{Ergebnisse der Learning Curve}
+    \caption{Ergebnisse der Learning Curve: Genauigkeit und Laufzeit in Abhängigkeit vom Trainingsdaten-Anteil}
     \label{fig:learning_c}
 \end{figure}
 
@@ -1817,10 +1809,10 @@ in der Warteschlange des HPC-Clusters laufen. Dies veranschaulicht die parallele
     \label{fig:learning_curve_jobs_queue}
 \end{figure}
 
-Ein Auszug aus einer SLURM-Ausgabedatei eines Array-Jobs (z.\,B. für \texttt{fraction=0.1}) ist in Listing~\ref{lst:slurm_output} dargestellt. 
+Ein Auszug aus einer SLURM-Ausgabedatei eines Array-Jobs (z.\,B. für \texttt{fraction=0.1}) ist in Listing~\ref{lst:slurm_lea} dargestellt. 
 Hier ist zu sehen, wie PyTorch DDP die Prozesse initialisiert, die Daten geladen werden, die Epochen starten und die Ergebnisse gespeichert werden.
 
-\begin{lstlisting}[language=bash, caption={SLURM Array-Job zur Ausführung der Validation Kurve}, label={lst:slurm_val}]
+\begin{lstlisting}[language=bash, caption={SLURM Array-Job: Log der Lernkurve}, label={lst:slurm_lea}]
 INFO:__main__:Rank 1/2 initializing DDP (MASTER=node2-085:12355)
 INFO:__main__:Rank 0/2 initializing DDP (MASTER=node2-085:12355)
 INFO:__main__:Starting DDP benchmark with 2 ranks (this is rank 0)
@@ -1914,7 +1906,7 @@ und ordnet diese den jeweiligen Array-Job-IDs zu.
 Auf diese Weise kann jeder parallel ausgeführte Job eine eigene Konfiguration trainieren 
 und die Ergebnisse automatisiert abspeichern.
 
-\begin{lstlisting}[language=python, caption={Hyperparametersuche}, label={lst:trainig_hyper},
+\begin{lstlisting}[language=python, caption={Python-Skript für die Hyperparametersuche}, label={lst:trainig_hyper},
 basicstyle=\ttfamily\small, keywordstyle=\color{blue}\bfseries, commentstyle=\color{green!60!black}, stringstyle=\color{orange}]
 def train_model(lr, batch_size, num_epochs, output_dir):
     # same serial training worfklow (no multiprocessing/multithreading)
@@ -1952,7 +1944,7 @@ Durch die gleichzeitige Ausführung mehrerer Konfigurationen können Laufzeiten 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{plots/hyper_plot.png}
-    \caption{Hyperparameter Suche}
+    \caption{Vergleich der Modell-Laufzeit (ms) und Genauigkeit (\%) in Bezug auf die steigende Batch-Größe bei drei unterschiedlichen Lernraten}
     \label{fig:hyper_plot}
 \end{figure}
 
@@ -1993,13 +1985,13 @@ Training mit verschiedenen Parallelisierungsansätzen, Hyperparameter-Tuning sow
 Das Projekt wurde in einer strukturierten Repository-Organisation umgesetzt (Abbildung \ref{fig:dir_structure}), 
 die Code, Job-Skripte und Dokumentation klar trennt. Eine spezielle Conda-Umgebung (\texttt{pytorchhpc}) wurde erstellt, 
 um alle benötigten Python-Pakete bereitzustellen. Die HPC-Umgebung \textbf{JustHPC} bietet pro Knoten 24 CPU-Kerne und 192 GB 
-RAM, was ideale Voraussetzungen für paralleles Training bietet.
+RAM.
 
 \subsection{Experiment 1: Data Loading mit PyTorch DataLoader}
 \subsubsection{HPC-Relevanz und Methodik}
 Der \texttt{PyTorch DataLoader} ermöglicht paralleles Laden und Vorverarbeiten von Daten durch die Einstellung des 
 \texttt{num\_workers}-Parameters. Auf HPC-Systemen kann dies die CPU-Auslastung optimieren und Datenengpässe reduzieren. 
-Unser Benchmark-Skript (Listing \ref{lst:data_loading_benchmark}) misst die Ladezeiten für verschiedene \texttt{num\_workers}-Werte (1-24).
+Der Benchmark-Skript (Listing \ref{lst:data_loading_benchmark}) misst die Ladezeiten für verschiedene \texttt{num\_workers}-Werte (1-24).
 
 \subsubsection{Job-Skript und Ausführung}
 Das Slurm-Jobskript (Listing \ref{lst:slurm_data_loader}) reserviert einen Knoten mit 24 CPUs und führt den Benchmark aus. 
@@ -2020,20 +2012,32 @@ Das serielle Training (Tabelle \ref{tab:serial_results}) ergab eine durchschnitt
 von 83,74\%. Diese Werte dienen als Baseline für die Bewertung aller Parallelisierungsansätze.
 
 \subsection{Experiment 3: Multithreading Training}
+\subsubsection{HPC Relevanz}
+Multithreading ermöglicht die effiziente Nutzung mehrkerniger CPU-Architekturen . Die Analyse 
+von Intraop- und Interop-Parallelisierung liefert Einblicke in 
+Thread-Skalierung und CPU-Auslastung für Deep-Learning-Workloads.
 \subsubsection{Intraop Multithreading}
 Das Intraop-Experiment parallelisiert einzelne Operationen innerhalb des Modells. Der Slurm-Job (Listing \ref{lst:slurm_intraop}) 
 testet verschiedene Thread-Anzahlen (1-24) mit \texttt{torch.set\_num\_threads()}. Die Ergebnisse (Abbildung \ref{fig:intraop_multithreading}) 
 zeigen ein maximales Speedup von 4,5 bei 16 Threads.
 
 \subsubsection{Interop Multithreading}
-Das Interop-Experiment parallelisiert unabhängige Operationen zwischen Layer-Berechnungen. Bei 24 Threads erreicht dieser Ansatz die beste 
-absolute Laufzeit von 77.592 ms (Abbildung \ref{fig:interop_multithreading}).
+Das Interop-Experiment parallelisiert unabhängige Operationen zwischen 
+Layer-Berechnungen. Die Implementierung ist identisch zum Intraop-Experiment, 
+lediglich der verwendete Befehl ändert sich zu \texttt{torch.set\_num\_interop\_threads()}. 
+Bei 24 Threads erreicht dieser Ansatz die beste absolute 
+Laufzeit von 77.592 ms (Abbildung \ref{fig:interop_multithreading}).
 
 \subsubsection{Hybrid Intraop + Interop}
 Die Kombination beider Ansätze erreicht ihr Performance-Maximum bei 16 Threads mit 78.980 ms Laufzeit (Abbildung 
 \ref{fig:interop_intraop_multithreading}).
 
 \subsection{Experiment 4: Multiprocessing + Multithreading auf einem Knoten}
+\subsubsection{HPC Relevanz}
+Die Kombination von Multiprocessing und Multithreading ist in HPC-Umgebungen interessant anzuwenden, 
+um Rechenressourcen eines Knotens optimal zu nutzen. 
+Dieses Experiment untersucht die Effizienz der Hybrid-Parallelisierung 
+innerhalb eines Knotens.
 \subsubsection{Methodik und Konfiguration}
 Dieses Experiment kombiniert Multiple Prozesse mit Multithreading auf einem einzelnen Knoten (Tabelle \ref{tab:multithreading_configs}). 
 Die Konfigurationen umfassen 2, 4 und 8 Prozesse mit entsprechend angepassten Thread-Anzahlen.
@@ -2043,6 +2047,11 @@ Die Ergebnisse (Abbildungen \ref{fig:mp_mt_results} und \ref{fig:mp_mt_speedup})
 Der Speedup steigt auf bis zu 14 bei 8 Prozessen, während die Effizienz ebenfalls zunimmt.
 
 \subsection{Experiment 5: Multinode DDP Training}
+\subsubsection{HPC Relevanz}
+Verteiltes Training von großen Modellen bzw. Dantensätzen über mehrere Knoten stellt eine zentrale HPC-Anwendung 
+im Deep Learning dar. Dieses Experiment demonstriert die Skalierung von Modellen 
+über Netzwerkgrenzen und beleuchtet Kommunikations-Overheads sowie Effizienzverluste.
+
 \subsubsection{Methodik und Konfiguration}
 Das Distributed Data Parallel (DDP) Training wurde über zwei Knoten mit verschiedenen Konfigurationen implementiert (Tabelle 
 \ref{tab:multinode_configs}). Die Slurm-Jobskripte (Listings \ref{lst:slurm_multinode1} und \ref{lst:slurm_multinode2}) verwenden 
@@ -2071,6 +2080,9 @@ Die Ergebnisse (Abbildung \ref{fig:hyper_plot}) zeigen systematisch den Einfluss
 Parallelisierung wurde die Suchzeit von potentiell Stunden auf Minuten reduziert.
 
 \subsection{Experiment 7: Validation Curves}
+\subsubsection{HPC Relevanz}
+Die Berechnung von Validation Curves ist in HPC-Umgebungen besonders relevant, 
+da sie eine große Zahl unabhängiger Trainingsläufe erfordert.
 \subsubsection{Methodik und Implementierung}
 Validation Curves wurden für vier Parameter (\texttt{learning\_rate}, \texttt{batch\_size}, \texttt{optimizer}, \texttt{num\_epochs}) mittels 
 SLURM Array Jobs und DDP implementiert. Der Workflow (Abbildung \ref{fig:validation_curve_diagram}) zeigt die parallele Ausführung über multiple 
@@ -2085,6 +2097,8 @@ Die Validation Curves (Abbildung \ref{fig:validation}) identifizieren optimale H
 (Abbildung \ref{fig:slurm_jobs_runtime}) demonstriert die Effizienzsteigerung durch HPC-Nutzung.
 
 \subsection{Experiment 8: Learning Curves}
+\subsubsection{HPC Relevanz}
+Learning Curves profitieren erheblich von HPC-Parallelisierung, da mehrere Modelle mit unterschiedlichen Datenmengen gleichzeitig trainiert werden können. 
 \subsubsection{Methodik und Implementierung}
 Learning Curves wurden mit einem SLURM Array Job implementiert, der verschiedene Datensatzfraktionen (0.1, 0.25, 0.5, 0.75, 1.0) parallel 
 trainiert. Der Workflow (Abbildung \ref{fig:learning_curve_diagram}) verwendet DDP mit 2 Prozessen und 12 Threads pro Prozess.
@@ -2129,23 +2143,7 @@ Jeder Parallelisierungsansatz hat spezifische Stärken und optimale Anwendungsbe
 \item \textbf{Array Jobs} ermöglichen effiziente Hyperparameter-Optimierung und Kurvenberechnung
 \end{itemize}
 
-Die Kombination dieser Ansätze ermöglicht HPC-Nutzern, ihre Deep-Learning-Workflows massiv zu beschleunigen und wertvolle Rechenzeit zu 
-sparen. Die dokumentierten Experimente bieten eine praktische Grundlage für die Optimierung eigener Projekte auf HPC-Clustern und demonstrieren 
-die signifikanten Vorteile der Parallelisierung in jeder Phase des Machine-Learning-Lifecycles.
 
-\subsection{Hilfsmittel und Unterstützung}
-Bei der Erstellung dieser Arbeit wurden verschiedene Hilfsmittel eingesetzt. Der Code und die Konzepte aus der Vorlesung waren
-äußerst hilfreich für die Entwicklung der SLURM-Jobskripte und die Konzeption eines geeigneten Machine-Learning-Workflows.
-Zur Vertiefung des Verständnisses der grundlegenden PyTorch-Konzepte wurde die offizielle PyTorch-Dokumentation herangezogen \parencite{pytorch_docs},
-insbesondere zur Implementierung und Anpassung neuronaler Netze.
-Darüber hinaus wurde ChatGPT genutzt, um Vorlagen zu erstellen, den grammatikalischen Stil zu verbessern, bei der Fehlerbehebung in Code
-und Skripten zu unterstützen
-sowie Korrekturen im Text vorzunehmen.
-Drei beispielhafte Prompts in englischer Sprache lauteten:
-\textit{"Create a template for a Python (or Slurm) LaTeX Listing"},
-\textit{"Improve the academic writing style of this text: ..."}
-und
-\textit{"Where is the error in this SLURM job script: ..."}.
 
 
 \newpage 
@@ -2154,12 +2152,14 @@ und
 Dadurch kam es zu Verzögerungen in der Abstimmung, was die Kommunikation innerhalb der Gruppe erschwerte und 
 die Synchronisation der Arbeitsschritte beeinträchtigte.\\
 \mbox{} \\
-\textbf{Jimmy:} Auch hier begann die aktive Mitarbeit erst verspätet, wodurch sich ähnliche Kommunikationsprobleme und 
-Koordinationsschwierigkeiten ergaben. Eine frühere Einbindung in die Projektplanung hätte zu einer 
-effizienteren Zusammenarbeit und klareren Aufgabenteilung beigetragen.
-
-\section{Ergebnisse:}
-
+\textbf{Jimmy:} Auch hier begann die aktive Mitarbeit erst verspätet, wodurch sich ähnliche Kommunikationsprobleme und
+Koordinationsschwierigkeiten ergaben. Eine frühere Einbindung in die Projektplanung hätte zu einer
+effizienteren Zusammenarbeit und klareren Aufgabenteilung beigetragen. Positiv war jedoch, dass er sich
+gegen Ende des Projekts stärker eingebracht hat und bei der Ergebnisdiskussion engagiert mitgearbeitet hat.
+\newpage
+\section{Ergebnisse der Gruppe:}
+Jedes Gruppenmitglied hat sich für eine Software entschieden (siehe Abschnitt~\ref{sec:pro1}).
+In der folgenden Tabelle ist eine qualitative Bewertung der verwendeten Bibliotheken dargestellt.
 \begin{table}[H]
 \centering
 \caption{Qualitative Bewertung von Scikit-Learn, Intel Extension for Scikit-Learn, PyTorch und Dask im HPC-Umfeld}
@@ -2187,39 +2187,63 @@ effizienteren Zusammenarbeit und klareren Aufgabenteilung beigetragen.
 }
 \end{table}
 
-Die qualitative Bewertung von Scikit-Learn, Intel Extension for Scikit-Learn, 
-PyTorch und Dask im HPC-Umfeld zeigt deutliche Unterschiede hinsichtlich 
-HPC-Kompatibilität, Parallelisierbarkeit, Skalierbarkeit und 
-Nutzerfreundlichkeit. Scikit-Learn zeichnet sich durch einfache 
-Implementierung, stabile Ausführung und gute Dokumentation aus, 
-ist jedoch in der Multi-Node-Skalierung begrenzt. Die Intel Extension 
-verbessert die Ressourcenauslastung auf CPU-Clustern und nutzt optimierte 
-Bibliotheken, während PyTorch besonders für große Modelle und 
-Multi-Node-Szenarien leistungsstark, jedoch anspruchsvoller in der 
-Implementierung ist. Dask bietet flexible HPC-Integration, unterstützt 
-verteilte Datenstrukturen und parallele Hyperparameter-Suche und überzeugt 
-durch Fehlertoleranz und Dashboard-basierte Performance-Analyse, wobei bei 
-kleinen Tasks ein Overhead entsteht.
+Die qualitative Evaluierung der Frameworks, basierend auf den Kriterien in 
+Tabelle~\ref{tab:qualitative_bewertung_rotated}, indiziert signifikante 
+Divergenzen in der Eignung für High-Performance Computing (HPC)-Szenarien. 
+Die Kriterien HPC-Kompatibilität, Parallelisierbarkeit und Skalierbarkeit dienen 
+dabei als primäre Metriken zur Einordnung der Leistungsfähigkeit und Integrationsfähigkeit.
+
+Scikit-Learn demonstriert eine hohe Nutzerfreundlichkeit und minimale 
+Implementierungsaufwände, was es zu einer Baseline-Lösung für einfache, 
+CPU-basierte Workloads macht. Die Skalierung ist jedoch intrinsisch auf 
+die Shared-Memory-Architektur eines Einzelknotens limitiert, wobei die 
+Effizienz der Multiprocessing-Parallelisierung mittels des Parameters 
+\texttt{n\_jobs} typischerweise ab einer Anzahl von $\sim$24 CPU-Kernen, 
+aufgrund von Synchronisations- und Kommunikations-Overheads, 
+abnimmt. Die Intel Extension for Scikit-Learn adressiert diese Limitierung 
+auf optimierten Intel-Architekturen, indem sie durch automatische Nutzung 
+der oneDAL- und MKL-Bibliotheken eine marginal stabilere und effizientere 
+Ressourcenauslastung erzielt, ohne den Implementierungsaufwand zu erhöhen 
+(lediglich \texttt{patch\_sklearn()} ist erforderlich) \parencite{intel_extension_medium_2021}.
+
+Im Gegensatz dazu sind PyTorch und Dask konzipiert, um die Grenzen der Skalierbarkeit 
+über Multi-Node-Cluster zu überwinden. PyTorch zeichnet sich durch seine umfassende 
+Unterstützung für verteiltes Training über Backends wie Gloo, MPI und NCCL aus. Diese 
+Konfiguration ist prädestiniert für großskalige Deep-Learning-Modelle, bei denen eine 
+lineare Skalierung (im Idealfall) erzielt werden kann. Allerdings ist die Implementierung 
+von Distributed Data Parallel (DDP) und die korrespondierende Skriptanpassung mit einem 
+signifikant höheren Bedarf an HPC-Expertise verbunden. Zudem ist die Fehlertoleranz dieser 
+verteilten Prozesse bei kritischen Netzwerk- oder Kommunikationsproblemen als geringer 
+einzustufen, was eine sorgfältige Diagnose und Logging erfordert.
+
+Dask hingegen fokussiert primär auf die Datenverarbeitung der 
+Hauptspeicher-Kapazität (data larger than RAM Szenarien) durch die Bereitstellung 
+verteilter Datenstrukturen (\texttt{dask.array}, \texttt{dask.dataframe}). Die hohe 
+HPC-Kompatibilität wird durch die einfache Integration in gängige Scheduler wie SLURM 
+und die Fehlertoleranz durch einen integrierten Worker-Neustart-Mechanismus unterstrichen. 
+Ein wesentliches diagnostisches Element ist das Dask Dashboard, welches eine 
+Echtzeitanalyse der Task-Verteilung und des Ressourcenverbrauchs ermöglicht. Die 
+Kehrseite dieser Architektur ist der inhärente Kommunikations- und Scheduling-Overhead, 
+welcher bei der Bearbeitung kleiner Tasks oder Datensätze zu einer suboptimalen Performance 
+im Vergleich zu Shared-Memory-Lösungen führen kann.
 
 Die Ergebnisse zeigen, dass die Wahl des Frameworks stark vom 
 Anwendungsszenario abhängt: Für schnelle, einfache CPU-basierte 
 Berechnungen ist Scikit-Learn ausreichend, bei hoher Parallelisierung und 
 verteilten Daten Dask, während PyTorch bei großen neuronalen Netzen und 
-Multi-Node Training klare Vorteile bietet. Tabelle 
-\ref{tab:qualitative_bewertung_rotated} fasst die wesentlichen Aspekte 
-zusammen.
-
-Eine quantitative Bewertung der einzelnen Bibliotheken war im Rahmen dieser Arbeit jedoch nicht möglich, da nicht alle Teammitglieder ihre Tests vollständig abgeschlossen hatten. 
+Multi-Node Training klare Vorteile bietet. 
+Eine quantitative Bewertung der einzelnen Bibliotheken war im Rahmen dieser Arbeit jedoch nicht möglich, da nicht alle Teammitglieder rechtszeitig ihre Tests vollständig abgeschlossen hatten. 
 
 Für zukünftige Arbeiten wäre es sinnvoll, die Experimente mit größeren Datensätzen und komplexeren Modellen durchzuführen, um die Skalierbarkeit der Frameworks genauer zu bewerten. 
-Die \textbf{Intel Extension for Scikit-Learn} sollte zusätzlich in Umgebungen mit GPU-Unterstützung getestet werden, um mögliche Leistungsgewinne durch heterogene Hardware zu untersuchen. 
-Für \textbf{PyTorch} wären Tests mit Multi-GPU- und Multi-Node-Setups interessant, um das Verhalten bei großskaligen Trainings zu analysieren. 
+Die \textbf{Intel Extension for Scikit-Learn} sollte zusätzlich in Umgebungen mit GPU-Unterstützung getestet werden \parencite{intel2025oneapi}, um mögliche Leistungsgewinne durch heterogene Hardware zu untersuchen. 
+Für \textbf{PyTorch} wären auch Tests mit Multi-GPU- und Multi-Node-Setups in Kooperation mit größeren Modellen und Datensätzen interessant, um das Verhalten bei großskaligen Trainings zu analysieren. 
 Bei \textbf{Dask} könnten Untersuchungen auf Clustern mit gemischter Hardwarekonfiguration und sehr großen verteilten Datensätzen weitere Erkenntnisse zur Skalierbarkeit und Stabilität liefern.
 
 
 
-
+\newpage
 \section{Protokolle der Gruppentreffen:}
+\label{sec:pro1}
 Die Zusammenarbeit verlief insgesamt über Whatsapp, da die Gruppe intensiv darüber kommunizierte. 
 Viele Abstimmungen, Fragen zu Skripten oder kurzfristige Hilfestellungen konnten schnell geklärt werden, 
 weshalb weniger Treffen erforderlich waren. 
@@ -2247,7 +2271,7 @@ Für die einzelnen Untersuchungen wurden folgende Datensätze ausgewählt:
 
 \subsection*{Zweites Gruppentreffen (Zwischenstand und technische Herausforderungen - 07.10.2025)}
 Im zweiten Treffen wurden die bisherigen Fortschritte präsentiert und auftretende Schwierigkeiten im Umgang mit dem HPC-System besprochen. 
-Ein zentrales Thema war die Konfiguration der Laufzeitumgebung (z.\,B. Module, Python-Umgebungen und GPU-Zugriff) sowie die Nutzung von Job-Skripten zur Ausführung von Experimenten. 
+Ein zentrales Thema war die Konfiguration der Laufzeitumgebung (z.\,B. Module, Python-Umgebungsvariablen) sowie die Nutzung von Job-Skripten zur Ausführung von Experimenten. 
 Dabei traten bei einigen Teammitgliedern Fehler in der HPC-Umgebung auf, die gemeinsam behoben wurden. 
 Insbesondere wurde über den Umgang mit Abhängigkeiten und die Optimierung der Ausführungszeiten diskutiert. 
 Die Gruppe tauschte Erfahrungen aus, um die Skripte und Konfigurationen zu verbessern und eine einheitliche Vorgehensweise für die finale Auswertung sicherzustellen. 
@@ -2291,8 +2315,8 @@ komplexen Modellen und Deep Learning. Allerdings braucht man dafür mehr
 Wissen über HPC und die Einrichtung ist etwas aufwendiger.
 
 Dask fanden wir sehr praktisch, wenn man viele Daten oder mehrere Knoten 
-nutzen möchte. Es kann Aufgaben gut aufteilen und Fehler automatisch abfangen, 
-was im HPC-Bereich hilfreich ist. Bei kleineren Aufgaben kann der Overhead 
+nutzen möchte. Es kann Aufgaben gut aufteilen und Fehler automatisch abfangen. 
+Bei kleineren Aufgaben kann der Overhead 
 aber dazu führen, dass es langsamer wird.
 
 Insgesamt hängt es stark vom Projekt ab, welches Framework am besten passt. 
@@ -2301,6 +2325,30 @@ Intel-Erweiterung sind besser für klassische Machine-Learning-Aufgaben mit
 mittlerem Datenvolumen, und Dask eignet sich gut für verteilte 
 Datenverarbeitung oder viele parallele Experimente.
 
+
+
+\section{Hilfsmittel}
+Bei der Erstellung dieser Arbeit wurden verschiedene Hilfsmittel 
+eingesetzt. Der Code und die Konzepte aus der Vorlesung sowie das 
+\textit{SLURM Cheat Sheet} 
+der Universität Siegen \parencite{slurm_cheatsheet} waren
+äußerst hilfreich für die Entwicklung der SLURM-Jobskripte und die 
+Konzeption eines geeigneten Machine-Learning-Workflows.
+Zur Vertiefung des Verständnisses der grundlegenden PyTorch-Konzepte 
+wurde die offizielle PyTorch-Dokumentation verwendet 
+\parencite{pytorch_docs},
+insbesondere zur Implementierung und Anpassung neuronaler Netze.
+Darüber hinaus wurde ChatGPT genutzt, um Vorlagen zu erstellen, den 
+grammatikalischen Stil zu verbessern, bei der Fehlerbehebung in Code
+und Skripten zu unterstützen
+sowie Korrekturen im Text vorzunehmen.
+Drei beispielhafte Prompts in englischer Sprache lauteten:
+\textit{"Create a template for a Python (or Slurm) LaTeX Listing"},
+\textit{"Improve the academic writing style of this text: ..."}
+und
+\textit{"Where is the error in this SLURM job script: ..."}. Darüber 
+hinaus wurde ChatGPT auch genutzt, um BibTeX-Einträge für die 
+verwendeten Quellen zu erstellen und korrekt zu formatieren.
 
 \newpage
 \printbibliography[title={Literaturverzeichnis}]

@@ -2366,19 +2366,22 @@
     <bcf:citekey order="2" intorder="1">pytorch_ddp_tutorial</bcf:citekey>
     <bcf:citekey order="2" intorder="2">pytorch_multiprocessing_best_practices</bcf:citekey>
     <bcf:citekey order="3" intorder="1">suresh2025communication</bcf:citekey>
-    <bcf:citekey order="4" intorder="1">pytorch_threading_env_vars</bcf:citekey>
-    <bcf:citekey order="5" intorder="1">pytorch_threading_env_vars</bcf:citekey>
-    <bcf:citekey order="6" intorder="1">pytorch_threading_env_vars</bcf:citekey>
+    <bcf:citekey order="4" intorder="1">pytorch2025threading</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">pytorch2025threading</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">pytorch2025threading</bcf:citekey>
     <bcf:citekey order="7" intorder="1">pytorch_ddp_tutorial</bcf:citekey>
     <bcf:citekey order="8" intorder="1">osc_ddp</bcf:citekey>
     <bcf:citekey order="9" intorder="1">reddit_hpc_speedup_efficiency</bcf:citekey>
     <bcf:citekey order="10" intorder="1">xiao2017fashion</bcf:citekey>
-    <bcf:citekey order="11" intorder="1">pytorch_docs</bcf:citekey>
-    <bcf:citekey order="12" intorder="1">sklearn_intelex</bcf:citekey>
-    <bcf:citekey order="13" intorder="1">scikit-learn</bcf:citekey>
-    <bcf:citekey order="14" intorder="1">higgs_280</bcf:citekey>
-    <bcf:citekey order="15" intorder="1">SpotifyDataset</bcf:citekey>
-    <bcf:citekey order="16" intorder="1">xiao2017fashion</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">intel_extension_medium_2021</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">intel2025oneapi</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">sklearn_intelex</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">scikit-learn</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">higgs_280</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">SpotifyDataset</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">xiao2017fashion</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">slurm_cheatsheet</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">pytorch_docs</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">

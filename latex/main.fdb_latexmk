@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1762094679.67246 "main.bcf" "main.bbl" "main" 1762116458.84668 0
-  "biblio.bib" 1762093345 4524 ab54fe0a7e9bf24700aec4952a679ca3 ""
-  "main.bcf" 1762116458 109015 599438e3930412b5cba79aee2f19b44d "pdflatex"
+["biber main"] 1762510607.72181 "main.bcf" "main.bbl" "main" 1762512162.64949 0
+  "biblio.bib" 1762510606 5451 bf514f524b60d66516538faf3e449e31 ""
+  "main.bcf" 1762512162 109223 16121128fd9699747b27e9bf8651cc7a "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1762116452.78458 "c:/Users/marou/Desktop/Uni/HPC/Projekt/latex/main.tex" "main.pdf" "main" 1762116458.84788 0
+["pdflatex"] 1762512156.87414 "c:/Users/marou/Desktop/Uni/HPC/Projekt/latex/main.tex" "main.pdf" "main" 1762512162.65061 0
   "C:/Users/marou/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1760549742 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/marou/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx0700.pk" 1760873143 17380 a9911ea180a3f38d85c5bc12726e1367 ""
   "C:/Users/marou/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1000.pk" 1760550330 25420 70e1e78b4c7d54821628f350e1205bcc ""
@@ -226,13 +226,13 @@
   "C:/Users/marou/AppData/Local/Programs/MiKTeX/tex/latex/trimspaces/trimspaces.sty" 1253169183 1380 971a51b00a14503ddf754cab24c3f209 ""
   "C:/Users/marou/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/marou/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "c:/Users/marou/Desktop/Uni/HPC/Projekt/latex/main.tex" 1762116451 120875 d6990cbadfabc31cdc17c7a2589f6756 ""
-  "main.aux" 1762116458 27762 604f9a805d807c73c50e0480fb0d988d "pdflatex"
-  "main.bbl" 1762094683 16162 705d6076703105dce7bf1457f7f016f0 "biber main"
-  "main.out" 1762116458 12615 f0bca45e66bf57185457875c34402d16 "pdflatex"
-  "main.run.xml" 1762116458 2337 75f00ad282a5d773f1c33a6ec4757c33 "pdflatex"
-  "main.tex" 1762116451 120875 d6990cbadfabc31cdc17c7a2589f6756 ""
-  "main.toc" 1762116458 6989 00ef87da3af30500ddbf73d2ddf67b8c "pdflatex"
+  "c:/Users/marou/Desktop/Uni/HPC/Projekt/latex/main.tex" 1762512155 123547 f5f78fdcb6f4dacb0e2f729102139b26 ""
+  "main.aux" 1762512162 29644 5db1dad8d06b51ce28ea085b1d8a1c19 "pdflatex"
+  "main.bbl" 1762510610 19559 1c5a1f4a510d0645bfea1bd8e47d7878 "biber main"
+  "main.out" 1762512162 13219 54a4393b92b859ea2bfe529a21a36d07 "pdflatex"
+  "main.run.xml" 1762512162 2337 75f00ad282a5d773f1c33a6ec4757c33 "pdflatex"
+  "main.tex" 1762512155 123547 f5f78fdcb6f4dacb0e2f729102139b26 ""
+  "main.toc" 1762512162 7416 e37ddcab9e1a5e945d3c0f93e4c77574 "pdflatex"
   "plots/array jobs waiting.png" 1760263917 16354 94830132ca512aab0552ff93a5ea1ceb ""
   "plots/dataloaderperf.png" 1760594736 71073 2b918461c15a943baa1f7b495110fec2 ""
   "plots/ergebnis_learning.png" 1761239419 54149 91d83b4a1c8cc6ac3c1bced4a529c1c8 ""
@@ -245,7 +245,7 @@
   "plots/mt_mp_speedup.png" 1760873843 51795 089ac1aa2d8ae7ca31dd8ebb0cd43189 ""
   "plots/multinode_performance.png" 1760805555 86684 382c8d532efb0b86f67243504cc05516 ""
   "plots/multinode_speedup.png" 1760873021 58945 e7319c2181a3411bc4158eef469243ad ""
-  "plots/multiprocthread_results.png" 1760867396 87207 bada61b4099227291aa5e82261864e55 ""
+  "plots/multiprocthread_results.png" 1762279661 88861 4ab5260a9eaf66b6c183a2ccb28dbe09 ""
   "plots/validation job arrays waiting.png" 1760282379 26992 28070c5731cf2d2d124af2ef115241c9 ""
   "plots/validaton_erg.png" 1761234211 142495 5b356c034e6d4e4661e8c0a2b3041669 ""
   (generated)

@@ -41,7 +41,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.reddit.com/r/HPC/comments/1l36sju/how_do_you_compute_speedup_and_efficiency_on/}}
-      \field{note}{Zugriff am 19. Oktober 2025}
+      \field{note}{Accessed: 2025-10-18}
       \field{title}{How do you compute speedup and efficiency on hybrid openmp + mpi programs?}
       \field{year}{2025}
       \verb{urlraw}
@@ -100,51 +100,16 @@
       \strng{authorbibnamehash}{48ee55e5d73f6a2f16b81e3491657564}
       \strng{authornamehash}{48ee55e5d73f6a2f16b81e3491657564}
       \strng{authorfullhash}{48ee55e5d73f6a2f16b81e3491657564}
-      \field{extraname}{1}
       \field{sortinit}{C}
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
-      \field{extradate}{1}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://docs.pytorch.org/docs/stable/notes/multiprocessing.html}}
-      \field{note}{Last updated: June 18, 2025; accessed: 2025-10-13}
+      \field{note}{Accessed: 2025-11-06}
       \field{title}{Multiprocessing Best Practices}
       \field{year}{2025}
-    \endentry
-    \entry{pytorch_threading_env_vars}{misc}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=48ee55e5d73f6a2f16b81e3491657564}{%
-           family={Contributors},
-           familyi={C\bibinitperiod},
-           given={PyTorch},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{48ee55e5d73f6a2f16b81e3491657564}
-      \strng{fullhash}{48ee55e5d73f6a2f16b81e3491657564}
-      \strng{bibnamehash}{48ee55e5d73f6a2f16b81e3491657564}
-      \strng{authorbibnamehash}{48ee55e5d73f6a2f16b81e3491657564}
-      \strng{authornamehash}{48ee55e5d73f6a2f16b81e3491657564}
-      \strng{authorfullhash}{48ee55e5d73f6a2f16b81e3491657564}
-      \field{extraname}{2}
-      \field{sortinit}{C}
-      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
-      \field{extradate}{2}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{Accessed: 2025-10-16}
-      \field{title}{Threading Environment Variables}
-      \field{year}{2025}
-      \verb{urlraw}
-      \verb https://docs.pytorch.org/docs/stable/threading_environment_variables.html
-      \endverb
-      \verb{url}
-      \verb https://docs.pytorch.org/docs/stable/threading_environment_variables.html
-      \endverb
     \endentry
     \entry{pytorch_ddp_tutorial}{misc}{}
       \name{author}{3}{}{%
@@ -183,9 +148,54 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://docs.pytorch.org/tutorials/intermediate/ddp_tutorial.html}}
-      \field{note}{Last updated: Sep 23, 2025; last verified: Nov 05, 2024}
+      \field{note}{Accessed: 2025-11-06}
       \field{title}{Getting Started with Distributed Data Parallel}
       \field{year}{2025}
+    \endentry
+    \entry{intel_extension_medium_2021}{online}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=4891ad6469d0cb5df8452a3c8700e9e5}{%
+           family={Portnoy},
+           familyi={P\bibinitperiod},
+           given={Andrey},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e837543f156e6a33ef16e4522bc08eb5}{%
+           family={Guyon},
+           familyi={G\bibinitperiod},
+           given={Mor},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c6e62f99f210e8905a8d868522ba03a7}{%
+           family={Weckseler},
+           familyi={W\bibinitperiod},
+           given={Ze'ev},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{7007ee9ecee4a83400e3e99c9e228d8b}
+      \strng{fullhash}{7007ee9ecee4a83400e3e99c9e228d8b}
+      \strng{bibnamehash}{7007ee9ecee4a83400e3e99c9e228d8b}
+      \strng{authorbibnamehash}{7007ee9ecee4a83400e3e99c9e228d8b}
+      \strng{authornamehash}{7007ee9ecee4a83400e3e99c9e228d8b}
+      \strng{authorfullhash}{7007ee9ecee4a83400e3e99c9e228d8b}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Medium}
+      \field{month}{6}
+      \field{note}{Accessed: 2025-11-06}
+      \field{title}{Save Time and Money with {Intel} Extension for {Scikit-learn}}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://medium.com/intel-analytics-software/save-time-and-money-with-intel-extension-for-scikit-learn-33627425ae4
+      \endverb
+      \verb{url}
+      \verb https://medium.com/intel-analytics-software/save-time-and-money-with-intel-extension-for-scikit-learn-33627425ae4
+      \endverb
     \endentry
     \entry{pytorch_docs}{manual}{}
       \name{author}{1}{}{%
@@ -218,6 +228,40 @@
       \verb https://docs.pytorch.org/docs/stable/index.html
       \endverb
     \endentry
+    \entry{pytorch2025threading}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f1ad90c541f02633b62249b0b19d8a4e}{%
+           family={{\relax PyTorch Contributors}},
+           familyi={_\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {PyTorch}%
+      }
+      \strng{namehash}{f1ad90c541f02633b62249b0b19d8a4e}
+      \strng{fullhash}{f1ad90c541f02633b62249b0b19d8a4e}
+      \strng{bibnamehash}{f1ad90c541f02633b62249b0b19d8a4e}
+      \strng{authorbibnamehash}{f1ad90c541f02633b62249b0b19d8a4e}
+      \strng{authornamehash}{f1ad90c541f02633b62249b0b19d8a4e}
+      \strng{authorfullhash}{f1ad90c541f02633b62249b0b19d8a4e}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Threading Environment Variables}
+      \field{urlday}{16}
+      \field{urlmonth}{10}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://docs.pytorch.org/stable/threading_environment_variables.html
+      \endverb
+      \verb{url}
+      \verb https://docs.pytorch.org/stable/threading_environment_variables.html
+      \endverb
+    \endentry
     \entry{scikit-learn}{manual}{}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
@@ -233,6 +277,17 @@
       \verb{url}
       \verb https://scikit-learn.org/stable/
       \endverb
+    \endentry
+    \entry{slurm_cheatsheet}{misc}{}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://cluster.uni-siegen.de/omni/usage/slurm/?lang=en}}
+      \field{note}{Accessed: 2025-11-06}
+      \field{title}{SLURM Cheat Sheet — Universität Siegen}
+      \field{year}{2024}
     \endentry
     \entry{suresh2025communication}{misc}{}
       \name{author}{1}{}{%
@@ -259,6 +314,29 @@
       \field{month}{3}
       \field{note}{Accessed: 2025-10-16}
       \field{title}{Understanding Communication Patterns in Distributed ML: A Deep Dive into NCCL, MPI, and Gloo}
+      \field{year}{2025}
+    \endentry
+    \entry{intel2025oneapi}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=86ab8efd42e09a534760b12dfa3534a8}{%
+           family={{UXL Foundation}},
+           familyi={U\bibinitperiod}}}%
+      }
+      \strng{namehash}{86ab8efd42e09a534760b12dfa3534a8}
+      \strng{fullhash}{86ab8efd42e09a534760b12dfa3534a8}
+      \strng{bibnamehash}{86ab8efd42e09a534760b12dfa3534a8}
+      \strng{authorbibnamehash}{86ab8efd42e09a534760b12dfa3534a8}
+      \strng{authornamehash}{86ab8efd42e09a534760b12dfa3534a8}
+      \strng{authorfullhash}{86ab8efd42e09a534760b12dfa3534a8}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://uxlfoundation.github.io/scikit-learn-intelex/latest/oneapi-gpu.html}}
+      \field{note}{Accessed: 2025-11-07}
+      \field{title}{oneAPI and GPU Support in Extension for Scikit-learn}
       \field{year}{2025}
     \endentry
     \entry{sklearn_intelex}{misc}{}

@@ -91,11 +91,3 @@ Diese Architektur ermöglicht sowohl **Shared-Memory-Parallelisierung (OpenMP)**
 
 ---
 
-## 6. Fazit
-- HPC-Cluster bieten klare Vorteile für **große ML-Workloads** und **umfangreiche Experimentreihen**.  
-- **OpenMP**: Beschleunigung innerhalb eines Knotens.  
-- **DDP (MPI)**: Skalierung auf mehrere Knoten mit Kommunikationskosten.  
-- **Job Arrays**: Effiziente Parallelisierung unabhängiger Trainingsjobs.  
-- **Fortgeschrittene Methoden** wie Learning/Validation Curves können auf HPC deutlich schneller erstellt werden.  
-
-Empfehlung: Nutzerinnen und Nutzer sollten bei komplexen ML-Aufgaben die **Kombination von HPC-Ressourcen und PyTorch** nutzen, um Training und Optimierung effizienter zu gestalten.

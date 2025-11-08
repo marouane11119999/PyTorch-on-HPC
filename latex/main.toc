@@ -44,32 +44,37 @@
 \contentsline {subsubsection}{\numberline {2.4.1}Methodik und Implementierung}{49}{subsubsection.2.4.1}%
 \contentsline {subsubsection}{\numberline {2.4.2}Ergebnisse}{49}{subsubsection.2.4.2}%
 \contentsline {subsection}{\numberline {2.5}Experiment 3: Multithreading Training}{49}{subsection.2.5}%
-\contentsline {subsubsection}{\numberline {2.5.1}Intraop Multithreading}{49}{subsubsection.2.5.1}%
-\contentsline {subsubsection}{\numberline {2.5.2}Interop Multithreading}{49}{subsubsection.2.5.2}%
-\contentsline {subsubsection}{\numberline {2.5.3}Hybrid Intraop + Interop}{49}{subsubsection.2.5.3}%
+\contentsline {subsubsection}{\numberline {2.5.1}HPC Relevanz}{49}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}Intraop Multithreading}{49}{subsubsection.2.5.2}%
+\contentsline {subsubsection}{\numberline {2.5.3}Interop Multithreading}{49}{subsubsection.2.5.3}%
+\contentsline {subsubsection}{\numberline {2.5.4}Hybrid Intraop + Interop}{49}{subsubsection.2.5.4}%
 \contentsline {subsection}{\numberline {2.6}Experiment 4: Multiprocessing + Multithreading auf einem Knoten}{49}{subsection.2.6}%
-\contentsline {subsubsection}{\numberline {2.6.1}Methodik und Konfiguration}{49}{subsubsection.2.6.1}%
-\contentsline {subsubsection}{\numberline {2.6.2}Ergebnisse und Skalierungsverhalten}{49}{subsubsection.2.6.2}%
+\contentsline {subsubsection}{\numberline {2.6.1}HPC Relevanz}{49}{subsubsection.2.6.1}%
+\contentsline {subsubsection}{\numberline {2.6.2}Methodik und Konfiguration}{50}{subsubsection.2.6.2}%
+\contentsline {subsubsection}{\numberline {2.6.3}Ergebnisse und Skalierungsverhalten}{50}{subsubsection.2.6.3}%
 \contentsline {subsection}{\numberline {2.7}Experiment 5: Multinode DDP Training}{50}{subsection.2.7}%
-\contentsline {subsubsection}{\numberline {2.7.1}Methodik und Konfiguration}{50}{subsubsection.2.7.1}%
-\contentsline {subsubsection}{\numberline {2.7.2}Implementierungsdetails}{50}{subsubsection.2.7.2}%
-\contentsline {subsubsection}{\numberline {2.7.3}Ergebnisse und Skalierungsverhalten}{50}{subsubsection.2.7.3}%
-\contentsline {subsection}{\numberline {2.8}Experiment 6: Hyperparameter Search mit Array Jobs}{50}{subsection.2.8}%
-\contentsline {subsubsection}{\numberline {2.8.1}HPC-Relevanz und Methodik}{50}{subsubsection.2.8.1}%
-\contentsline {subsubsection}{\numberline {2.8.2}Implementierungsdetails}{50}{subsubsection.2.8.2}%
-\contentsline {subsubsection}{\numberline {2.8.3}Ergebnisse}{50}{subsubsection.2.8.3}%
-\contentsline {subsection}{\numberline {2.9}Experiment 7: Validation Curves}{50}{subsection.2.9}%
-\contentsline {subsubsection}{\numberline {2.9.1}Methodik und Implementierung}{50}{subsubsection.2.9.1}%
-\contentsline {subsubsection}{\numberline {2.9.2}Job-Skript und Ausführung}{51}{subsubsection.2.9.2}%
-\contentsline {subsubsection}{\numberline {2.9.3}Ergebnisse}{51}{subsubsection.2.9.3}%
+\contentsline {subsubsection}{\numberline {2.7.1}HPC Relevanz}{50}{subsubsection.2.7.1}%
+\contentsline {subsubsection}{\numberline {2.7.2}Methodik und Konfiguration}{50}{subsubsection.2.7.2}%
+\contentsline {subsubsection}{\numberline {2.7.3}Implementierungsdetails}{50}{subsubsection.2.7.3}%
+\contentsline {subsubsection}{\numberline {2.7.4}Ergebnisse und Skalierungsverhalten}{50}{subsubsection.2.7.4}%
+\contentsline {subsection}{\numberline {2.8}Experiment 6: Hyperparameter Search mit Array Jobs}{51}{subsection.2.8}%
+\contentsline {subsubsection}{\numberline {2.8.1}HPC-Relevanz und Methodik}{51}{subsubsection.2.8.1}%
+\contentsline {subsubsection}{\numberline {2.8.2}Implementierungsdetails}{51}{subsubsection.2.8.2}%
+\contentsline {subsubsection}{\numberline {2.8.3}Ergebnisse}{51}{subsubsection.2.8.3}%
+\contentsline {subsection}{\numberline {2.9}Experiment 7: Validation Curves}{51}{subsection.2.9}%
+\contentsline {subsubsection}{\numberline {2.9.1}HPC Relevanz}{51}{subsubsection.2.9.1}%
+\contentsline {subsubsection}{\numberline {2.9.2}Methodik und Implementierung}{51}{subsubsection.2.9.2}%
+\contentsline {subsubsection}{\numberline {2.9.3}Job-Skript und Ausführung}{51}{subsubsection.2.9.3}%
+\contentsline {subsubsection}{\numberline {2.9.4}Ergebnisse}{51}{subsubsection.2.9.4}%
 \contentsline {subsection}{\numberline {2.10}Experiment 8: Learning Curves}{51}{subsection.2.10}%
-\contentsline {subsubsection}{\numberline {2.10.1}Methodik und Implementierung}{51}{subsubsection.2.10.1}%
-\contentsline {subsubsection}{\numberline {2.10.2}Ergebnisse}{51}{subsubsection.2.10.2}%
-\contentsline {subsection}{\numberline {2.11}Vergleich aller Experimente}{51}{subsection.2.11}%
-\contentsline {subsubsection}{\numberline {2.11.1}Leistungsvergleich}{51}{subsubsection.2.11.1}%
+\contentsline {subsubsection}{\numberline {2.10.1}HPC Relevanz}{51}{subsubsection.2.10.1}%
+\contentsline {subsubsection}{\numberline {2.10.2}Methodik und Implementierung}{52}{subsubsection.2.10.2}%
+\contentsline {subsubsection}{\numberline {2.10.3}Ergebnisse}{52}{subsubsection.2.10.3}%
+\contentsline {subsection}{\numberline {2.11}Vergleich aller Experimente}{52}{subsection.2.11}%
+\contentsline {subsubsection}{\numberline {2.11.1}Leistungsvergleich}{52}{subsubsection.2.11.1}%
 \contentsline {subsection}{\numberline {2.12}Schlussfolgerung}{52}{subsection.2.12}%
-\contentsline {subsection}{\numberline {2.13}Hilfsmittel und Unterstützung}{52}{subsection.2.13}%
 \contentsline {section}{\numberline {3}Einschätzung der Gruppenmitglieder:}{53}{section.3}%
-\contentsline {section}{\numberline {4}Ergebnisse:}{54}{section.4}%
-\contentsline {section}{\numberline {5}Protokolle der Gruppentreffen:}{55}{section.5}%
-\contentsline {section}{Literaturverzeichnis}{58}{section*.42}%
+\contentsline {section}{\numberline {4}Ergebnisse der Gruppe:}{54}{section.4}%
+\contentsline {section}{\numberline {5}Protokolle der Gruppentreffen:}{57}{section.5}%
+\contentsline {section}{\numberline {6}Hilfsmittel}{59}{section.6}%
+\contentsline {section}{Literaturverzeichnis}{61}{section*.42}%
