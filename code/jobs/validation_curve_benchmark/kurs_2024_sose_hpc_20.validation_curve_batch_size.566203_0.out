@@ -1,5 +1,0 @@
-MODULE: Adding module /shared/modulefiles/miniconda3
-Launching validation curve job for batch_size index 0 on node node2-087
-mkdir: created directory '_benchmark/validation_curve/batch_size_ddp2proc_12threads'
-[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
-[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1

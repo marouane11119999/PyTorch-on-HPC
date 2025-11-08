@@ -1,4 +1,0 @@
-MODULE: Adding module /shared/modulefiles/miniconda3
-Launching validation curve job for batch_size index 3 on node node2-086
-[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
-[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1

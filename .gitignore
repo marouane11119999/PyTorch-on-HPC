@@ -20,8 +20,7 @@ data/processed/
 *.synctex.gz
 *.toc
 *.out
-# Generated PDFs
-*.pdf
+*.main.bbl-SAVE-ERROR
 
 # Images generated for plots (if not source images)
 latex/plots/*.png

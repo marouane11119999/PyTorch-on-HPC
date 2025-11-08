@@ -43,7 +43,7 @@ Diese Architektur ermöglicht sowohl **Shared-Memory-Parallelisierung (OpenMP)**
 - experimenting data loading parallel mechanisms using Dataloaders class
 ### 4.2 Baseline (Serial Training)
 - Training auf **1 CPU-Kern**.  
-- Messung von: Laufzeit, Speicherverbrauch, Genauigkeit.  
+- Messung von: Laufzeit und Genauigkeit.  
 
 ### 4.3 Multi-Core Training (OpenMP / Shared Memory)
 - Kontrolle der Threads über `OMP_NUM_THREADS`.  

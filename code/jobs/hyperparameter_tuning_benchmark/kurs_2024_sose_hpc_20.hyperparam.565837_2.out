@@ -1,9 +1,0 @@
-MODULE: Adding module /shared/modulefiles/miniconda3
-Running array job 2
-============================================
- SLURM JOB INFO 
- Job ID: 565840
- Array Task ID: 2
- Node: node2-087
- Start Time: Sat Oct 11 09:37:26 PM CEST 2025
-============================================
